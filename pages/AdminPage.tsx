@@ -1,3 +1,5 @@
+
+
 import React, { useState, useEffect } from 'react';
 import { PageContent, Project, TeamMember, BlogPost } from '../types';
 import { useTranslate, TranslationKey } from '../i18n';
@@ -68,7 +70,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ content, onUpdateContent }) => {
     setFormData(JSON.parse(JSON.stringify(content)));
   };
 
-  const renderTextField = (labelKey: TranslationKey, path: string, isTextarea: boolean = false) => {
+  const renderTextField = (labelKey: TranslationKey | string, path: string, isTextarea: boolean = false) => {
     const keys = path.split('.');
     let value = formData as any;
     for (const key of keys) {
@@ -80,10 +82,15 @@ const AdminPage: React.FC<AdminPageProps> = ({ content, onUpdateContent }) => {
     }
 
     const InputComponent = isTextarea ? 'textarea' : 'input';
+    
+    // Check if labelKey is a valid translation key
+    const label = t(labelKey as TranslationKey, {});
+    const displayLabel = label === labelKey ? labelKey : label;
+
 
     return (
       <div className="mb-4">
-        <label className="block text-brand-gray text-sm font-bold mb-2">{t(labelKey)}</label>
+        <label className="block text-brand-gray text-sm font-bold mb-2">{displayLabel}</label>
         <InputComponent
           type="text"
           value={value}
@@ -99,7 +106,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ content, onUpdateContent }) => {
     <>
       <PageBanner
         title={t('adminPageBannerTitle')}
-        imageUrl="https://placehold.co/1920x1080/4a5568/ffffff?text=Admin"
+        imageUrl="https://images.unsplash.com/photo-1497215728101-856f4ea42174?q=80&w=1920&h=1080&fit=crop"
       />
       <div className="bg-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -120,10 +127,16 @@ const AdminPage: React.FC<AdminPageProps> = ({ content, onUpdateContent }) => {
 
           <div className="bg-brand-green-light p-6 rounded-lg mb-8 shadow-md">
             <h2 className="text-2xl font-semibold text-brand-green-dark mb-4">{t('sectionHero')}</h2>
-            {renderTextField('titleEn', 'hero.title.en')}
-            {renderTextField('titleEs', 'hero.title.es')}
-            {renderTextField('subtitleEn', 'hero.subtitle.en', true)}
-            {renderTextField('subtitleEs', 'hero.subtitle.es', true)}
+            {formData.hero.map((slide, index) => (
+              <div key={slide.id} className="border-t pt-4 mt-4 first:border-t-0 first:pt-0 first:mt-0">
+                <h3 className="text-xl font-semibold text-brand-green-dark mb-2">Slide {index + 1}</h3>
+                {renderTextField('titleEn', `hero.${index}.title.en`)}
+                {renderTextField('titleEs', `hero.${index}.title.es`)}
+                {renderTextField('subtitleEn', `hero.${index}.subtitle.en`, true)}
+                {renderTextField('subtitleEs', `hero.${index}.subtitle.es`, true)}
+                {renderTextField('imageUrl', `hero.${index}.imageUrl`)}
+              </div>
+            ))}
           </div>
 
           <div className="bg-brand-green-light p-6 rounded-lg mb-8 shadow-md">

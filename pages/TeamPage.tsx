@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { TeamMember } from '../types';
 import PageBanner from '../components/PageBanner';
@@ -15,7 +17,7 @@ const TeamPage: React.FC<TeamPageProps> = ({ team }) => {
     <>
       <PageBanner
         title={t('teamPageTitle')}
-        imageUrl="https://placehold.co/1920x1080/004d40/ffffff?text=Our+Team"
+        imageUrl="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1920&h=1080&fit=crop"
       />
       <div className="bg-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

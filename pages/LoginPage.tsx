@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslate } from '../i18n';
@@ -27,7 +28,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
     <>
       <PageBanner
         title={t('loginPageTitle')}
-        imageUrl="https://placehold.co/1920x1080/004d40/ffffff?text=Login"
+        imageUrl="https://images.unsplash.com/photo-1502514262629-82392e673426?q=80&w=1920&h=1080&fit=crop"
       />
       <div className="bg-brand-green-light py-12 md:py-20 flex-grow flex items-center">
         <div className="container mx-auto px-4">

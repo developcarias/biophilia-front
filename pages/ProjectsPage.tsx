@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { Project } from '../types';
 import PageBanner from '../components/PageBanner';
@@ -15,7 +17,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ projects }) => {
     <>
       <PageBanner
         title={t('projectsPageTitle')}
-        imageUrl="https://placehold.co/1920x1080/2e7d32/ffffff?text=Our+Projects"
+        imageUrl="https://images.unsplash.com/photo-1465146344425-f00d5f5c8f07?q=80&w=1920&h=1080&fit=crop"
       />
       <div className="bg-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

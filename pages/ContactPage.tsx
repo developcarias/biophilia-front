@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ContactContent } from '../types';
 import PageBanner from '../components/PageBanner';
@@ -15,7 +16,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ content }) => {
     <>
       <PageBanner
         title={content.title[language]}
-        imageUrl="https://placehold.co/1920x1080/2e7d32/ffffff?text=Contact+Us"
+        imageUrl="https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=1920&h=1080&fit=crop"
       />
       <div className="bg-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">

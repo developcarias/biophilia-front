@@ -5,6 +5,13 @@ export interface LocalizedText {
   es: string;
 }
 
+export interface HeroSlide {
+  id: string;
+  title: LocalizedText;
+  subtitle: LocalizedText;
+  imageUrl: string;
+}
+
 export interface ContentBlockType {
   id: string;
   title: LocalizedText;
@@ -52,10 +59,7 @@ export interface ContactContent {
 
 
 export interface PageContent {
-  hero: {
-    title: LocalizedText;
-    subtitle: LocalizedText;
-  };
+  hero: HeroSlide[];
   home: ContentBlockType[];
   about: {
     title: LocalizedText;

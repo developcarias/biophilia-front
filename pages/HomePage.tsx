@@ -11,8 +11,7 @@ const HomePage: React.FC<HomePageProps> = ({ content }) => {
   return (
     <>
       <Hero 
-        title={content.hero.title}
-        subtitle={content.hero.subtitle}
+        slides={content.hero}
       />
       <div className="bg-white">
         {content.home.map((block, index) => (

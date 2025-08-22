@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { BlogPost } from '../types';
@@ -16,7 +18,7 @@ const BlogPage: React.FC<BlogPageProps> = ({ posts }) => {
     <>
       <PageBanner
         title={t('blogPageTitle')}
-        imageUrl="https://placehold.co/1920x1080/66bb6a/ffffff?text=Our+Blog"
+        imageUrl="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1920&h=1080&fit=crop"
       />
       <div className="bg-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">

@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import { useTranslate } from '../i18n';
 import PageBanner from '../components/PageBanner';
@@ -20,7 +21,7 @@ const DonatePage: React.FC = () => {
       <>
         <PageBanner 
           title={t('donationThanks')}
-          imageUrl="https://placehold.co/1920x1080/66bb6a/ffffff?text=Thank+You"
+          imageUrl="https://images.unsplash.com/photo-1527061011665-36521e61b244?q=80&w=1920&h=1080&fit=crop"
         />
         <div className="bg-white py-20">
           <div className="container mx-auto px-4 text-center max-w-2xl">
@@ -37,7 +38,7 @@ const DonatePage: React.FC = () => {
     <>
       <PageBanner
         title={t('makeDonation')}
-        imageUrl="https://placehold.co/1920x1080/2e7d32/ffffff?text=Donate"
+        imageUrl="https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=1920&h=1080&fit=crop"
       />
       <div className="bg-brand-green-light py-12 md:py-20">
         <div className="container mx-auto px-4">

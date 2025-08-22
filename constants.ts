@@ -3,16 +3,56 @@
 import { PageContent } from './types';
 
 export const INITIAL_CONTENT: PageContent = {
-  hero: {
-    title: {
-      en: "Connecting Humanity with Nature",
-      es: "Conectando la Humanidad con la Naturaleza"
+  hero: [
+    {
+      id: "slide_1",
+      title: {
+        en: "Connecting Humanity with Nature",
+        es: "Conectando la Humanidad con la Naturaleza"
+      },
+      subtitle: {
+        en: "We are dedicated to fostering the love of life and the living world, creating a sustainable future for all.",
+        es: "Nos dedicamos a fomentar el amor por la vida y el mundo vivo, creando un futuro sostenible para todos."
+      },
+      imageUrl: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?q=80&w=1920&h=1080&fit=crop"
     },
-    subtitle: {
-      en: "We are dedicated to fostering the love of life and the living world, creating a sustainable future for all.",
-      es: "Nos dedicamos a fomentar el amor por la vida y el mundo vivo, creando un futuro sostenible para todos."
+    {
+      id: "slide_2",
+      title: {
+        en: "Protect Our Planet's Lungs",
+        es: "Protege los Pulmones de Nuestro Planeta"
+      },
+      subtitle: {
+        en: "Join our reforestation efforts to restore vital ecosystems and combat climate change.",
+        es: "Únete a nuestros esfuerzos de reforestación para restaurar ecosistemas vitales y combatir el cambio climático."
+      },
+      imageUrl: "https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?q=80&w=1920&h=1080&fit=crop"
+    },
+    {
+      id: "slide_3",
+      title: {
+        en: "Defend Our Oceans",
+        es: "Defiende Nuestros Océanos"
+      },
+      subtitle: {
+        en: "From coral reefs to marine wildlife, we work to preserve the delicate balance of our blue planet.",
+        es: "Desde los arrecifes de coral hasta la vida silvestre marina, trabajamos para preservar el delicado equilibrio de nuestro planeta azul."
+      },
+      imageUrl: "https://images.unsplash.com/photo-1434394354979-a235cd36269d?q=80&w=1920&h=1080&fit=crop"
+    },
+    {
+      id: "slide_4",
+      title: {
+        en: "Your Action Creates Change",
+        es: "Tu Acción Genera el Cambio"
+      },
+      subtitle: {
+        en: "Every contribution helps us protect biodiversity and build a greener tomorrow.",
+        es: "Cada contribución nos ayuda a proteger la biodiversidad y construir un mañana más verde."
+      },
+      imageUrl: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?q=80&w=1920&h=1080&fit=crop"
     }
-  },
+  ],
   home: [
     {
       id: "home_our_work",
@@ -21,7 +61,7 @@ export const INITIAL_CONTENT: PageContent = {
         en: "We focus on key areas to heal our planet: reforestation, ocean conservation, wildlife protection, and environmental education. Our programs are community-driven, ensuring a lasting, positive impact on local ecosystems.",
         es: "Nos enfocamos en áreas clave para sanar nuestro planeta: reforestación, conservación de océanos, protección de la vida silvestre y educación ambiental. Nuestros programas son impulsados por la comunidad, asegurando un impacto duradero y positivo en los ecosistemas locales."
       },
-      imageUrl: "https://placehold.co/600x400/2e7d32/e8f5e9?text=Community+Planting",
+      imageUrl: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=600&h=400&fit=crop",
       imageAlt: "Volunteers planting trees in a field"
     },
     {
@@ -31,8 +71,8 @@ export const INITIAL_CONTENT: PageContent = {
         en: "Your support can help us grow forests and protect endangered species. Whether you donate, volunteer, or partner with us, you are joining a global movement to restore our planet's health.",
         es: "Tu apoyo puede ayudarnos a hacer crecer bosques y proteger especies en peligro de extinción. Ya sea que dones, te ofrezcas como voluntario o te asocies con nosotros, te unes a un movimiento global para restaurar la salud de nuestro planeta."
        },
-      imageUrl: "https://placehold.co/600x400/66bb6a/ffffff?text=Protecting+Wildlife",
-      imageAlt: "Person holding a small turtle"
+      imageUrl: "https://images.unsplash.com/photo-1466611653911-95081537e5b7?q=80&w=600&h=400&fit=crop",
+      imageAlt: "Person holding a small plant in their hands"
     }
   ],
   about: {
@@ -48,7 +88,7 @@ export const INITIAL_CONTENT: PageContent = {
         en: "Our mission is to inspire and empower humanity to live in harmony with nature. We provide resources, support, and advocacy to protect biodiversity and promote sustainable living for a thriving planet.",
         es: "Nuestra misión es inspirar y empoderar a la humanidad para que viva en armonía con la naturaleza. Proveemos recursos, apoyo y defensa para proteger la biodiversidad y promover una vida sostenible para un planeta próspero."
       },
-      imageUrl: "https://placehold.co/600x400/004d40/ffffff?text=Green+Forest",
+      imageUrl: "https://images.unsplash.com/photo-1448375240586-882707db888b?q=80&w=600&h=400&fit=crop",
       imageAlt: "Sunlight filtering through a lush green forest canopy"
     }
   },
@@ -60,8 +100,8 @@ export const INITIAL_CONTENT: PageContent = {
         en: "Partnering with local indigenous communities to reforest over 10,000 hectares of the Amazon, focusing on native species and sustainable land management.",
         es: "Nos asociamos con comunidades indígenas locales para reforestar más de 10,000 hectáreas del Amazonas, enfocándonos en especies nativas y manejo sostenible de la tierra."
       },
-      imageUrl: "https://placehold.co/600x400/2e7d32/ffffff?text=Amazon+Rainforest",
-      imageAlt: "Dense Amazon rainforest canopy"
+      imageUrl: "https://images.unsplash.com/photo-1505765050453-c899951b9469?q=80&w=600&h=400&fit=crop",
+      imageAlt: "A monkey in the dense Amazon rainforest"
     },
     {
       id: "proj_coral",
@@ -70,8 +110,8 @@ export const INITIAL_CONTENT: PageContent = {
         en: "Our team of marine biologists is working to restore damaged coral reefs through innovative micro-fragmentation techniques in the Caribbean.",
         es: "Nuestro equipo de biólogos marinos está trabajando para restaurar los arrecifes de coral dañados a través de técnicas innovadoras de micro-fragmentación en el Caribe."
       },
-      imageUrl: "https://placehold.co/600x400/66bb6a/000000?text=Coral+Reef",
-      imageAlt: "Colorful coral reef with fish"
+      imageUrl: "https://images.unsplash.com/photo-1559931835-0a3f00a5e8a4?q=80&w=600&h=400&fit=crop",
+      imageAlt: "Sea turtle swimming over a colorful coral reef"
     }
   ],
   team: [
@@ -83,7 +123,7 @@ export const INITIAL_CONTENT: PageContent = {
         en: "Aris has dedicated his life to understanding complex ecosystems. His vision guides our foundation's strategic direction and conservation efforts.",
         es: "Aris ha dedicado su vida a comprender ecosistemas complejos. Su visión guía la dirección estratégica de nuestra fundación y los esfuerzos de conservación."
       },
-      imageUrl: "https://placehold.co/400x400/004d40/ffffff?text=Dr.+Aris+Thorne",
+      imageUrl: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&h=400&fit=crop",
       imageAlt: "Headshot of Dr. Aris Thorne"
     },
     {
@@ -94,7 +134,7 @@ export const INITIAL_CONTENT: PageContent = {
         en: "Elara coordinates our worldwide projects, ensuring that our resources are deployed effectively to create the greatest possible impact.",
         es: "Elara coordina nuestros proyectos a nivel mundial, asegurando que nuestros recursos se implementen de manera efectiva para crear el mayor impacto posible."
       },
-      imageUrl: "https://placehold.co/400x400/2e7d32/ffffff?text=Elara+Vance",
+      imageUrl: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=400&h=400&fit=crop",
       imageAlt: "Headshot of Elara Vance"
     }
   ],
@@ -113,8 +153,8 @@ export const INITIAL_CONTENT: PageContent = {
         en: "Full blog post content goes here. It would be a longer version of the summary, with more details, quotes, and scientific data to back up the claims. This section can be multiple paragraphs long.",
         es: "El contenido completo del blog va aquí. Sería una versión más larga del resumen, con más detalles, citas y datos científicos para respaldar las afirmaciones. Esta sección puede tener varios párrafos."
       },
-      imageUrl: "https://placehold.co/800x400/66bb6a/ffffff?text=Ancient+Trees",
-      imageAlt: "An ancient, large tree in a forest"
+      imageUrl: "https://images.unsplash.com/photo-1476231682828-37e571bc172f?q=80&w=800&h=400&fit=crop",
+      imageAlt: "A deer standing in a sunlit forest"
     }
   ],
   contact: {

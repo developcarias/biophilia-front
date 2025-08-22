@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback } from 'react';
 import { HashRouter, Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import { PageContent } from './types';
@@ -36,7 +37,7 @@ const AppContent = () => {
     <div className="bg-brand-green-light min-h-screen flex flex-col font-sans text-brand-gray">
       {isLoggedIn && <AdminBar onLogout={handleLogout} />}
       <Header isLoggedIn={isLoggedIn} />
-      <main className="flex-grow">
+      <main className="flex-grow -mt-28">
         <Routes>
           <Route path="/" element={<HomePage content={content} />} />
           <Route path="/about" element={<AboutPage content={content.about} />} />
