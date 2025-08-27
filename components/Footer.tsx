@@ -1,13 +1,23 @@
+
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from './icons/Logo';
 import { useTranslate } from '../i18n';
+import { ContactContent } from '../types';
+import FacebookIcon from './icons/FacebookIcon';
+import InstagramIcon from './icons/InstagramIcon';
+import LinkedInIcon from './icons/LinkedInIcon';
+import XIcon from './icons/XIcon';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  contact: ContactContent;
+}
+
+const Footer: React.FC<FooterProps> = ({ contact }) => {
   const t = useTranslate();
 
   return (
-    <footer className="bg-brand-green-dark text-white">
+    <footer className="bg-brand-accent text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
@@ -30,22 +40,41 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-sm font-semibold tracking-wider uppercase">{t('contact')}</h3>
             <ul className="mt-4 space-y-2">
-              <li className="text-base text-gray-300">123 Nature Lane</li>
-              <li className="text-base text-gray-300">Green Valley, USA 12345</li>
-              <li className="text-base text-gray-300">contact@biophilia.org</li>
+              <li className="text-base text-gray-300">{contact.address}</li>
+              <li className="text-base text-gray-300">{contact.email}</li>
             </ul>
           </div>
           <div>
             <h3 className="text-sm font-semibold tracking-wider uppercase">{t('followUs')}</h3>
             <div className="flex mt-4 space-x-4">
-              <a href="#" className="text-gray-300 hover:text-white">
-                <span className="sr-only">Facebook</span>
-                <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" /></svg>
-              </a>
+              {contact.socialLinks?.facebook && (
+                <a href={contact.socialLinks.facebook} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
+                  <span className="sr-only">Facebook</span>
+                  <FacebookIcon className="h-6 w-6" />
+                </a>
+              )}
+              {contact.socialLinks?.instagram && (
+                <a href={contact.socialLinks.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
+                  <span className="sr-only">Instagram</span>
+                  <InstagramIcon className="h-6 w-6" />
+                </a>
+              )}
+              {contact.socialLinks?.linkedin && (
+                <a href={contact.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
+                  <span className="sr-only">LinkedIn</span>
+                  <LinkedInIcon className="h-6 w-6" />
+                </a>
+              )}
+              {contact.socialLinks?.twitter && (
+                <a href={contact.socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white">
+                  <span className="sr-only">X</span>
+                  <XIcon className="h-6 w-6" />
+                </a>
+              )}
             </div>
           </div>
         </div>
-        <div className="mt-12 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+        <div className="mt-12 border-t border-gray-700 pt-8 text-center text-sm text-white">
           <p>&copy; {new Date().getFullYear()} Biophilia Institute. All rights reserved.</p>
         </div>
       </div>

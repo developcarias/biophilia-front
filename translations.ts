@@ -89,7 +89,26 @@ export const translations = {
     supportMission: 'Support Our Mission',
     // Admin Bar
     adminBarNotice: 'Admin Mode',
-    exitAdminMode: 'Exit Admin Mode'
+    exitAdminMode: 'Exit Admin Mode',
+    // Home Page
+    latestWorkTitle: 'Our Latest Work',
+    latestWorkSubtitle: 'See how we\'re making a difference in our communities.',
+    viewAllProjects: 'View All Projects',
+    learnMore: 'Learn More',
+    readMore: 'Read More',
+    // Contact Page Actions
+    actionSendMessage: 'Send a Message',
+    actionSendMessageText: 'Use the form below to get in touch quickly.',
+    actionCallUs: 'Call Us',
+    actionCallUsText: 'Talk to our team for direct support.',
+    actionVisitUs: 'Visit Us',
+    actionVisitUsText: 'Find our office for in-person meetings.',
+    actionGetInvolved: 'Get Involved',
+    actionGetInvolvedText: 'Join us as a volunteer or partner.',
+    // Blog
+    featuredPost: 'Featured Post',
+    recentPosts: 'Recent Posts',
+    sharePost: 'Share this post',
   },
   es: {
     // Header
@@ -181,6 +200,25 @@ export const translations = {
     supportMission: 'Apoya Nuestra Misión',
     // Admin Bar
     adminBarNotice: 'Modo Admin',
-    exitAdminMode: 'Salir del Modo Admin'
+    exitAdminMode: 'Salir del Modo Admin',
+    // Home Page
+    latestWorkTitle: 'Nuestro Trabajo Reciente',
+    latestWorkSubtitle: 'Vea cómo estamos marcando la diferencia en nuestras comunidades.',
+    viewAllProjects: 'Ver Todos los Proyectos',
+    learnMore: 'Saber Más',
+    readMore: 'Leer Más',
+    // Contact Page Actions
+    actionSendMessage: 'Enviar un Mensaje',
+    actionSendMessageText: 'Utilice el formulario para contactarnos.',
+    actionCallUs: 'Llámanos',
+    actionCallUsText: 'Hable con nuestro equipo para soporte.',
+    actionVisitUs: 'Visítanos',
+    actionVisitUsText: 'Encuentre nuestra oficina para reuniones.',
+    actionGetInvolved: 'Involúcrate',
+    actionGetInvolvedText: 'Únase como voluntario o socio.',
+    // Blog
+    featuredPost: 'Artículo Destacado',
+    recentPosts: 'Publicaciones Recientes',
+    sharePost: 'Compartir este artículo',
   }
 };

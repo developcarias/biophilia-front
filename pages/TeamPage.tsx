@@ -21,13 +21,15 @@ const TeamPage: React.FC<TeamPageProps> = ({ team }) => {
       />
       <div className="bg-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+          <div className="flex flex-wrap justify-center -m-4 text-center">
             {team.map((member) => (
-              <div key={member.id} className="bg-brand-green-light p-8 rounded-lg shadow-md">
-                <img src={member.imageUrl} alt={member.imageAlt} className="w-40 h-40 rounded-full mx-auto object-cover mb-4 border-4 border-white shadow-lg" />
-                <h3 className="text-xl font-bold text-brand-green-dark">{member.name}</h3>
-                <p className="text-brand-accent font-semibold mb-2">{member.role[language]}</p>
-                <p className="text-brand-gray text-sm">{member.bio[language]}</p>
+              <div key={member.id} className="w-full md:w-1/2 lg:w-1/3 p-4">
+                <div className="bg-brand-green-light p-8 rounded-lg shadow-md h-full">
+                  <img src={member.imageUrl} alt={member.imageAlt} className="w-40 h-40 rounded-full mx-auto object-cover mb-4 border-4 border-white shadow-lg" />
+                  <h3 className="text-xl font-bold text-brand-green-dark">{member.name}</h3>
+                  <p className="text-brand-accent font-semibold mb-2">{member.role[language]}</p>
+                  <p className="text-brand-gray text-sm">{member.bio[language]}</p>
+                </div>
               </div>
             ))}
           </div>

@@ -5,6 +5,18 @@ export interface LocalizedText {
   es: string;
 }
 
+export interface TitledText {
+  title: LocalizedText;
+  text: LocalizedText;
+}
+
+export interface ValueItem {
+  id: string;
+  title: LocalizedText;
+  text: LocalizedText;
+  icon: string;
+}
+
 export interface HeroSlide {
   id: string;
   title: LocalizedText;
@@ -18,6 +30,13 @@ export interface ContentBlockType {
   text: LocalizedText;
   imageUrl: string;
   imageAlt: string;
+}
+
+export interface ActionLineItem {
+  id: string;
+  title: LocalizedText;
+  text: LocalizedText;
+  icon: 'BookOpenIcon' | 'LeafIcon' | 'SustainabilityIcon' | 'MegaphoneIcon';
 }
 
 export interface Project {
@@ -55,19 +74,48 @@ export interface ContactContent {
     address: string;
     phone: string;
     email: string;
+    socialLinks: {
+        facebook: string;
+        instagram: string;
+        linkedin: string;
+        twitter: string;
+    };
 }
 
+export interface AlliancePartner {
+    id: string;
+    name: string;
+    logoUrl: string;
+}
 
 export interface PageContent {
   hero: HeroSlide[];
+  actionLines: {
+      title: LocalizedText;
+      items: ValueItem[];
+  };
   home: ContentBlockType[];
   about: {
     title: LocalizedText;
-    mainText: LocalizedText;
+    history: TitledText;
+    historyImageUrl: string;
+    biophiliaExplanation: TitledText;
     mission: ContentBlockType;
+    vision: ContentBlockType;
+    work: ContentBlockType;
+    values: {
+      title: LocalizedText;
+      items: ValueItem[];
+    };
   };
+  projectsIntro: LocalizedText;
   projects: Project[];
   team: TeamMember[];
   blog: BlogPost[];
   contact: ContactContent;
+  alliances: {
+      title: LocalizedText;
+      description: LocalizedText;
+      partners: AlliancePartner[];
+  };
 }

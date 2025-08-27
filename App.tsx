@@ -41,7 +41,7 @@ const AppContent = () => {
         <Routes>
           <Route path="/" element={<HomePage content={content} />} />
           <Route path="/about" element={<AboutPage content={content.about} />} />
-          <Route path="/projects" element={<ProjectsPage projects={content.projects} />} />
+          <Route path="/projects" element={<ProjectsPage intro={content.projectsIntro} projects={content.projects} />} />
           <Route path="/team" element={<TeamPage team={content.team} />} />
           <Route path="/blog" element={<BlogPage posts={content.blog} />} />
           <Route path="/blog/:slug" element={<BlogPostPage posts={content.blog} />} />
@@ -62,7 +62,7 @@ const AppContent = () => {
           } />
         </Routes>
       </main>
-      <Footer />
+      <Footer contact={content.contact} />
     </div>
   );
 }

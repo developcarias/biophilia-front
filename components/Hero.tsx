@@ -1,5 +1,4 @@
 
-
 import React, { useState, useEffect, useCallback } from 'react';
 import { useI18n, useTranslate } from '../i18n';
 import { HeroSlide } from '../types';
@@ -66,7 +65,7 @@ const Hero: React.FC<HeroProps> = ({ slides }) => {
             <ChevronRightIcon className="h-8 w-8" />
         </button>
 
-        <div className="absolute bottom-5 left-0 right-0 z-30 flex justify-center space-x-2">
+        <div className="absolute bottom-32 left-0 right-0 z-30 flex justify-center space-x-2">
             {slides.map((_, slideIndex) => (
                 <button
                     key={slideIndex}
