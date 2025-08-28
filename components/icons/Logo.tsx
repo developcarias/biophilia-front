@@ -1,11 +1,11 @@
+
 import React from 'react';
 
-const Logo: React.FC = () => (
+const Logo: React.FC<{ className?: string }> = ({ className }) => (
     <img
-        src="/assets/logo.png" // ← Reemplaza con la URL real
+        src="https://biophiliaweb.org/images/logos/biophilia_png-blanco.png"
         alt="Biophilia Institute Logo"
-        style={
-            { height: '100px', width: 'auto', margin: '0 80px', padding: '10px' }}
+        className={`w-auto ${className || 'h-20'}`}
     />
 );
 

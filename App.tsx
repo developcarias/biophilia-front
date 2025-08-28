@@ -1,5 +1,6 @@
 
-import React, { useState, useCallback } from 'react';
+
+import React, { useState } from 'react';
 import { HashRouter, Routes, Route, useNavigate, Navigate } from 'react-router-dom';
 import { PageContent } from './types';
 import { INITIAL_CONTENT } from './constants';
@@ -62,19 +63,22 @@ const AppContent = () => {
           } />
         </Routes>
       </main>
-      <Footer contact={content.contact} />
+      <div 
+        className="bg-cover bg-center bg-fixed" 
+        style={{backgroundImage: "url('https://biophiliaweb.org/images/parallax/2.jpg')"}}
+      >
+        <Footer contact={content.contact} />
+      </div>
     </div>
   );
-}
+};
 
-function App() {
-  return (
-    <I18nProvider>
-      <HashRouter>
-        <AppContent />
-      </HashRouter>
-    </I18nProvider>
-  );
-}
+const App = () => (
+  <I18nProvider>
+    <HashRouter>
+      <AppContent />
+    </HashRouter>
+  </I18nProvider>
+);
 
 export default App;

@@ -1,8 +1,7 @@
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { PageContent, ValueItem, AlliancePartner } from '../types';
 import Hero from '../components/Hero';
-import ContentBlock from '../components/ContentBlock';
 import ParallaxSection from '../components/ParallaxSection';
 import LatestProjects from '../components/LatestProjects';
 import { useI18n } from '../i18n';
@@ -81,6 +80,20 @@ const AlliancesSection: React.FC<{title: string, description: string, partners: 
 const HomePage: React.FC<HomePageProps> = ({ content }) => {
   const { language } = useI18n();
   const latestProjects = content.projects.slice(0, 4);
+  const [isWelcomeVisible, setIsWelcomeVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsWelcomeVisible(true);
+      } else {
+        setIsWelcomeVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
@@ -88,18 +101,34 @@ const HomePage: React.FC<HomePageProps> = ({ content }) => {
         slides={content.hero}
       />
       
-      <div className="bg-white pt-12">
-        {content.home.length > 0 && (
-          <ContentBlock 
-            key={content.home[0].id}
-            title={content.home[0].title}
-            text={content.home[0].text}
-            imageUrl={content.home[0].imageUrl}
-            imageAlt={content.home[0].imageAlt}
-            imagePosition={'left'}
-          />
-        )}
-      </div>
+      {content.home.length > 0 && (
+        <div className={`relative -mt-24 z-20 transition-all duration-700 ease-in-out ${isWelcomeVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden p-12 lg:p-16">
+              <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+                <div className="relative">
+                  <img
+                    className="rounded-lg shadow-2xl w-full object-cover"
+                    src={content.home[0].imageUrl}
+                    alt={content.home[0].imageAlt}
+                  />
+                </div>
+                
+                <div className="mt-8 lg:mt-0 lg:-ml-16 relative">
+                  <div className="bg-brand-green-light p-8 md:p-12 rounded-lg shadow-xl border border-gray-200">
+                      <h2 className="text-3xl md:text-4xl font-extrabold text-brand-green-dark mb-4">
+                          {content.home[0].title[language]}
+                      </h2>
+                      <p className="text-lg text-brand-gray leading-relaxed">
+                          {content.home[0].text[language]}
+                      </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
       <SectionWithCards 
         title={content.actionLines.title[language]} 

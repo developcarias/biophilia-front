@@ -8,6 +8,8 @@ import FacebookIcon from './icons/FacebookIcon';
 import InstagramIcon from './icons/InstagramIcon';
 import LinkedInIcon from './icons/LinkedInIcon';
 import XIcon from './icons/XIcon';
+import UsaFlagIcon from './icons/UsaFlagIcon';
+import SpainFlagIcon from './icons/SpainFlagIcon';
 
 interface HeaderProps {
   isLoggedIn?: boolean;
@@ -86,8 +88,11 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn = false }) => {
           <div className="space-y-6 mt-12">
             <div className="flex items-center justify-between">
               <span className="text-lg">Language / Idioma</span>
-              <button onClick={toggleLanguage} className="text-white font-semibold text-lg border-2 border-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-white hover:text-brand-accent transition-colors">
-                {language.toUpperCase()}
+              <button onClick={toggleLanguage} className="border-2 border-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label={`Change language to ${language === 'en' ? 'Español' : 'English'}`}>
+                {language === 'en' 
+                  ? <UsaFlagIcon className="w-full h-full rounded-full" /> 
+                  : <SpainFlagIcon className="w-full h-full rounded-full" />
+                }
               </button>
             </div>
             <NavLink to="/donate" onClick={closeMenu} className="block w-full">
@@ -139,8 +144,11 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn = false }) => {
               <div className="hidden lg:flex flex-col items-end">
                 {/* Top Row */}
                 <div className="flex items-center space-x-4">
-                    <button onClick={toggleLanguage} className="text-white font-semibold text-sm border-2 border-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-white hover:text-brand-accent transition-colors">
-                        {language.toUpperCase()}
+                    <button onClick={toggleLanguage} className="border-2 border-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label={`Change language to ${language === 'en' ? 'Español' : 'English'}`}>
+                      {language === 'en' 
+                        ? <UsaFlagIcon className="w-full h-full rounded-full" /> 
+                        : <SpainFlagIcon className="w-full h-full rounded-full" />
+                      }
                     </button>
                     <NavLink to="/donate">
                         <button className="bg-brand-yellow text-brand-green-dark px-5 py-2 rounded-md text-base font-bold hover:opacity-90 transition-opacity shadow-md">
