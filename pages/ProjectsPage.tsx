@@ -15,6 +15,7 @@ interface ProjectsPageProps {
 
 const ProjectsPage: React.FC<ProjectsPageProps> = ({ content, projects, uiText }) => {
   const { language } = useI18n();
+  const isOddLength = projects.length % 2 !== 0;
 
   return (
     <>
@@ -32,33 +33,70 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ content, projects, uiText }
             </Editable>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-16 pt-8">
-            {projects.map((project, index) => (
-              <div 
-                key={project.id} 
-                className="group bg-brand-green-light rounded-lg shadow-lg flex flex-col transition-transform transform hover:-translate-y-2 hover:shadow-2xl"
-              >
-                <div className="px-6 -mt-8">
-                  <ReactRouterDOM.NavLink to={`/projects/${project.id}`} className="block rounded-lg shadow-xl group-hover:shadow-2xl overflow-hidden">
-                    <img src={project.imageUrl} alt={project.imageAlt} className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
-                  </ReactRouterDOM.NavLink>
-                </div>
-                <div className="p-6 pt-4 flex-grow flex flex-col">
-                  <Editable localizedText={project.title} basePath={`projects.${index}.title`}>
-                     <ReactRouterDOM.NavLink to={`/projects/${project.id}`}>
-                        <h3 className="text-2xl font-bold text-brand-green-dark mb-2 hover:text-brand-accent transition-colors">{project.title[language]}</h3>
-                     </ReactRouterDOM.NavLink>
-                  </Editable>
-                  <Editable localizedText={project.description} basePath={`projects.${index}.description`} multiline>
-                    <p className="text-brand-gray leading-relaxed flex-grow">{project.description[language]}</p>
-                  </Editable>
-                   <div className="mt-4">
-                      <ReactRouterDOM.NavLink to={`/projects/${project.id}`} className="font-bold text-brand-green hover:text-brand-accent transition-colors">
-                        {uiText.learnMore[language]} &rarr;
+            {projects.map((project, index) => {
+              const projectBasePath = `projects.${index}`;
+              const isLastItem = index === projects.length - 1;
+
+              if (isOddLength && isLastItem) {
+                // Render the wide card for the last item if the total is odd
+                return (
+                  <div
+                    key={project.id}
+                    className="md:col-span-2 group bg-brand-green-light rounded-lg shadow-lg flex flex-col md:flex-row transition-transform transform hover:-translate-y-2 hover:shadow-2xl overflow-hidden"
+                  >
+                    <div className="md:w-1/3 lg:w-2/5">
+                      <ReactRouterDOM.NavLink to={`/projects/${project.id}`} className="block h-full">
+                        <img src={project.imageUrl} alt={project.imageAlt} className="w-full h-64 md:h-full object-cover transition-transform duration-300 group-hover:scale-105" />
                       </ReactRouterDOM.NavLink>
                     </div>
+                    <div className="p-6 md:p-8 flex-grow flex flex-col justify-center md:w-2/3 lg:w-3/5">
+                      <Editable localizedText={project.title} basePath={`${projectBasePath}.title`}>
+                        <ReactRouterDOM.NavLink to={`/projects/${project.id}`}>
+                            <h3 className="text-2xl font-bold text-brand-green-dark mb-2 hover:text-brand-accent transition-colors">{project.title[language]}</h3>
+                        </ReactRouterDOM.NavLink>
+                      </Editable>
+                      <Editable localizedText={project.description} basePath={`${projectBasePath}.description`} multiline>
+                        <p className="text-brand-gray leading-relaxed flex-grow mb-4">{project.description[language]}</p>
+                      </Editable>
+                      <div className="mt-auto">
+                          <ReactRouterDOM.NavLink to={`/projects/${project.id}`} className="font-bold text-brand-green hover:text-brand-accent transition-colors">
+                            {uiText.learnMore[language]} &rarr;
+                          </ReactRouterDOM.NavLink>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+
+              // Render the normal card
+              return (
+                <div 
+                  key={project.id} 
+                  className="group bg-brand-green-light rounded-lg shadow-lg flex flex-col transition-transform transform hover:-translate-y-2 hover:shadow-2xl"
+                >
+                  <div className="px-6 -mt-8">
+                    <ReactRouterDOM.NavLink to={`/projects/${project.id}`} className="block rounded-lg shadow-xl group-hover:shadow-2xl overflow-hidden">
+                      <img src={project.imageUrl} alt={project.imageAlt} className="w-full h-64 object-cover transition-transform duration-300 group-hover:scale-105" />
+                    </ReactRouterDOM.NavLink>
+                  </div>
+                  <div className="p-6 pt-4 flex-grow flex flex-col">
+                    <Editable localizedText={project.title} basePath={`${projectBasePath}.title`}>
+                       <ReactRouterDOM.NavLink to={`/projects/${project.id}`}>
+                          <h3 className="text-2xl font-bold text-brand-green-dark mb-2 hover:text-brand-accent transition-colors">{project.title[language]}</h3>
+                       </ReactRouterDOM.NavLink>
+                    </Editable>
+                    <Editable localizedText={project.description} basePath={`${projectBasePath}.description`} multiline>
+                      <p className="text-brand-gray leading-relaxed flex-grow">{project.description[language]}</p>
+                    </Editable>
+                     <div className="mt-4">
+                        <ReactRouterDOM.NavLink to={`/projects/${project.id}`} className="font-bold text-brand-green hover:text-brand-accent transition-colors">
+                          {uiText.learnMore[language]} &rarr;
+                        </ReactRouterDOM.NavLink>
+                      </div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

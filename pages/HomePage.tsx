@@ -120,10 +120,7 @@ const AlliancesSection: React.FC<{title: LocalizedText; description: LocalizedTe
 
 const HomePage: React.FC<HomePageProps> = ({ content, uiText, projects }) => {
   const { language } = useI18n();
-
-  const projectOrder = ['project_forest', 'project_agriculture', 'project_turtles', 'project_youth'];
-  const projectsById = new Map(projects.map(p => [p.id, p]));
-  const latestProjects = projectOrder.map(id => projectsById.get(id)).filter(Boolean) as Project[];
+  const latestProjects = projects.slice(0, 4);
 
   const [isWelcomeVisible, setIsWelcomeVisible] = useState(false);
 
