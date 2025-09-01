@@ -1,6 +1,8 @@
 
+
 import React, { useState, useEffect } from 'react';
-import { PageContent, ValueItem, AlliancePartner } from '../types';
+// FIX: Imported 'LocalizedText' type to resolve "Cannot find name" errors.
+import { HomePageContent, ValueItem, AlliancePartner, Project, UIText, LocalizedText } from '../types';
 import Hero from '../components/Hero';
 import ParallaxSection from '../components/ParallaxSection';
 import LatestProjects from '../components/LatestProjects';
@@ -13,9 +15,12 @@ import MegaphoneIcon from '../components/icons/MegaphoneIcon';
 import HandshakeIcon from '../components/icons/HandshakeIcon';
 import SustainabilityIcon from '../components/icons/SustainabilityIcon';
 import EquityIcon from '../components/icons/EquityIcon';
+import Editable from '../components/Editable';
 
 interface HomePageProps {
-  content: PageContent;
+  content: HomePageContent;
+  uiText: UIText;
+  projects: Project[];
 }
 
 const iconMap: { [key: string]: React.FC<{className?: string}> } = {
@@ -29,42 +34,77 @@ const iconMap: { [key: string]: React.FC<{className?: string}> } = {
   EquityIcon,
 };
 
-const ValueCard: React.FC<{item: ValueItem}> = ({ item }) => {
+const ValueCard: React.FC<{item: ValueItem; basePath: string}> = ({ item, basePath }) => {
   const { language } = useI18n();
   const IconComponent = iconMap[item.icon];
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2 hover:shadow-2xl flex flex-col items-center text-center h-full">
       {IconComponent && <IconComponent className="h-12 w-12 text-brand-accent mb-4" />}
-      <h3 className="text-xl font-bold text-brand-green-dark mb-2">{item.title[language]}</h3>
-      <p className="text-brand-gray flex-grow">{item.text[language]}</p>
+      <Editable localizedText={item.title} basePath={`${basePath}.title`}>
+        <h3 className="text-xl font-bold text-brand-green-dark mb-2">{item.title[language]}</h3>
+      </Editable>
+      <Editable localizedText={item.text} basePath={`${basePath}.text`} multiline>
+        <p className="text-brand-gray flex-grow">{item.text[language]}</p>
+      </Editable>
     </div>
   )
 }
 
-const SectionWithCards: React.FC<{title: string, items: ValueItem[]}> = ({ title, items }) => (
-  <div className="bg-brand-green-light py-16 lg:py-24">
-    <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center">
-        <h2 className="text-4xl font-extrabold text-brand-green-dark mb-12">{title}</h2>
-        <div className="flex flex-wrap justify-center -m-4">
-          {items.map(item => (
-            <div key={item.id} className="w-full sm:w-1/2 lg:w-1/4 p-4">
-              <ValueCard item={item} />
-            </div>
-          ))}
+const ActionLineCard: React.FC<{item: ValueItem; basePath: string}> = ({ item, basePath }) => {
+    const { language } = useI18n();
+    return (
+        <div className="bg-white rounded-lg shadow-lg transition-transform transform hover:-translate-y-2 hover:shadow-2xl flex flex-col text-center h-full p-8 items-center justify-start">
+            <img 
+              src={item.imageUrl} 
+              alt={item.title[language]} 
+              className="w-56 h-56 object-cover rounded-full mb-6 shadow-xl border-4 border-green-100 -mt-28" 
+            />
+            <Editable localizedText={item.title} basePath={`${basePath}.title`}>
+              <h3 className="text-xl font-bold text-brand-green-dark mb-2">{item.title[language]}</h3>
+            </Editable>
+            <Editable localizedText={item.text} basePath={`${basePath}.text`} multiline>
+              <p className="text-brand-gray flex-grow">{item.text[language]}</p>
+            </Editable>
+        </div>
+    );
+}
+
+
+const SectionWithCards: React.FC<{title: LocalizedText; items: ValueItem[]; basePath: string}> = ({ title, items, basePath }) => {
+  const { language } = useI18n();
+  return (
+    <div className="bg-brand-green-light py-16 lg:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <Editable localizedText={title} basePath={`${basePath}.title`}>
+            <h2 className="text-4xl font-extrabold text-brand-green-dark mb-12">{title[language]}</h2>
+          </Editable>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {items.map((item, index) => (
+              <div key={item.id} className="p-0">
+                <ValueCard item={item} basePath={`${basePath}.items.${index}`} />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
-const AlliancesSection: React.FC<{title: string, description: string, partners: AlliancePartner[]}> = ({ title, description, partners }) => (
+const AlliancesSection: React.FC<{title: LocalizedText; description: LocalizedText; partners: AlliancePartner[], basePath: string}> = ({ title, description, partners, basePath }) => {
+  const { language } = useI18n();
+  return (
     <div className="bg-white py-16 lg:py-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
-                <h2 className="text-4xl font-extrabold text-brand-green-dark mb-4">{title}</h2>
-                <p className="text-lg text-brand-gray">{description}</p>
+                <Editable localizedText={title} basePath={`${basePath}.title`}>
+                  <h2 className="text-4xl font-extrabold text-brand-green-dark mb-4">{title[language]}</h2>
+                </Editable>
+                <Editable localizedText={description} basePath={`${basePath}.description`} multiline>
+                  <p className="text-lg text-brand-gray">{description[language]}</p>
+                </Editable>
             </div>
             <div className="mt-12 flex flex-wrap justify-center items-center gap-x-8 gap-y-8 lg:gap-x-16">
                 {partners.map(partner => (
@@ -75,11 +115,16 @@ const AlliancesSection: React.FC<{title: string, description: string, partners: 
             </div>
         </div>
     </div>
-);
+  );
+};
 
-const HomePage: React.FC<HomePageProps> = ({ content }) => {
+const HomePage: React.FC<HomePageProps> = ({ content, uiText, projects }) => {
   const { language } = useI18n();
-  const latestProjects = content.projects.slice(0, 4);
+
+  const projectOrder = ['project_forest', 'project_agriculture', 'project_turtles', 'project_youth'];
+  const projectsById = new Map(projects.map(p => [p.id, p]));
+  const latestProjects = projectOrder.map(id => projectsById.get(id)).filter(Boolean) as Project[];
+
   const [isWelcomeVisible, setIsWelcomeVisible] = useState(false);
 
   useEffect(() => {
@@ -98,30 +143,39 @@ const HomePage: React.FC<HomePageProps> = ({ content }) => {
   return (
     <>
       <Hero 
-        slides={content.hero}
+        slides={content.heroSlides}
+        uiText={uiText}
       />
       
-      {content.home.length > 0 && (
-        <div className={`relative -mt-24 z-20 transition-all duration-700 ease-in-out ${isWelcomeVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+      {content.welcome && (
+        <div className={`relative z-10 -mt-[1px] transition-all duration-700 ease-in-out ${isWelcomeVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`} style={{ transform: `translateY(-${isWelcomeVisible ? '2rem' : '0'})` }}>
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden p-12 lg:p-16">
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden p-8 lg:p-12">
               <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
                 <div className="relative">
                   <img
                     className="rounded-lg shadow-2xl w-full object-cover"
-                    src={content.home[0].imageUrl}
-                    alt={content.home[0].imageAlt}
+                    src={content.welcome.imageUrl}
+                    alt={content.welcome.imageAlt}
                   />
                 </div>
                 
                 <div className="mt-8 lg:mt-0 lg:-ml-16 relative">
-                  <div className="bg-brand-green-light p-8 md:p-12 rounded-lg shadow-xl border border-gray-200">
-                      <h2 className="text-3xl md:text-4xl font-extrabold text-brand-green-dark mb-4">
-                          {content.home[0].title[language]}
+                  <div className="bg-brand-green-light p-6 md:p-8 rounded-lg shadow-xl border border-gray-200">
+                      <h2 className="text-3xl md:text-4xl text-brand-green-dark mb-4">
+                        <Editable localizedText={content.welcome.titlePart1} basePath="homePage.welcome.titlePart1">
+                          <span className="font-normal">{content.welcome.titlePart1[language]}</span>
+                        </Editable>
+                          <br />
+                        <Editable localizedText={content.welcome.titlePart2} basePath="homePage.welcome.titlePart2">
+                          <span className="font-extrabold">{content.welcome.titlePart2[language]}</span>
+                        </Editable>
                       </h2>
-                      <p className="text-lg text-brand-gray leading-relaxed">
-                          {content.home[0].text[language]}
-                      </p>
+                      <Editable localizedText={content.welcome.text} basePath="homePage.welcome.text" multiline>
+                        <p className="text-lg text-brand-gray leading-relaxed">
+                            {content.welcome.text[language]}
+                        </p>
+                      </Editable>
                   </div>
                 </div>
               </div>
@@ -130,36 +184,57 @@ const HomePage: React.FC<HomePageProps> = ({ content }) => {
         </div>
       )}
 
-      <SectionWithCards 
-        title={content.actionLines.title[language]} 
-        items={content.actionLines.items} 
-      />
+      <div className="bg-brand-green-light py-16 lg:py-24">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+                <Editable localizedText={content.actionLines.title} basePath="homePage.actionLines.title">
+                  <h2 className="text-4xl font-extrabold text-brand-green-dark mb-12">{content.actionLines.title[language]}</h2>
+                </Editable>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-28 sm:gap-y-32 pt-24">
+                    {content.actionLines.items.map((item, index) => (
+                        <ActionLineCard item={item} key={item.id} basePath={`homePage.actionLines.items.${index}`} />
+                    ))}
+                </div>
+            </div>
+        </div>
+      </div>
       
       {latestProjects.length > 0 && (
-        <LatestProjects projects={latestProjects} />
+        <LatestProjects 
+          title={content.latestProjects.title}
+          subtitle={content.latestProjects.subtitle}
+          projects={latestProjects}
+          uiText={uiText} 
+        />
       )}
       
       <ParallaxSection 
-        title={{ en: 'Make a Difference', es: 'Haz la Diferencia' }}
-        text={{ en: 'Your generous contribution helps us continue our work of connecting communities with nature and building a sustainable future.', es: 'Tu generosa contribución nos ayuda a continuar nuestro trabajo de conectar comunidades con la naturaleza y construir un futuro sostenible.' }}
-        imageUrl={'https://biophiliaweb.org/images/parallax/1.jpg'}
+        title={content.parallax1.title}
+        text={content.parallax1.text}
+        imageUrl={content.parallax1.imageUrl}
+        uiText={uiText}
+        basePath="homePage.parallax1"
       />
 
       <SectionWithCards 
-        title={content.about.values.title[language]} 
-        items={content.about.values.items} 
+        title={content.values.title} 
+        items={content.values.items} 
+        basePath="homePage.values"
       />
 
       <AlliancesSection 
-        title={content.alliances.title[language]}
-        description={content.alliances.description[language]}
+        title={content.alliances.title}
+        description={content.alliances.description}
         partners={content.alliances.partners}
+        basePath="homePage.alliances"
       />
       
       <ParallaxSection 
-        title={{ en: 'Join our EcoVolunteer Network', es: 'Únete a nuestra Red de EcoVoluntarios' }}
-        text={{ en: 'Become part of the change. Volunteer your time and skills to help restore ecosystems and educate our communities.', es: 'Sé parte del cambio. Ofrece tu tiempo y habilidades como voluntario para ayudar a restaurar ecosistemas y educar a nuestras comunidades.' }}
-        imageUrl={'https://biophiliaweb.org/images/parallax/2.jpg'}
+        title={content.parallax2.title}
+        text={content.parallax2.text}
+        imageUrl={content.parallax2.imageUrl}
+        uiText={uiText}
+        basePath="homePage.parallax2"
       />
     </>
   );

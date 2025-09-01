@@ -1,6 +1,7 @@
 import React from 'react';
 import { LocalizedText } from '../types';
 import { useI18n } from '../i18n';
+import Editable from './Editable';
 
 interface ContentBlockProps {
   title: LocalizedText;
@@ -8,6 +9,7 @@ interface ContentBlockProps {
   imageUrl: string;
   imageAlt: string;
   imagePosition?: 'left' | 'right';
+  basePath: string;
 }
 
 const ContentBlock: React.FC<ContentBlockProps> = ({
@@ -16,6 +18,7 @@ const ContentBlock: React.FC<ContentBlockProps> = ({
   imageUrl,
   imageAlt,
   imagePosition = 'left',
+  basePath,
 }) => {
   const { language } = useI18n();
 
@@ -28,10 +31,14 @@ const ContentBlock: React.FC<ContentBlockProps> = ({
   const textEl = (
     <div className="w-full md:w-1/2 flex flex-col justify-center px-8 md:px-12 py-8">
       <div className="relative group">
-        <h2 className="text-3xl font-bold text-brand-green-dark">{title[language]}</h2>
+        <Editable localizedText={title} basePath={`${basePath}.title`}>
+          <h2 className="text-3xl font-bold text-brand-green-dark">{title[language]}</h2>
+        </Editable>
       </div>
       <div className="relative group mt-4">
-        <p className="mt-4 text-lg leading-relaxed">{text[language]}</p>
+        <Editable localizedText={text} basePath={`${basePath}.text`} multiline>
+          <p className="mt-4 text-lg leading-relaxed">{text[language]}</p>
+        </Editable>
       </div>
     </div>
   );

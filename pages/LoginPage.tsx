@@ -1,6 +1,8 @@
 
+
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+// FIX: Changed to namespace import to resolve module resolution issues with react-router-dom.
+import * as ReactRouterDOM from 'react-router-dom';
 import { useTranslate } from '../i18n';
 import PageBanner from '../components/PageBanner';
 
@@ -13,7 +15,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const t = useTranslate();
-  const navigate = useNavigate();
+  const navigate = ReactRouterDOM.useNavigate();
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();

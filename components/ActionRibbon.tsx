@@ -1,7 +1,9 @@
+
 import React from 'react';
-import { NavLink } from 'react-router-dom';
-// Fix: Corrected type import from 'ActionRibbonItem' to 'ActionLineItem' as suggested by the error.
-import { ActionLineItem } from '../types';
+// FIX: Changed to namespace import to resolve module resolution issues with react-router-dom.
+import * as ReactRouterDOM from 'react-router-dom';
+// FIX: Corrected type import from 'ActionLineItem' to 'ValueItem' as suggested by the error.
+import { ValueItem } from '../types';
 import { useI18n, useTranslate } from '../i18n';
 
 import SustainabilityIcon from './icons/SustainabilityIcon';
@@ -11,7 +13,7 @@ import MegaphoneIcon from './icons/MegaphoneIcon';
 
 
 interface ActionRibbonProps {
-  items: ActionLineItem[];
+  items: ValueItem[];
   isVisible: boolean;
 }
 
@@ -43,9 +45,9 @@ const ActionRibbon: React.FC<ActionRibbonProps> = ({ items, isVisible }) => {
                                     </div>
                                     <h3 className="font-bold uppercase tracking-wider text-lg">{item.title[language]}</h3>
                                     <p className="mt-2 text-sm text-gray-200 flex-grow">{item.text[language]}</p>
-                                    <NavLink to="/about" className="mt-6 inline-block bg-white/20 hover:bg-white/40 text-white font-semibold py-2 px-5 rounded-md text-sm transition-colors">
+                                    <ReactRouterDOM.NavLink to="/about" className="mt-6 inline-block bg-white/20 hover:bg-white/40 text-white font-semibold py-2 px-5 rounded-md text-sm transition-colors">
                                         {t('readMore')}
-                                    </NavLink>
+                                    </ReactRouterDOM.NavLink>
                                 </div>
                             );
                         })}

@@ -1,25 +1,29 @@
+
+
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
-import Logo from './icons/Logo';
+import * as ReactRouterDOM from 'react-router-dom';
 import MenuIcon from './icons/MenuIcon';
 import CloseIcon from './icons/CloseIcon';
-import { useI18n, useTranslate } from '../i18n';
+import { useI18n } from '../i18n';
+import { GlobalContent, UIText } from '../types';
 import FacebookIcon from './icons/FacebookIcon';
 import InstagramIcon from './icons/InstagramIcon';
 import LinkedInIcon from './icons/LinkedInIcon';
 import XIcon from './icons/XIcon';
 import UsaFlagIcon from './icons/UsaFlagIcon';
 import SpainFlagIcon from './icons/SpainFlagIcon';
+import { useAdmin } from './AdminContext';
 
 interface HeaderProps {
-  isLoggedIn?: boolean;
+  content: GlobalContent;
+  uiText: UIText;
 }
 
-const Header: React.FC<HeaderProps> = ({ isLoggedIn = false }) => {
+const Header: React.FC<HeaderProps> = ({ content, uiText }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { language, setLanguage } = useI18n();
-  const t = useTranslate();
+  const { isLoggedIn } = useAdmin();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,21 +52,23 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn = false }) => {
 
   const headerClass = `${headerBaseStyle} ${isScrolled || isMobileMenuOpen ? headerScrolledStyle : headerTopStyle}`;
   
-  const navLinks = [
-    { to: "/", label: t('navHome'), end: true },
-    { to: "/about", label: t('navAbout') },
-    { to: "/projects", label: t('navProjects') },
-    { to: "/team", label: t('navTeam') },
-    { to: "/blog", label: t('navBlog') },
-    { to: "/contact", label: t('navContact') },
-  ];
+  const socialIconsMap = {
+    facebook: FacebookIcon,
+    instagram: InstagramIcon,
+    linkedin: LinkedInIcon,
+    twitter: XIcon
+  }
 
   const renderSocialIcons = (iconSize = "h-5 w-5") => (
     <>
-      <a href="#" aria-label="Facebook" className="hover:text-brand-yellow transition-colors"><FacebookIcon className={iconSize} /></a>
-      <a href="#" aria-label="Instagram" className="hover:text-brand-yellow transition-colors"><InstagramIcon className={iconSize} /></a>
-      <a href="#" aria-label="LinkedIn" className="hover:text-brand-yellow transition-colors"><LinkedInIcon className={iconSize} /></a>
-      <a href="#" aria-label="X" className="hover:text-brand-yellow transition-colors"><XIcon className={iconSize} /></a>
+      {content.socialLinks.map(social => {
+        const Icon = socialIconsMap[social.id];
+        return (
+          <a key={social.id} href={social.url} aria-label={social.id} className="hover:text-brand-yellow transition-colors">
+            {Icon && <Icon className={iconSize} />}
+          </a>
+        );
+      })}
     </>
   );
 
@@ -70,9 +76,9 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn = false }) => {
     <div className="fixed inset-0 z-50 bg-brand-accent text-white lg:hidden overflow-y-auto">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-28">
-          <NavLink to="/" onClick={closeMenu} className="flex items-center space-x-3 text-white">
-            <Logo />
-          </NavLink>
+          <ReactRouterDOM.NavLink to="/" onClick={closeMenu} className="flex items-center space-x-3 text-white">
+            <img src={content.logoUrl} alt="Biophilia Institute Logo" className="w-auto h-20" />
+          </ReactRouterDOM.NavLink>
           <button onClick={closeMenu} className="text-white p-2" aria-label="Close menu">
             <CloseIcon />
           </button>
@@ -81,8 +87,8 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn = false }) => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-between pb-24">
           <nav className="flex flex-col space-y-4 pt-10">
-            {navLinks.map(link => (
-              <NavLink key={link.to} to={link.to} onClick={closeMenu} className="text-2xl font-bold py-2 hover:text-brand-yellow transition-colors text-center" end={link.end}>{link.label}</NavLink>
+            {content.navigation.map(link => (
+              <ReactRouterDOM.NavLink key={link.id} to={link.to} onClick={closeMenu} className="text-2xl font-bold py-2 hover:text-brand-yellow transition-colors text-center" end={link.end}>{link.label[language]}</ReactRouterDOM.NavLink>
             ))}
           </nav>
           <div className="space-y-6 mt-12">
@@ -95,11 +101,11 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn = false }) => {
                 }
               </button>
             </div>
-            <NavLink to="/donate" onClick={closeMenu} className="block w-full">
+            <ReactRouterDOM.NavLink to="/donate" onClick={closeMenu} className="block w-full">
               <button className="w-full bg-brand-yellow text-brand-green-dark px-4 py-3 rounded-md text-lg font-bold hover:opacity-90 transition-opacity">
-                {t('donateNow')}
+                {uiText.donateNow[language]}
               </button>
-            </NavLink>
+            </ReactRouterDOM.NavLink>
             <div className="flex justify-center space-x-6">
               {renderSocialIcons("h-6 w-6")}
             </div>
@@ -115,34 +121,30 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn = false }) => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative flex items-center justify-between h-28">
             
-            {/* Left Side: Logo */}
             <div className="flex-shrink-0">
-              <NavLink to="/" className="flex items-center space-x-3 text-white">
-                <Logo />
-              </NavLink>
+              <ReactRouterDOM.NavLink to="/" className="flex items-center space-x-3 text-white">
+                <img src={content.logoUrl} alt="Biophilia Institute Logo" className="w-auto h-20" />
+              </ReactRouterDOM.NavLink>
             </div>
 
-            {/* Center: Nav */}
             <nav className="hidden lg:flex items-center space-x-6 absolute left-1/2 transform -translate-x-1/2">
-              {navLinks.map(link => {
+              {content.navigation.map(link => {
                   const navLinkClasses = "text-white text-xl font-medium py-2 border-b-2 transition-colors duration-300";
                   return (
-                    <NavLink
-                      key={link.to}
+                    <ReactRouterDOM.NavLink
+                      key={link.id}
                       to={link.to}
                       className={({isActive}) => `${navLinkClasses} ${isActive ? 'border-white' : 'border-transparent hover:border-white/50'}`}
                       end={link.end}
                     >
-                      {link.label}
-                    </NavLink>
+                      {link.label[language]}
+                    </ReactRouterDOM.NavLink>
                   );
               })}
             </nav>
 
-            {/* Right Side: Controls and Mobile Menu Toggle */}
             <div className="flex items-center">
               <div className="hidden lg:flex flex-col items-end">
-                {/* Top Row */}
                 <div className="flex items-center space-x-4">
                     <button onClick={toggleLanguage} className="border-2 border-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label={`Change language to ${language === 'en' ? 'Español' : 'English'}`}>
                       {language === 'en' 
@@ -150,19 +152,24 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn = false }) => {
                         : <SpainFlagIcon className="w-full h-full rounded-full" />
                       }
                     </button>
-                    <NavLink to="/donate">
+                    <ReactRouterDOM.NavLink to="/donate">
                         <button className="bg-brand-yellow text-brand-green-dark px-5 py-2 rounded-md text-base font-bold hover:opacity-90 transition-opacity shadow-md">
-                            {t('donateNow')}
+                            {uiText.donateNow[language]}
                         </button>
-                    </NavLink>
+                    </ReactRouterDOM.NavLink>
                 </div>
-                {/* Bottom Row */}
                 <div className="flex items-center space-x-4 text-white mt-3">
                     {renderSocialIcons("h-5 w-5")}
                 </div>
               </div>
 
-              <div className="lg:hidden ml-4">
+              <div className="lg:hidden flex items-center ml-4 space-x-2">
+                <button onClick={toggleLanguage} className="border-2 border-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-white/20 transition-colors" aria-label={`Change language to ${language === 'en' ? 'Español' : 'English'}`}>
+                    {language === 'en'
+                        ? <UsaFlagIcon className="w-full h-full rounded-full" />
+                        : <SpainFlagIcon className="w-full h-full rounded-full" />
+                    }
+                </button>
                 <button onClick={() => setIsMobileMenuOpen(true)} className="text-white p-2" aria-label="Open menu">
                   <MenuIcon />
                 </button>

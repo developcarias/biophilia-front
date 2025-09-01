@@ -11,17 +11,19 @@ if (!API_KEY) {
 
 const ai = new GoogleGenAI({ apiKey: API_KEY! });
 
-export const generateText = async (prompt: string): Promise<string> => {
+export const generateText = async (prompt: string, language: 'en' | 'es'): Promise<string> => {
   if (!API_KEY) {
     return "AI service is unavailable. Please configure the API key.";
   }
   
+  const languageName = language === 'es' ? 'Spanish' : 'English';
+
   try {
     const response = await ai.models.generateContent({
       model: "gemini-2.5-flash",
       contents: prompt,
       config: {
-        systemInstruction: "You are a professional copywriter for an environmental non-profit foundation named Biophilia. Write content that is inspiring, hopeful, clear, and action-oriented. Keep paragraphs concise.",
+        systemInstruction: `You are a professional copywriter for an environmental non-profit foundation named Biophilia. Write content that is inspiring, hopeful, clear, and action-oriented. Keep paragraphs concise. Your response MUST be in ${languageName}.`,
       }
     });
     return response.text;

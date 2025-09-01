@@ -15,28 +15,7 @@ export interface ValueItem {
   title: LocalizedText;
   text: LocalizedText;
   icon: string;
-}
-
-export interface HeroSlide {
-  id: string;
-  title: LocalizedText;
-  subtitle: LocalizedText;
-  imageUrl: string;
-}
-
-export interface ContentBlockType {
-  id: string;
-  title: LocalizedText;
-  text: LocalizedText;
-  imageUrl: string;
-  imageAlt: string;
-}
-
-export interface ActionLineItem {
-  id: string;
-  title: LocalizedText;
-  text: LocalizedText;
-  icon: 'BookOpenIcon' | 'LeafIcon' | 'SustainabilityIcon' | 'MegaphoneIcon';
+  imageUrl?: string;
 }
 
 export interface Project {
@@ -45,6 +24,8 @@ export interface Project {
   description: LocalizedText;
   imageUrl: string;
   imageAlt: string;
+  details: LocalizedText;
+  detailImageUrl: string;
 }
 
 export interface TeamMember {
@@ -68,54 +49,201 @@ export interface BlogPost {
   imageAlt: string;
 }
 
-export interface ContactContent {
-    title: LocalizedText;
-    intro: LocalizedText;
-    address: string;
-    phone: string;
-    email: string;
-    socialLinks: {
-        facebook: string;
-        instagram: string;
-        linkedin: string;
-        twitter: string;
-    };
-}
-
 export interface AlliancePartner {
     id: string;
     name: string;
     logoUrl: string;
 }
 
-export interface PageContent {
-  hero: HeroSlide[];
-  actionLines: {
-      title: LocalizedText;
-      items: ValueItem[];
-  };
-  home: ContentBlockType[];
-  about: {
-    title: LocalizedText;
-    history: TitledText;
-    historyImageUrl: string;
-    biophiliaExplanation: TitledText;
-    mission: ContentBlockType;
-    vision: ContentBlockType;
-    work: ContentBlockType;
-    values: {
-      title: LocalizedText;
-      items: ValueItem[];
+// NEW CMS STRUCTURE
+
+export interface NavLink {
+  id: string;
+  to: string;
+  label: LocalizedText;
+  end?: boolean;
+}
+
+export interface SocialLink {
+  id: 'facebook' | 'instagram' | 'linkedin' | 'twitter';
+  url: string;
+}
+
+export interface GlobalContent {
+  logoUrl: string;
+  navigation: NavLink[];
+  socialLinks: SocialLink[];
+  footer: {
+    slogan: LocalizedText;
+    copyright: LocalizedText;
+    // FIX: Added contact object to footer type definition to resolve type error.
+    contact: {
+      address: string;
+      email: string;
     };
+  }
+}
+
+export interface UIText {
+  donateNow: LocalizedText;
+  supportMission: LocalizedText;
+  viewAllProjects: LocalizedText;
+  learnMore: LocalizedText;
+  readMore: LocalizedText;
+  contact: LocalizedText;
+}
+
+export interface HeroSlide {
+  id: string;
+  title: LocalizedText;
+  subtitle: LocalizedText;
+  imageUrl: string;
+}
+
+export interface HomePageContent {
+  heroSlides: HeroSlide[];
+  welcome: {
+    titlePart1: LocalizedText; // "Welcome to"
+    titlePart2: LocalizedText; // "Biophilia Institute"
+    text: LocalizedText;
+    imageUrl: string;
+    imageAlt: string;
   };
-  projectsIntro: LocalizedText;
+  actionLines: {
+    title: LocalizedText;
+    items: ValueItem[];
+  };
+  latestProjects: {
+    title: LocalizedText;
+    subtitle: LocalizedText;
+  };
+  parallax1: {
+    title: LocalizedText;
+    text: LocalizedText;
+    imageUrl: string;
+  };
+  values: {
+    title: LocalizedText;
+    items: ValueItem[];
+  };
+  alliances: {
+    title: LocalizedText;
+    description: LocalizedText;
+    partners: AlliancePartner[];
+  };
+  parallax2: {
+    title: LocalizedText;
+    text: LocalizedText;
+    imageUrl: string;
+  }
+}
+
+export interface ContentBlockType {
+  title: LocalizedText;
+  text: LocalizedText;
+  imageUrl: string;
+  imageAlt: string;
+}
+
+export interface AboutPageContent {
+  banner: {
+    title: LocalizedText;
+    imageUrl: string;
+  };
+  history: {
+    title: LocalizedText;
+    text: LocalizedText;
+    imageUrl: string;
+  };
+  biophiliaExplanation: TitledText;
+  mission: ContentBlockType;
+  vision: ContentBlockType;
+  work: ContentBlockType;
+}
+
+export interface ProjectsPageContent {
+   banner: {
+    title: LocalizedText;
+    imageUrl: string;
+  };
+  intro: LocalizedText;
+}
+
+export interface ProjectDetailPageContent {
+  backToProjects: LocalizedText;
+}
+
+export interface TeamPageContent {
+   banner: {
+    title: LocalizedText;
+    imageUrl: string;
+  };
+}
+
+export interface BlogPageContent {
+   banner: {
+    title: LocalizedText;
+    imageUrl: string;
+  };
+  featuredPostTitle: LocalizedText;
+  recentPostsTitle: LocalizedText;
+  sharePostTitle: LocalizedText;
+}
+
+export interface ContactPageContent {
+   banner: {
+    title: LocalizedText;
+    imageUrl: string;
+  };
+  intro: LocalizedText;
+  addressTitle: LocalizedText;
+  phoneTitle: LocalizedText;
+  emailTitle: LocalizedText;
+  form: {
+    title: LocalizedText;
+    nameLabel: LocalizedText;
+    emailLabel: LocalizedText;
+    messageLabel: LocalizedText;
+    buttonText: LocalizedText;
+  }
+}
+
+export interface DonatePageContent {
+  banner: {
+    title: LocalizedText;
+    imageUrl: string;
+  };
+  intro: LocalizedText;
+  form: {
+    chooseAmount: LocalizedText;
+    customAmount: LocalizedText;
+    firstName: LocalizedText;
+    lastName: LocalizedText;
+    emailAddress: LocalizedText;
+    paymentPlaceholder: LocalizedText;
+    donateAmount: LocalizedText;
+  };
+  thankYou: {
+    title: LocalizedText;
+    text: LocalizedText;
+  }
+}
+
+// The main PageContent interface that holds the entire site's content
+export interface PageContent {
+  global: GlobalContent;
+  ui: UIText;
+  homePage: HomePageContent;
+  aboutPage: AboutPageContent;
+  projectsPage: ProjectsPageContent;
+  projectDetailPage: ProjectDetailPageContent;
+  teamPage: TeamPageContent;
+  blogPage: BlogPageContent;
+  contactPage: ContactPageContent;
+  donatePage: DonatePageContent;
+
+  // These are lists of items that can be referenced by other pages but are managed centrally
   projects: Project[];
   team: TeamMember[];
   blog: BlogPost[];
-  contact: ContactContent;
-  alliances: {
-      title: LocalizedText;
-      description: LocalizedText;
-      partners: AlliancePartner[];
-  };
 }
