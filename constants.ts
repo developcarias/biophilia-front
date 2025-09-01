@@ -91,8 +91,8 @@ export const INITIAL_CONTENT: PageContent = {
       titlePart1: { en: "Welcome to", es: "Bienvenidos a" },
       titlePart2: { en: "Biophilia Institute", es: "Biophilia Institute" },
       text: {
-        en: "We are a 501(c)(3) non-profit organization, established for charitable, educational, and scientific purposes. We connect people with nature to build sustainable, resilient, and conscious communities. We work with passion for environmental education, ecosystem conservation, and sustainable development, especially in vulnerable communities in the U.S.",
-        es: "Somos una organización sin fines de lucro 501(c)(3), constituida con fines benéficos, educativos y científicos. Conectamos a las personas con la naturaleza, para construir comunidades sostenibles, resilientes y conscientes. Trabajamos con pasión por la educación ambiental, la conservación de ecosistemas y el desarrollo sostenible, especialmente en comunidades vulnerables de EE.UU."
+        en: "We are a 501(c)(3) non-profit organization, established for charitable, educational, and scientific purposes. We connect people with nature to build sustainable, resilient, and conscious communities. We work with passion for environmental education, ecosystem conservation, and sustainable development, especially in vulnerable communities in the U.S.\n\nWe invite you to learn about our projects and join our mission, to contribute together to a just and sustainable future for all generations.\n\n\"Our affinity with nature is innate. Conserving it is vital.\"",
+        es: "Somos una organización sin fines de lucro 501(c)(3), constituida con fines benéficos, educativos y científicos. Conectamos a las personas con la naturaleza, para construir comunidades sostenibles, resilientes y conscientes. Trabajamos con pasión por la educación ambiental, la conservación de ecosistemas y el desarrollo sostenible, especialmente en comunidades vulnerables de EE.UU.\n\nTe invitamos a conocer nuestros proyectos e incorporarte a nuestra misión, para juntos contribuir a un futuro justo y sostenible para todas las generaciones.\n\n\"Nuestra afinidad con la naturaleza es innata. Conservarla es vital.\""
       },
       imageUrl: "https://biophiliaweb.org/images/bienvenidos-lineas-de-accion/1.bienvenidos.jpg",
       imageAlt: "A diverse group of people listening to a presentation"
@@ -106,8 +106,8 @@ export const INITIAL_CONTENT: PageContent = {
             es: 'Educación'
           },
           text: {
-            en: 'We design educational experiences that promote connection with nature and scientific knowledge for the care of ecosystems.',
-            es: 'Diseñamos experiencias educativas que promueven la conexión con la naturaleza y el conocimiento científico para el cuidado de los ecosistemas.'
+            en: '"We only conserve what we love, and we only love what we understand."\nWe facilitate transformative learning processes that connect scientific knowledge with direct experience in nature, sowing understanding and sensitivity as the foundation for its care.',
+            es: '"Solo conservamos lo que amamos, y solo amamos lo que entendemos."\nFacilitamos procesos de aprendizaje transformadores que conectan el saber científico con la vivencia directa en la naturaleza, sembrando comprensión y sensibilidad como cimiento para su cuidado.'
           },
           icon: 'BookOpenIcon',
           imageUrl: 'https://biophiliaweb.org/images/bienvenidos-lineas-de-accion/2.educacion.jpg'
@@ -118,8 +118,8 @@ export const INITIAL_CONTENT: PageContent = {
             en: 'Conservation',
             es: 'Conservación'
           }, text: {
-            en: 'We promote conservation and ecological restoration actions with community participation to protect local ecosystems.',
-            es: 'Impulsamos acciones de conservación y restauración ecológica con participación comunitaria para proteger los ecosistemas locales.'
+            en: '"Nature is resilient, but not infinite."\nWe develop conservation and ecological restoration initiatives, involving communities through collaborative actions that reinforce the bond between people and their environment.',
+            es: '"La naturaleza es resiliente, pero no infinita."\nDesarrollamos iniciativas de conservación y restauración ecológica, involucrando a comunidades mediante acciones colaborativas que refuerzan el vínculo entre las personas y su entorno.'
           },
           icon: 'LeafIcon',
           imageUrl: 'https://biophiliaweb.org/images/bienvenidos-lineas-de-accion/3.conservacion.jpg'
@@ -130,8 +130,8 @@ export const INITIAL_CONTENT: PageContent = {
             en: 'Sustainability',
             es: 'Sostenibilidad'
           }, text: {
-            en: 'We promote sustainable solutions based on science and local action to improve quality of life and environmental resilience.',
-            es: 'Promovemos soluciones sostenibles basadas en ciencia y acción local para mejorar la calidad de vida y la resiliencia ambiental.'
+            en: '"Living with respect and acting with awareness are the basis of sustainability."\nWe promote sustainable practices that integrate knowledge, culture, and local action, strengthening healthy environments and ways of life in balance with the natural environment.',
+            es: '"Vivir con respeto y actuar con conciencia son la base de la sostenibilidad."\nImpulsamos prácticas sostenibles que integran conocimiento, cultura y acción local, fortaleciendo entornos sanos y formas de vida en equilibrio con el entorno natural.'
           },
           icon: 'SustainabilityIcon',
           imageUrl: 'https://biophiliaweb.org/images/bienvenidos-lineas-de-accion/4.sostenibilidad.jpg'
@@ -140,8 +140,8 @@ export const INITIAL_CONTENT: PageContent = {
           id: 'action_leadership',
           title: { en: 'Leadership', es: 'Liderazgo' },
           text: {
-            en: 'We strengthen Hispanic environmental leadership through training in Spanish, strategic alliances, and advocacy in public policies.',
-            es: 'Fortalecemos el liderazgo ambiental hispano a través de formación en español, alianzas estratégicas e incidencia en políticas públicas.'
+            en: '"Science guides, leadership transforms."\nWe train committed environmental leaders, capable of articulating science, identity, and collective action to generate lasting changes in their communities and ecosystems.',
+            es: '"La ciencia guía, el liderazgo transforma."\nFormamos líderes ambientales comprometidos, capaces de articular ciencia, identidad y acción colectiva para generar cambios duraderos en sus comunidades y ecosistemas.'
           },
           icon: 'MegaphoneIcon',
           imageUrl: 'https://biophiliaweb.org/images/bienvenidos-lineas-de-accion/5.liderazo.jpg'
@@ -151,8 +151,8 @@ export const INITIAL_CONTENT: PageContent = {
     latestProjects: {
       title: { en: 'Our Projects', es: 'Nuestros Proyectos' },
       subtitle: {
-        en: "See how we're making a difference in our communities.",
-        es: 'Vea cómo estamos marcando la diferencia en nuestras comunidades.'
+        en: "“We transform ideas into action, to act locally and influence globally.”\nWe base our projects on scientific evidence, providing educational and conservation tools to develop resilient and sustainable models that improve the quality of life in vulnerable communities in the U.S.",
+        es: '“Transformamos las ideas en acción, para actuar localmente e incidir globalmente”.\nFundamentamos nuestros proyectos en evidencia científica, proporcionando herramientas educativas y de conservación para desarrollar modelos resilientes y sostenibles que mejoren la calidad de vida en comunidades vulnerables de EE.UU.'
       }
     },
     parallax1: {
@@ -163,73 +163,29 @@ export const INITIAL_CONTENT: PageContent = {
     values: {
       title: { en: 'Our Values', es: 'Nuestros Valores' },
       items: [
-        { id: 'value_1', title: { en: 'Transformative Education', es: 'Educación transformadora' }, text: { en: 'We believe in education as an engine of change for individual, community, and sustainable development.', es: 'Creemos en la educación como motor de cambio para el desarrollo individual, comunitario y sostenible.' }, icon: 'BookOpenIcon' },
-        { id: 'value_2', title: { en: 'Science with Purpose', es: 'Ciencia con propósito' }, text: { en: 'We use scientific knowledge to design concrete solutions to social and environmental challenges.', es: 'Utilizamos el conocimiento científico para diseñar soluciones concretas a los desafíos sociales y ambientales.' }, icon: 'BeakerIcon' },
-        { id: 'value_3', title: { en: 'Connection with Nature', es: 'Conexión con la naturaleza' }, text: { en: 'We foster the connection with the natural environment as the basis for a healthy and conscious life.', es: 'Fomentamos la conexión con el entorno natural como base para una vida saludable y consciente.' }, icon: 'LeafIcon' },
-        { id: 'value_4', title: { en: 'Community Leadership', es: 'Liderazgo comunitario' }, text: { en: 'We promote local protagonism as the central axis of sustainable change.', es: 'Impulsamos el protagonismo local como eje central del cambio sostenible.' }, icon: 'UsersIcon' },
-        { id: 'value_5', title: { en: 'Collaboration', es: 'Colaboración' }, text: { en: 'We believe in the power of joint work between communities, institutions, and diverse sectors to generate impact.', es: 'Creemos en el poder del trabajo conjunto entre comunidades, instituciones y sectores diversos para generar impacto.' }, icon: 'HandshakeIcon' },
-        { id: 'value_6', title: { en: 'Social Equity', es: 'Equidad social' }, text: { en: 'We work with and for vulnerable communities, respecting diversity and promoting inclusion.', es: 'Trabajamos con y para comunidades vulnerables, respetando la diversidad y promoviendo la inclusión.' }, icon: 'EquityIcon' },
+        { id: 'value_1', title: { en: 'Connection with Nature', es: 'Conexión con la naturaleza' }, text: { en: 'We foster the connection with the natural environment as the basis for a healthy and conscious life.', es: 'Fomentamos la conexión con el entorno natural como base para una vida saludable y consciente.' }, icon: 'LeafIcon' },
+        { id: 'value_2', title: { en: 'Transformative Education', es: 'Educación transformadora' }, text: { en: 'We believe in education as a driver of change for individual, community, and sustainable development.', es: 'Creemos en la educación como motor de cambio para el desarrollo individual, comunitario y sostenible.' }, icon: 'BookOpenIcon' },
+        { id: 'value_3', title: { en: 'Science with Purpose', es: 'Ciencia con propósito' }, text: { en: 'We use scientific knowledge to design concrete solutions to social and environmental challenges.', es: 'Utilizamos el conocimiento científico para diseñar soluciones concretas a los desafíos sociales y ambientales.' }, icon: 'BeakerIcon' },
+        { id: 'value_4', title: { en: 'Social Equity', es: 'Equidad social' }, text: { en: 'We work with and for vulnerable communities, respecting diversity and promoting inclusion.', es: 'Trabajamos con y para comunidades vulnerables, respetando la diversidad y promoviendo la inclusión.' }, icon: 'EquityIcon' },
+        { id: 'value_5', title: { en: 'Community Leadership', es: 'Liderazgo comunitario' }, text: { en: 'We promote local leadership as the central axis of sustainable change.', es: 'Impulsamos el protagonismo local como eje central del cambio sostenible.' }, icon: 'UsersIcon' },
+        { id: 'value_6', title: { en: 'Collaboration', es: 'Colaboración' }, text: { en: 'We believe in the power of joint work between communities, institutions, and diverse sectors to generate impact.', es: 'Creemos en el poder del trabajo conjunto entre comunidades, instituciones y sectores diversos para generar impacto.' }, icon: 'HandshakeIcon' },
       ],
     },
     alliances: {
-      title: { en: "Our Alliances", es: "Nuestras Alianzas" },
+      title: { en: "Our Alliances", es: "Alianzas" },
       description: { en: "We collaborate with public and private organizations that strengthen our impact.", es: "Colaboramos con organizaciones públicas y privadas que fortalecen nuestro impacto." },
       partners: [
-        {
-          id: 'aliance_1',
-          name: 'Hispanic Federation',
-          logoUrl: 'https://biophiliaweb.org/images/aliados/1.png'
-        },
-        {
-          id: 'aliance_2',
-          name: 'Hispanic Access Foundation',
-          logoUrl: 'https://biophiliaweb.org/images/aliados/2.png'
-        },
-        {
-          id: 'aliance_3',
-          name: 'City of Orlando',
-          logoUrl: 'https://biophiliaweb.org/images/aliados/3.png'
-        },
-        {
-          id: 'aliance_4',
-          name: 'Inwater Research Group',
-          logoUrl: 'https://biophiliaweb.org/images/aliados/4.jpg'
-        },
-        {
-          id: 'aliance_5',
-          name: 'Orange Audubon',
-          logoUrl: 'https://biophiliaweb.org/images/aliados/5.jpg'
-        },
-        {
-          id: 'aliance_6',
-          name: 'The Episcopal Churches of Christ the King and Jesús de Nazaret',
-          logoUrl: 'https://biophiliaweb.org/images/aliados/6.png'
-        },
-        {
-          id: 'aliance_7',
-          name: 'Renacer Foundation',
-          logoUrl: 'https://biophiliaweb.org/images/aliados/7.png'
-        },
-        {
-          id: 'aliance_8',
-          name: 'Casa de Venezuela Orlando',
-          logoUrl: 'https://biophiliaweb.org/images/aliados/8.png'
-        },
-        {
-          id: 'aliance_9',
-          name: 'Mi familia en Acción',
-          logoUrl: 'https://biophiliaweb.org/images/aliados/9.png'
-        },
-        {
-          id: 'aliance_10',
-          name: 'Nuestra cultura Outdoors',
-          logoUrl: 'https://biophiliaweb.org/images/aliados/10.jpg'
-        },
-        {
-          id: 'aliance_11',
-          name: 'Observatorio Ambiental Hispano',
-          logoUrl: 'https://biophiliaweb.org/images/aliados/11.jpg'
-        },
+        { id: 'aliance_1', name: 'Hispanic Federation', logoUrl: 'https://biophiliaweb.org/images/aliados/1.png' },
+        { id: 'aliance_2', name: 'Hispanic Access Foundation', logoUrl: 'https://biophiliaweb.org/images/aliados/2.png' },
+        { id: 'aliance_3', name: 'City of Orlando', logoUrl: 'https://biophiliaweb.org/images/aliados/3.png' },
+        { id: 'aliance_4', name: 'Inwater Research Group', logoUrl: 'https://biophiliaweb.org/images/aliados/4.jpg' },
+        { id: 'aliance_5', name: 'Orange Audubon', logoUrl: 'https://biophiliaweb.org/images/aliados/5.jpg' },
+        { id: 'aliance_6', name: 'The Episcopal Churches of Christ the King and Jesús de Nazaret', logoUrl: 'https://biophiliaweb.org/images/aliados/6.png' },
+        { id: 'aliance_7', name: 'Renacer Foundation', logoUrl: 'https://biophiliaweb.org/images/aliados/7.png' },
+        { id: 'aliance_8', name: 'Casa de Venezuela Orlando', logoUrl: 'https://biophiliaweb.org/images/aliados/8.png' },
+        { id: 'aliance_9', name: 'Mi familia en Acción', logoUrl: 'https://biophiliaweb.org/images/aliados/9.png' },
+        { id: 'aliance_10', name: 'Nuestra cultura Outdoors', logoUrl: 'https://biophiliaweb.org/images/aliados/10.jpg' },
+        { id: 'aliance_11', name: 'Observatorio Ambiental Hispano', logoUrl: 'https://biophiliaweb.org/images/aliados/11.jpg' },
       ]
     },
     parallax2: {
@@ -240,29 +196,29 @@ export const INITIAL_CONTENT: PageContent = {
   },
   aboutPage: {
     banner: {
-      title: { en: "About Us", es: "Nosotros" },
+      title: { en: "About Us", es: "NOSOTROS" },
       imageUrl: "https://biophiliaweb.org/images/nosotros/nostros.jpg"
     },
     history: {
       title: { en: "Our History", es: "Nuestra Historia" },
       text: {
-        en: "Biophilia Institute arises from the concern of a group of professionals specialized in environmental matters and sustainability, who, based on our experience, identified the need to connect and educate citizens with the aquatic and terrestrial ecosystems where they live, to foster experiential learning that increases their understanding, appreciation, and participation in their conservation.\nWe began in June 2020, supporting and organizing actions together with various social and environmental organizations in Orlando and Central Florida. In 2023, we created the Hispanic Environmental Observatory (OAH), a coalition of organizations to incorporate the Hispanic community, providing information and actions in Spanish, to increase their participation in the State's environmental movement. In 2025, we formalized Biophilia Institute, a non-profit organization established exclusively for charitable, educational, and scientific purposes, as provided in Section 501(c)(3) of the Internal Revenue Code (IRS), to promote environmental leadership in the Hispanic community, promoting education, conservation, and sustainable development projects in connection with nature to achieve well-being, prosperity, and a sustainable future in all communities, especially minority and vulnerable communities in the U.S.",
-        es: "Biophilia Institute, surge de la inquietud de un grupo de profesionales especializados en materia ambiental y sostenibilidad, quienes, basados en nuestra experiencia, identificamos la necesidad de conectar y educar a los ciudadanos con los ecosistemas acuáticos y terrestres donde habitan, para propiciar aprendizajes vivenciales que aumenten su entendimiento, valoración y participación en la conservación de los mismos.\nComenzamos en junio de 2020, apoyando y organizando acciones junto con diversas organizaciones sociales y ambientales de Orlando y la Florida Central. En 2023, creamos el Observatorio Ambiental Hispano (OAH), una coalición de organizaciones para incorporar a la comunidad hispana, facilitando información y acciones en español, con el fin de aumentar su participación en el movimiento ambiental del Estado. En 2025, formalizamos a Biophilia Institute, una organización sin fines de lucro constituida exclusivamente con fines benéficos, educativos y científicos, según lo dispuesto en la Sección 501(c)(3) del Código de Rentas Internas (IRS), para impulsar el liderazgo ambiental en la comunidad hispana, promoviendo proyectos de educación, conservación y desarrollo sostenible en conexión con la naturaleza para lograr bienestar, prosperidad y un futuro sostenible en todas las comunidades, especialmente comunidades minoritarias y vulnerables en EE.UU."
+        en: "Biophilia Institute was born from the concern of a group of professionals in environment and sustainability, who, from our experience, identified the need to connect and educate citizens about the aquatic and terrestrial ecosystems they inhabit. Our purpose is to generate experiential experiences that promote understanding, appreciation, and participation in their conservation.\n\nSince June 2020, we have promoted initiatives with social and environmental organizations in Orlando and Central Florida. In 2023, we created the Hispanic Environmental Observatory (OAH), a coalition that provides information and actions in Spanish to strengthen the Hispanic community's participation in the environmental movement. In 2025, we formalized Biophilia Institute as a 501(c)(3) non-profit organization, for educational, scientific, and public benefit purposes, focused on promoting education, conservation, and sustainability projects aimed at well-being and equity, and a sustainable future in all communities, especially minority and vulnerable communities in the U.S.",
+        es: "Biophilia Institute nace de la inquietud de un grupo de profesionales en ambiente y sostenibilidad, quienes, a partir de nuestra experiencia, identificamos la necesidad de conectar y educar a la ciudadanía sobre los ecosistemas acuáticos y terrestres que habitan. Nuestro propósito es generar experiencias vivenciales que fomenten el entendimiento, la valoración y la participación en su conservación.\n\nDesde junio de 2020 hemos impulsado iniciativas junto a organizaciones sociales y ambientales de Orlando y Florida Central. En 2023 creamos el Observatorio Ambiental Hispano (OAH), una coalición que brinda información y acciones en español para fortalecer la participación de la comunidad hispana en el movimiento ambiental. En 2025 formalizamos a Biophilia Institute como una organización sin fines de lucro 501(c)(3), con fines educativos, científicos y de beneficio público, centrada en promover proyectos de educación, conservación y sostenibilidad orientados al bienestar y la equidad, y un futuro sostenible en todas las comunidades, especialmente comunidades minoritarias y vulnerables en EE.UU."
       },
       imageUrl: "https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=800&h=600&fit=crop"
     },
     biophiliaExplanation: {
       title: { en: "Our Name", es: "Nuestro Nombre" },
       text: {
-        en: "Our name comes from the term Biophilia, which means the innate connection that we humans have with nature. Erich Fromm was the first to use the term, and later, Harvard biologist Edward O. Wilson developed the concept, motivating scientists and educators to increase people's experiential experiences with natural environments, as an expedient way for them to understand, value, and conserve ecosystems, and in turn, their quality of life and that of their surroundings.",
-        es: "Nuestro nombre proviene del término Biophilia que significa la conexión innata que tenemos los seres humanos con la naturaleza. Erich Fromm fue el primero en utilizar el término, y luego, Edward O. Wilson, biólogo de Harvard, desarrolló el concepto, motivando a científicos y educadores a aumentar experiencias vivenciales de personas con entornos naturales, como vía expedita para que puedan entender, valorar y conservar los ecosistemas, y a su vez, su calidad de vida y la de su entorno."
+        en: "The name comes from the concept of “Biophilia”, coined by Erich Fromm and developed by biologist Edward O. Wilson, which refers to the innate connection of human beings with nature. This principle is our guide, to facilitate transformative experiences with natural environments as a basis for greater ecological awareness, community resilience, and improvement of quality of life.",
+        es: "El nombre proviene del concepto “Biophilia”, acuñado por Erich Fromm y desarrollado por el biólogo Edward O. Wilson, que alude a la conexión innata del ser humano con la naturaleza. Este principio es nuestra guía, para facilitar experiencias transformadoras con entornos naturales como base para una mayor conciencia ecológica, resiliencia comunitaria y mejora de la calidad de vida."
       }
     },
     mission: {
       title: { en: "Mission", es: "Misión" },
       text: {
-        en: "To strengthen sustainable and resilient communities, through scientific, educational, and local leadership tools, in harmony with nature, to promote ecosystem conservation and sustainable development.",
-        es: "Fortalecer comunidades sostenibles y resilientes, mediante herramientas científicas, educativas y de liderazgo local, en armonía con la naturaleza, para promover la conservación de ecosistemas y el desarrollo sostenible."
+        en: "To promote the conservation of ecosystems and sustainable development through a continuous connection with nature, using scientific and educational tools that strengthen local leadership and contribute to the construction of sustainable and resilient communities.",
+        es: "Promover la conservación de los ecosistemas y el desarrollo sostenible a través de una conexión continua con la naturaleza, utilizando herramientas científicas y educativas que fortalezcan el liderazgo local y contribuyan a la construcción de comunidades sostenibles y resilientes."
       },
       imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=800&h=600&fit=crop",
       imageAlt: "A person's hands drawing a business plan on a whiteboard"
@@ -279,8 +235,8 @@ export const INITIAL_CONTENT: PageContent = {
     work: {
       title: { en: "Our Work", es: "Nuestro Trabajo" },
       text: {
-        en: "We design and lead educational programs focused on vulnerable communities, always integrating a deep connection with nature. Our goal is to promote the conservation of local ecosystems, community environmental empowerment, and the valuation of biodiversity as key tools to improve the quality of life and build a sustainable future.\nWe develop a wide range of activities, including: practical workshops, forums, conferences, guided tours, recreational activities, and training spaces that address topics such as: sustainable urban agriculture, urban forests, community gardens, hydroponic production, biodiversity conservation, sea turtles, environmental education, climate resilience, sustainable development, clean energies, among others.\nWe carry out this work in alliance with public and private organizations that provide us with economic, institutional, and operational support, thus strengthening our impact in the territories where we operate.",
-        es: "Diseñamos y lideramos programas educativos enfocados en comunidades vulnerables, integrando siempre una profunda conexión con la naturaleza. Nuestro objetivo es promover la conservación de los ecosistemas locales, el empoderamiento ambiental comunitario y la valorización de la biodiversidad como herramientas clave para mejorar la calidad de vida y construir un futuro sostenible.\nDesarrollamos una amplia gama de actividades, entre ellas: talleres prácticos, foros, conferencias, recorridos guiados, actividades recreativas y espacios formativos que abordan temas como: agricultura urbana sostenible, bosques urbanos, jardines comunitarios, producción hidropónica, conservación de la biodiversidad, tortugas marinas, educación ambiental, resiliencia climática, desarrollo sustentable, energías limpias, entre otros.\nEste trabajo lo realizamos en alianza con organizaciones públicas y privadas que nos brindan respaldo económico, institucional y operativo, fortaleciendo así nuestro impacto en los territorios donde actuamos."
+        en: "At Biophilia Institute, we promote comprehensive environmental solutions that combine science, education, and community action, with a special focus on historically underrepresented communities. Our projects promote ecosystem conservation, ecological restoration, urban agriculture, community resilience, and youth leadership, applying methodologies based on scientific evidence and experiential learning.\n\nWe facilitate access to environmental information in Spanish to strengthen Hispanic participation in decision-making, and we articulate alliances with public, academic, and community institutions to expand the impact of our actions. Inspired by the principle of biophilia, we recognize the innate connection between people and nature as an essential foundation for building more conscious, resilient, and sustainable societies.",
+        es: "En Biophilia Institute impulsamos soluciones ambientales integrales que combinan ciencia, educación y acción comunitaria, con un enfoque especial en comunidades históricamente subrepresentadas. Nuestros proyectos promueven la conservación de ecosistemas, la restauración ecológica, la agricultura urbana, la resiliencia comunitaria y el liderazgo juvenil, aplicando metodologías basadas en evidencia científica y aprendizaje vivencial.\n\nFacilitamos el acceso a información ambiental en español para fortalecer la participación hispana en la toma de decisiones, y articulamos alianzas con instituciones públicas, académicas y comunitarias para ampliar el impacto de nuestras acciones. Inspirados en el principio de biophilia, reconocemos la conexión innata entre las personas y la naturaleza como fundamento esencial para construir sociedades más conscientes, resilientes y sostenibles."
       },
       imageUrl: 'https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=800&h=600&fit=crop',
       imageAlt: 'People working together in a workshop'
@@ -292,8 +248,8 @@ export const INITIAL_CONTENT: PageContent = {
       imageUrl: "https://biophiliaweb.org/images/proyectos/Imaen de fondo.jpg"
     },
     intro: {
-      en: "We start from the principle of transforming ideas into concrete actions, acting at a local level with a global vision. We design and implement projects based on scientific evidence, focused on environmental education, ecosystem conservation, and sustainable development. Our work is aimed at strengthening community capacities and promoting resilient and sustainable management models, with the purpose of improving the quality of life in vulnerable communities in the United States.",
-      es: "Partimos del principio de transformar las ideas en acciones concretas, actuando a nivel local con una visión global. Diseñamos e implementamos proyectos basados en evidencia científica, enfocados en la educación ambiental, la conservación de ecosistemas y el desarrollo sostenible. Nuestro trabajo se orienta al fortalecimiento de capacidades comunitarias y a la promoción de modelos de gestión resilientes y sostenibles, con el propósito de mejorar la calidad de vida en comunidades vulnerables de los Estados Unidos."
+      en: "We base our projects on scientific evidence, providing educational and conservation tools to develop resilient and sustainable models that improve the quality of life in vulnerable communities in the U.S.",
+      es: "Fundamentamos nuestros proyectos en evidencia científica, proporcionando herramientas educativas y de conservación para desarrollar modelos resilientes y sostenibles que mejoren la calidad de vida en comunidades vulnerables de EE.UU."
     }
   },
   projectDetailPage: {
@@ -307,7 +263,7 @@ export const INITIAL_CONTENT: PageContent = {
   },
   blogPage: {
     banner: {
-      title: { en: 'Our Blog', es: 'Nuestro Blog' },
+      title: { en: 'Articles & News', es: 'Artículos y Noticias' },
       imageUrl: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1920&h=1080&fit=crop"
     },
     featuredPostTitle: { en: 'Featured Post', es: 'Artículo Destacado' },
@@ -353,84 +309,75 @@ export const INITIAL_CONTENT: PageContent = {
   },
   projects: [
     {
-      id: 'project_forest',
-      title: { en: "Faith Community Forest, an urban ecological corridor in Central Florida", es: "Bosque comunitario de la Fé, un corredor ecológico urbano en la Florida Central" },
-      description: { en: "In June we started this project, where we will develop training, reforestation and conservation actions of the urban forest in the community of Azalea Park, in Orlando. The project is for two years, financed through the \"Nuestros Bosques\" program, promoted by the Hispanic Access Foundation together with the United States Forest Service.", es: "In June we started this project, where we will develop training, reforestation and conservation actions of the urban forest in the community of Azalea Park, in Orlando. The project is for two years, financed through the \"Nuestros Bosques\" program, promoted by the Hispanic Access Foundation together with the United States Forest Service." },
+      id: 'project_urban_forest',
+      title: { en: "Urban Forest & Biodiversity Project", es: "Urban Forest & Biodiversity Project" },
+      description: { en: "An interdisciplinary initiative based on urban ecology principles, seeking to design, restore, and conserve a functional network of biodiverse urban forests, ecological corridors, and multifunctional green spaces in Central Florida.", es: "Es una iniciativa interdisciplinaria basada en principios de ecología urbana, que busca diseñar, restaurar y conservar una red funcional de bosques urbanos biodiversos, corredores ecológicos y espacios verdes multifuncionales en Florida Central." },
       imageUrl: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=800&h=600&fit=crop',
       imageAlt: 'Lush green forest corridor',
-      details: { en: 'Detailed information about the Faith Community Forest project. This initiative focuses on restoring urban green spaces to create a biodiverse corridor. We partner with local communities to plant native trees, remove invasive species, and conduct educational workshops on the importance of urban forests for both ecological health and human well-being. The project aims to improve air quality, reduce urban heat island effect, and provide a natural sanctuary for residents.', es: 'Información detallada sobre el proyecto Bosque Comunitario de la Fé. Esta iniciativa se enfoca en restaurar espacios verdes urbanos para crear un corredor biodiverso. Nos asociamos con comunidades locales para plantar árboles nativos, eliminar especies invasoras y realizar talleres educativos sobre la importancia de los bosques urbanos para la salud ecológica y el bienestar humano. El proyecto tiene como objetivo mejorar la calidad del aire, reducir el efecto de isla de calor urbano y proporcionar un santuario natural para los residentes.'},
+      details: { en: 'An interdisciplinary initiative based on urban ecology principles, seeking to design, restore, and conserve a functional network of biodiverse urban forests, ecological corridors, and multifunctional green spaces in Central Florida. It integrates criteria of sustainable urban forestry, ecological engineering, and community governance, in order to mitigate high temperatures, improve air quality, restore key habitats, strengthen ecological and social resilience, and promote healthier cities in a context of rapid urban growth.\n“Since June 2025, we have been developing the project “Faith Community Forest, an ecological corridor in Central Florida”, in alliance with...”', es: 'Es una iniciativa interdisciplinaria basada en principios de ecología urbana, que busca diseñar, restaurar y conservar una red funcional de bosques urbanos biodiversos, corredores ecológicos y espacios verdes multifuncionales en Florida Central. Integra criterios de silvicultura urbana sostenible, ingeniería ecológica y gobernanza comunitaria, con el fin de mitigar las altas temperaturas, mejorar la calidad del aire, restaurar hábitats clave, fortalecer la resiliencia ecológica y social, y promover ciudades más saludables en un contexto de rápido crecimiento urbano.\n“Desde junio 2025 desarrollamos en el proyecto “Bosque comunitario de la Fe, un corredor ecoloico en la Florida Central”, en alianza con…...”' },
       detailImageUrl: 'https://images.unsplash.com/photo-1542601906-8b6a35da7528?q=80&w=800&fit=crop',
     },
     {
-      id: 'project_agriculture',
-      title: { en: "Sustainable urban agriculture", es: "Sustainable urban agriculture" },
-      description: { en: "Starting in January 2025, in partnership with the Engelwood Neighborhood Center in Orlando, we are restoring its community garden and launching a continuing education program in sustainable urban agriculture for children, youth, and seniors visiting the center.", es: "Starting in January 2025, in partnership with the Engelwood Neighborhood Center in Orlando, we are restoring its community garden and launching a continuing education program in sustainable urban agriculture for children, youth, and seniors visiting the center." },
+      id: 'project_urban_harvest',
+      title: { en: "Urban Harvest Project", es: "Urban Harvest project" },
+      description: { en: "We are developing an educational and participatory model of sustainable urban agriculture that promotes regenerative agricultural practices, local food security, and intergenerational connection (children, youth, and seniors) around ecological cultivation in urban contexts.", es: "Desarrollamos un modelo educativo y participativo de agricultura urbana sostenible que promueve prácticas agrícolas regenerativas, seguridad alimentaria local y conexión intergeneracional (niños, jóvenes y adultos mayores) en torno al cultivo ecológico en contextos urbanos." },
       imageUrl: 'https://images.unsplash.com/photo-1492496913980-501348b61469?q=80&w=800&h=600&fit=crop',
       imageAlt: 'Hands holding a small plant in a community garden',
-      details: { en: 'This project promotes food security and community bonding through sustainable urban agriculture. We provide workshops on composting, organic gardening, and water conservation techniques. The community garden serves as an outdoor classroom and a source of fresh, healthy produce for the neighborhood. Our goal is to empower residents with the skills to grow their own food and foster a more sustainable local food system.', es: 'Este proyecto promueve la seguridad alimentaria y los lazos comunitarios a través de la agricultura urbana sostenible. Ofrecemos talleres sobre compostaje, jardinería orgánica y técnicas de conservación de agua. El jardín comunitario sirve como un aula al aire libre y una fuente de productos frescos y saludables para el vecindario. Nuestro objetivo es capacitar a los residentes con las habilidades para cultivar sus propios alimentos y fomentar un sistema alimentario local más sostenible.'},
+      details: { en: 'We are developing an educational and participatory model of sustainable urban agriculture that promotes regenerative agricultural practices, local food security, and intergenerational connection (children, youth, and seniors) around ecological cultivation in urban contexts.\n“Since February 2025, we have been developing it in the community garden of the Engelwood Neighborhood Center, in alliance with the city of Orlando.”', es: 'Desarrollamos un modelo educativo y participativo de agricultura urbana sostenible que promueve prácticas agrícolas regenerativas, seguridad alimentaria local y conexión intergeneracional (niños, jóvenes y adultos mayores) en torno al cultivo ecológico en contextos urbanos.\n“Desde febrero de 2025 lo desarrollamos en el Jardín comunitario del Engelwood Neighborhood Center, en alianza con la ciudad de Orlando.”' },
       detailImageUrl: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=800&fit=crop',
     },
     {
-      id: 'project_hydroponic',
-      title: { en: "Resilient Communities", es: "Comunidades resilientes" },
-      description: { en: "Through the same partnership with the Engelwood Neighborhood Center in Orlando, since January we have been holding training workshops on hydroponic food production, aimed at children, youth, and seniors who visit the center.", es: "Through the same partnership with the Engelwood Neighborhood Center in Orlando, since January we have been holding training workshops on hydroponic food production, aimed at children, youth, and seniors who visit the center." },
-      imageUrl: 'https://images.unsplash.com/photo-1598997316248-284534152112?q=80&w=800&h=600&fit=crop',
-      imageAlt: 'Hydroponic farming system with green lettuce',
-      details: { en: 'Our Resilient Communities program focuses on innovative and space-efficient food production methods like hydroponics. These workshops teach participants how to set up and maintain hydroponic systems, enabling them to grow fresh produce year-round with minimal water and space. This initiative is key to building climate resilience and ensuring access to nutritious food in urban environments.', es: 'Nuestro programa de Comunidades Resilientes se enfoca en métodos de producción de alimentos innovadores y eficientes en el espacio como la hidroponía. Estos talleres enseñan a los participantes cómo instalar y mantener sistemas hidropónicos, permitiéndoles cultivar productos frescos durante todo el año con un mínimo de agua y espacio. Esta iniciativa es clave para construir resiliencia climática y garantizar el acceso a alimentos nutritivos en entornos urbanos.'},
-      detailImageUrl: 'https://images.unsplash.com/photo-1617196034183-42491566a38b?q=80&w=800&fit=crop',
-    },
-    {
-      id: 'project_turtles',
-      title: { en: "Ocean Guardians", es: "Guardianes del Océano" },
-      description: { en: "We are ambassadors for Central Florida for the educational project \"Amigos de las tortugas marinas\". To date, we have reached out to at least 210 people of all ages, who have learned in a practical way about the characteristics, types, habits, and ways to contribute to the conservation of this species.", es: "We are ambassadors for Central Florida for the educational project \"Amigos de las tortugas marinas\", To date, we have reached out to at least 210 people of all ages, who have learned in a practical way about the characteristics, types, habits, and ways to contribute to the conservation of this species." },
+      id: 'project_ocean_guardians',
+      title: { en: "Ocean Guardians Project", es: "Ocean guardians Project" },
+      description: { en: "We promote experiential learning for the conservation of biodiversity and restoration of marine ecosystems, through environmental education and participatory workshops for the reduction of plastics and restoration of marine habitats.", es: "Promovemos aprendizaje experiencial para la conservación de la biodiversidad y restauración de ecosistemas marinos, a través de educación ambiental y jornadas participativas para la reducción de plásticos y restauración de hábitat marinos, incorporando a la comunidad y en alianza con organizaciones científicas y ambientales." },
       imageUrl: 'https://images.unsplash.com/photo-1551922253-06630b7396c2?q=80&w=800&h=600&fit=crop',
       imageAlt: 'A sea turtle swimming in the ocean',
-      details: { en: 'As "Ocean Guardians," we raise awareness about marine conservation, focusing on threatened species like sea turtles. Our educational outreach includes beach clean-ups, workshops on reducing plastic pollution, and informational sessions at schools and community centers. We aim to inspire a new generation of environmental stewards dedicated to protecting our precious marine ecosystems.', es: 'Como "Guardianes del Océano", creamos conciencia sobre la conservación marina, enfocándonos en especies amenazadas como las tortugas marinas. Nuestro alcance educativo incluye limpiezas de playas, talleres sobre la reducción de la contaminación plástica y sesiones informativas en escuelas y centros comunitarios. Nuestro objetivo es inspirar a una nueva generación de administradores ambientales dedicados a proteger nuestros preciosos ecosistemas marinos.'},
+      details: { en: 'We promote experiential learning for the conservation of biodiversity and restoration of marine ecosystems, through environmental education and participatory workshops for the reduction of plastics and restoration of marine habitats, incorporating the community and in alliance with scientific and environmental organizations.\n“We are ambassadors in Central Florida for the educational program -Friends of the Sea Turtles- through an alliance with Inwater Research Group.”', es: 'Promovemos aprendizaje experiencial para la conservación de la biodiversidad y restauración de ecosistemas marinos, a través de educación ambiental y jornadas participativas para la reducción de plásticos y restauración de hábitat marinos, incorporando a la comunidad y en alianza con organizaciones científicas y ambientales.\n“Somos embajadores en la Florida Central, del programa educativo -Amigos de las tortugas marinas- a través de alianza con Iwater Group”' },
       detailImageUrl: 'https://images.unsplash.com/photo-1506241537240-57a5e0f58469?q=80&w=800&fit=crop',
     },
     {
-      id: 'project_hispanics',
-      title: { en: "Connecting Hispanics with ecosystems", es: "Connecting Hispanics with ecosystems" },
-      description: { en: "More than 180 Hispanics have participated in educational field trips in Spanish, connecting them with local ecosystems in Orlando and Central Florida. The goal is to foster experiential learning, promote the value of these ecosystems, minimize the language barrier, and foster professional connections with conservation organizations.", es: "More than 180 Hispanics have participated in educational field trips in Spanish, connecting them with local ecosystems in Orlando and Central Florida. The goal is to foster experiential learning, promote the value of these ecosystems, minimize language barrier, and foster professional connections with conservation organizations." },
+      id: 'project_symbiosis',
+      title: { en: "Symbiosis Project", es: "Symbiosis Project" },
+      description: { en: "We foster experiential learning as a tool to strengthen the relationship between people and ecosystems, recognizing their interdependence as the basis for mutual and sustainable well-being in Central Florida.", es: "Fomentamos el aprendizaje experiencial, como herramienta para fortalecer la relación entre las personas y los ecosistemas, reconociendo su interdependencia como base para el bienestar mutuo y sostenible en la Florida Central." },
       imageUrl: 'https://images.unsplash.com/photo-1569163139500-5e3952516854?q=80&w=800&h=600&fit=crop',
       imageAlt: 'A group of people on a field trip in a natural setting',
-      details: { en: 'This program is designed to bridge the gap between the Hispanic community and local environmental initiatives. By offering guided tours, workshops, and informational materials in Spanish, we ensure that language is not a barrier to participation. We facilitate meaningful connections with nature and empower the community to take an active role in local conservation efforts.', es: 'Este programa está diseñado para cerrar la brecha entre la comunidad hispana y las iniciativas ambientales locales. Al ofrecer visitas guiadas, talleres y materiales informativos en español, nos aseguramos de que el idioma no sea una barrera para la participación. Facilitamos conexiones significativas con la naturaleza y empoderamos a la comunidad para que tome un papel activo en los esfuerzos de conservación locales.'},
+      details: { en: 'We foster experiential learning as a tool to strengthen the relationship between people and ecosystems, recognizing their interdependence as the basis for mutual and sustainable well-being in Central Florida.\n“Symbiosis not only educates, but also transforms perception and behavior towards the natural environment, creating bridges between scientific knowledge, community knowledge, and conservation practices.”', es: 'Fomentamos el aprendizaje experiencial, como herramienta para fortalecer la relación entre las personas y los ecosistemas, reconociendo su interdependencia como base para el bienestar mutuo y sostenible en la Florida Central.\n“Symbiosis no solo educa, sino que transforma la percepción y el comportamiento hacia el entorno natural, creando puentes entre el conocimiento científico, el saber comunitario y las prácticas de conservación”.' },
       detailImageUrl: 'https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?q=80&w=800&fit=crop',
     },
     {
-      id: 'project_meteo',
-      title: { en: "Adverse meteorological events", es: "Adverse meteorological events" },
-      description: { en: "In partnership with the Hispanic Federation, we conducted a study on the vulnerability of older adults to adverse meteorological events. We promote actions and design projects to minimize risks in vulnerable communities during adverse meteorological events.", es: "In partnership with the Hispanic Federation, we conducted a study on the vulnerability of older adults to adverse metereological events. We promote actions and design projects to minimize risks in vulnerable communities during adverse metereological events." },
+      id: 'project_eco_resilience',
+      title: { en: "Urban Eco-Resilience Project", es: "Urban Eco-Resilience Project" },
+      description: { en: "An integral project aimed at strengthening the adaptation and response capacity of vulnerable communities to adverse weather events, through a multisectoral approach based on environmental education, climate action, and food security.", es: "Proyecto integral orientado a fortalecer la capacidad de adaptación y respuesta de comunidades vulnerables frente a eventos meteorológicos adversos, a través de un enfoque multisectorial basado en la educación ambiental, la acción climática y la seguridad alimentaria." },
       imageUrl: 'https://images.unsplash.com/photo-1594225002094-1a3b118b6932?q=80&w=800&h=600&fit=crop',
       imageAlt: 'Stormy clouds over a coastal area',
-      details: { en: 'Focused on climate change adaptation, this project assesses and addresses the vulnerabilities of specific community groups, particularly older adults, to extreme weather events. We work to develop early warning systems, create community resilience plans, and provide resources and training to help residents prepare for and respond to events like hurricanes, floods, and heatwaves.', es: 'Enfocado en la adaptación al cambio climático, este proyecto evalúa y aborda las vulnerabilidades de grupos comunitarios específicos, particularmente los adultos mayores, a eventos climáticos extremos. Trabajamos para desarrollar sistemas de alerta temprana, crear planes de resiliencia comunitaria y proporcionar recursos y capacitación para ayudar a los residentes a prepararse y responder a eventos como huracanes, inundaciones y olas de calor.'},
+      details: { en: 'An integral project aimed at strengthening the adaptation and response capacity of vulnerable communities to adverse weather events, through a multisectoral approach based on environmental education, climate action, and food security.\nThe initiative combines training in food production, scientific assessment of climate risk, and participatory planning, to build a social and ecological resilience network that involves seniors, children, youth, and community leaders.', es: 'Proyecto integral orientado a fortalecer la capacidad de adaptación y respuesta de comunidades vulnerables frente a eventos meteorológicos adversos, a través de un enfoque multisectorial basado en la educación ambiental, la acción climática y la seguridad alimentaria.\nLa iniciativa combina la capacitación en producción de alimentos, la evaluación científica del riesgo climático y la planificación participativa, para construir una red de resiliencia social y ecológica que involucra a personas mayores, niños, jóvenes y líderes comunitarios.' },
       detailImageUrl: 'https://images.unsplash.com/photo-1561485132-59e214bab543?q=80&w=800&fit=crop',
     },
     {
-      id: 'project_leadership',
-      title: { en: "Hispanic Environmental Leadership", es: "Hispanic Environmental Leadership" },
-      description: { en: "We participate in events and meetings on educational topics, ecosystem conservation, and sustainability, in partnership with various social and environmental organizations, to consolidate Hispanic leadership in Orlando and the State of Florida.", es: "We participate in events and meetings on educational topics, ecosystem conservation, and sustainability, in partnership with various social and environmental organizations, to consolidate Hispanic leadership in Orlando and the State of Florida." },
-      imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=800&h=600&fit=crop',
-      imageAlt: 'A group of leaders in a meeting',
-      details: { en: 'Fostering the next generation of environmental leaders within the Hispanic community is the core of this initiative. We provide mentorship, leadership training, and networking opportunities to empower individuals to advocate for environmental justice and sustainability in their communities. By amplifying diverse voices, we aim to create a more inclusive and effective environmental movement.', es: 'Fomentar la próxima generación de líderes ambientales dentro de la comunidad hispana es el núcleo de esta iniciativa. Brindamos tutoría, capacitación en liderazgo y oportunidades de establecer contactos para capacitar a las personas para que aboguen por la justicia ambiental y la sostenibilidad en sus comunidades. Al amplificar diversas voces, nuestro objetivo es crear un movimiento ambiental más inclusivo y eficaz.'},
-      detailImageUrl: 'https://images.unsplash.com/photo-1543269664-56d93c1b41a6?q=80&w=800&fit=crop',
-    },
-    {
-      id: 'project_youth',
-      title: { en: "Youth Project", es: "Proyecto de jóvenes" },
-      description: { en: "Empowering the next generation of environmental stewards through workshops, mentorship, and community action projects.", es: "Empoderando a la próxima generación de custodios ambientales a través de talleres, mentorías y proyectos de acción comunitaria." },
+      id: 'project_ecopro_youth',
+      title: { en: "EcoPro Youth Project", es: "EcoPro Youth Project" },
+      description: { en: "Developing scientific and technical capacities in young people in Central Florida, strengthening youth human capital to access higher education and green jobs, through comprehensive training that combines theory, field practices, mentoring, scientific conferences, and internships.", es: "Desarrollar capacidades científicas y técnicas en jóvenes de Florida Central, fortaleciendo el capital humano juvenil para acceder a estudios superiores y empleos verdes, mediante una formación integral que combina teoría, prácticas de campo, mentorías, conferencias científicas y pasantías." },
       imageUrl: 'https://images.unsplash.com/photo-1576267423445-b2e0074d68a4?q=80&w=800&h=600&fit=crop',
       imageAlt: 'A group of young people working together on an environmental project',
-      details: { en: 'Our Youth Project is designed to engage young people aged 14-20 in environmental conservation. Participants learn about local ecosystems, develop leadership skills, and implement their own green projects, from creating community gardens to organizing recycling drives. We aim to inspire a lifelong passion for nature and sustainability.', es: 'Nuestro Proyecto de Jóvenes está diseñado para involucrar a personas de 14 a 20 años en la conservación del medio ambiente. Los participantes aprenden sobre los ecosistemas locales, desarrollan habilidades de liderazgo e implementan sus propios proyectos ecológicos, desde la creación de huertos comunitarios hasta la organización de campañas de reciclaje. Nuestro objetivo es inspirar una pasión para toda la vida por la naturaleza y la sostenibilidad.'},
+      details: { en: 'Developing scientific and technical capacities in young people in Central Florida, strengthening youth human capital to access higher education and green jobs, through comprehensive training that combines theory, field practices, mentoring, scientific conferences, and internships. It addresses key topics such as conservation, biodiversity, sustainable ecotourism, urban agriculture, renewable energies, and environmental communication. The project contributes to reducing educational and labor gaps, articulating with universities, NGOs, companies, and public entities committed to regional sustainability.', es: 'Desarrollar capacidades científicas y técnicas en jóvenes de Florida Central, fortaleciendo el capital humano juvenil para acceder a estudios superiores y empleos verdes, mediante una formación integral que combina teoría, prácticas de campo, mentorías, conferencias científicas y pasantías. Aborda temas clave como conservación, biodiversidad, ecoturismo sostenible, agricultura urbana, energías renovables y comunicación ambiental. El proyecto contribuye a reducir brechas educativas y laborales, articulándose con universidades, ONGs, empresas y entidades públicas comprometidas con la sostenibilidad regional.' },
       detailImageUrl: 'https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?q=80&w=800&fit=crop',
+    },
+    {
+      id: 'project_observatorio',
+      title: { en: "Hispanic Environmental Observatory", es: "Observatorio Ambiental Hispano" },
+      description: { en: "We promote Hispanic environmental leadership in the U.S. through a platform of scientific information, training, and community action in Spanish. The purpose is to reduce Hispanic underrepresentation in environmental decision-making spaces, and increase their participation in solving socio-environmental problems and local projects.", es: "Impulsamos el liderazgo ambiental hispano en EE.UU. mediante una plataforma de información científica, formación y acción comunitaria en español. Con el propósito de reducir la subrepresentación hispana en los espacios de decisión ambiental, y aumentar su participación en la solución de problemáticas socioambientales y proyectos locales." },
+      imageUrl: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=800&h=600&fit=crop',
+      imageAlt: 'A group of leaders in a meeting',
+      details: { en: 'We promote Hispanic environmental leadership in the U.S. through a platform of scientific information, training, and community action in Spanish. The purpose is to reduce Hispanic underrepresentation in environmental decision-making spaces, and increase their participation in solving socio-environmental problems and local projects. Through alliances with various organizations to strengthen a network of leaders committed to sustainability and environmental justice.', es: 'Impulsamos el liderazgo ambiental hispano en EE.UU. mediante una plataforma de información científica, formación y acción comunitaria en español. Con el propósito de reducir la subrepresentación hispana en los espacios de decisión ambiental, y aumentar su participación en la solución de problemáticas socioambientales y proyectos locales. A través de alianzas con diversas organizaciones para fortalecer una red de líderes comprometidos con la sostenibilidad y la justicia ambiental.' },
+      detailImageUrl: 'https://images.unsplash.com/photo-1543269664-56d93c1b41a6?q=80&w=800&fit=crop',
     }
   ],
   team: [
-    { id: 'team_faruk', name: 'FARUK BAGDAH', role: { en: 'President/CEO', es: 'Presidente/CEO' }, bio: { en: 'With over 20 years of experience in environmental science and non-profit management, Faruk is dedicated to creating sustainable solutions for urban communities. His vision is to bridge the gap between humanity and nature.', es: 'Con más de 20 años de experiencia en ciencias ambientales y gestión de organizaciones sin fines de lucro, Faruk se dedica a crear soluciones sostenibles para comunidades urbanas. Su visión es cerrar la brecha entre la humanidad y la naturaleza.' }, imageUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&h=200&fit=crop', imageAlt: 'Photo of FARUK BAGDAH' },
-    { id: 'team_victor', name: 'VICTOR MARTINEZ', role: { en: 'Director/Treasurer', es: 'Director/Tesorero' }, bio: { en: "Victor brings a wealth of financial expertise, ensuring the organization's long-term sustainability. He is passionate about channeling resources effectively to support grassroots conservation and educational programs.", es: 'Víctor aporta una vasta experiencia financiera, asegurando la sostenibilidad a largo plazo de la organización. Le apasiona canalizar recursos de manera efectiva para apoyar la conservación de base y los programas educativos.' }, imageUrl: 'https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=200&h=200&fit=crop', imageAlt: 'Photo of VICTOR MARTINEZ' },
-    { id: 'team_oliver', name: 'OLIVER SANRONA', role: { en: 'Director', es: 'Director' }, bio: { en: 'As a community outreach specialist, Oliver excels at building strong partnerships and engaging diverse groups in our environmental initiatives. He believes in the power of collective action to create lasting change.', es: 'Como especialista en alcance comunitario, Oliver se destaca en la construcción de alianzas sólidas y en la participación de diversos grupos en nuestras iniciativas ambientales. Cree en el poder de la acción colectiva para crear un cambio duradero.' }, imageUrl: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=200&h=200&fit=crop', imageAlt: 'Photo of OLIVER SANRONA' },
-    { id: 'team_giuseppe', name: 'GIUSEPPE BERARDI', role: { en: 'Director/Advisor', es: 'Director/Asesor' }, bio: { en: 'Giuseppe provides strategic guidance based on his extensive background in ecological research. He is committed to ensuring all our projects are grounded in sound science for maximum impact.', es: 'Giuseppe proporciona orientación estratégica basada en su amplia experiencia en investigación ecológica. Está comprometido a garantizar que todos nuestros proyectos se basen en ciencia sólida para un impacto máximo.' }, imageUrl: 'https://images.unsplash.com/photo-1542740348-39501a69525a?q=80&w=200&h=200&fit=crop', imageAlt: 'Photo of GIUSEPPE BERARDI' },
-    { id: 'team_simon', name: 'SIMON TENORIO', role: { en: 'Director/Advisor', es: 'Director/Asesor' }, bio: { en: "With a focus on public policy and advocacy, Simon helps amplify Biophilia's voice to influence environmental policy. He is dedicated to creating systemic change for a more sustainable future.", es: 'Con un enfoque en políticas públicas y defensa, Simón ayuda a amplificar la voz de Biophilia para influir en la política ambiental. Se dedica a crear un cambio sistémico para un futuro más sostenible.' }, imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=200&fit=crop', imageAlt: 'Photo of SIMON TENORIO' },
+    { id: 'team_faruk', name: 'FARUK BAGDAH', role: { en: 'President/CEO', es: 'Presidente/CEO' }, bio: { en: 'Leading the strategic vision of the institute, Faruk brings years of experience in environmental project management and a passion for connecting communities with nature to foster sustainable development.', es: 'Liderando la visión estratégica del instituto, Faruk aporta años de experiencia en la gestión de proyectos ambientales y una pasión por conectar a las comunidades con la naturaleza para fomentar el desarrollo sostenible.' }, imageUrl: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&h=200&fit=crop', imageAlt: 'Photo of FARUK BAGDAH' },
+    { id: 'team_victor', name: 'VICTOR MARTINEZ', role: { en: 'Director/Advisor', es: 'Director/Asesor' }, bio: { en: "Victor provides expert guidance on our projects and strategic direction, leveraging his background in community development to ensure our initiatives create a lasting and positive impact.", es: 'Víctor proporciona orientación experta en nuestros proyectos y dirección estratégica, aprovechando su experiencia en desarrollo comunitario para asegurar que nuestras iniciativas creen un impacto duradero y positivo.' }, imageUrl: 'https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=200&h=200&fit=crop', imageAlt: 'Photo of VICTOR MARTINEZ' },
+    { id: 'team_oliver', name: 'OLIVER SANRONA', role: { en: 'Director/Advisor', es: 'Director/Asesor' }, bio: { en: 'As a key advisor, Oliver helps shape our educational programs and conservation strategies. His expertise in ecology is fundamental to the scientific rigor of our work.', es: 'Como asesor clave, Oliver ayuda a dar forma a nuestros programas educativos y estrategias de conservación. Su experiencia en ecología es fundamental para el rigor científico de nuestro trabajo.' }, imageUrl: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=200&h=200&fit=crop', imageAlt: 'Photo of OLIVER SANRONA' },
+    { id: 'team_giuseppe', name: 'GIUSEPPE BERARDI', role: { en: 'Director/Advisor', es: 'Director/Asesor' }, bio: { en: 'Giuseppe offers strategic advice on community engagement and partnerships. He is dedicated to ensuring that our projects are inclusive and effectively meet the needs of the communities we serve.', es: 'Giuseppe ofrece asesoramiento estratégico sobre la participación comunitaria y las alianzas. Se dedica a garantizar que nuestros proyectos sean inclusivos y satisfagan eficazmente las necesidades de las comunidades a las que servimos.' }, imageUrl: 'https://images.unsplash.com/photo-1542740348-39501a69525a?q=80&w=200&h=200&fit=crop', imageAlt: 'Photo of GIUSEPPE BERARDI' },
+    { id: 'team_simon', name: 'SIMON TENORIO', role: { en: 'Director/Advisor', es: 'Director/Asesor' }, bio: { en: "With a focus on sustainability and policy, Simon helps guide our advocacy efforts and ensures our projects align with broader environmental goals for a resilient future.", es: 'Con un enfoque en la sostenibilidad y las políticas, Simón ayuda a guiar nuestros esfuerzos de promoción y se asegura de que nuestros proyectos se alineen con objetivos ambientales más amplios para un futuro resiliente.' }, imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=200&fit=crop', imageAlt: 'Photo of SIMON TENORIO' },
   ],
   blog: [
     {
