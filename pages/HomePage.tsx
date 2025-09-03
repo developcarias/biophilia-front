@@ -95,8 +95,10 @@ const SectionWithCards: React.FC<{title: LocalizedText; items: ValueItem[]; base
 
 const AlliancesSection: React.FC<{title: LocalizedText; description: LocalizedText; partners: AlliancePartner[], basePath: string}> = ({ title, description, partners, basePath }) => {
   const { language } = useI18n();
+  const extraLargeLogoIds = ['aliance_4', 'aliance_5', 'aliance_8'];
+
   return (
-    <div className="bg-white py-16 lg:py-24">
+    <div className="bg-white py-12 lg:py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center max-w-3xl mx-auto">
                 <Editable localizedText={title} basePath={`${basePath}.title`}>
@@ -107,11 +109,18 @@ const AlliancesSection: React.FC<{title: LocalizedText; description: LocalizedTe
                 </Editable>
             </div>
             <div className="mt-12 flex flex-wrap justify-center items-center gap-x-8 gap-y-8 lg:gap-x-16">
-                {partners.map(partner => (
-                    <div key={partner.id} className="flex justify-center" title={partner.name}>
-                        <img className="h-16 lg:h-20 object-contain" src={partner.logoUrl} alt={partner.name} />
-                    </div>
-                ))}
+                {partners.map(partner => {
+                    const isExtraLarge = extraLargeLogoIds.includes(partner.id);
+                    const logoClass = isExtraLarge 
+                        ? "h-28 lg:h-32 object-contain" 
+                        : "h-16 lg:h-20 object-contain";
+                    
+                    return (
+                        <div key={partner.id} className="flex justify-center items-center" title={partner.name}>
+                            <img className={logoClass} src={partner.logoUrl} alt={partner.name} />
+                        </div>
+                    );
+                })}
             </div>
         </div>
     </div>
