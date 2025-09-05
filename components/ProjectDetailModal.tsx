@@ -50,8 +50,9 @@ const ProjectDetailModal: React.FC<ProjectDetailModalProps> = ({ project, onClos
               <Editable localizedText={project.title} basePath={`${basePath}.title`}>
                 <h2 id="project-modal-title" className="text-2xl md:text-3xl font-bold text-brand-green-dark mt-0 mb-4">{project.title[language]}</h2>
               </Editable>
-              <Editable localizedText={project.details} basePath={`${basePath}.details`} multiline>
-                <p className="whitespace-pre-line leading-relaxed">{project.details[language]}</p>
+              {/* FIX: Replaced non-existent 'details' property with 'description' to match the Project type. */}
+              <Editable localizedText={project.description} basePath={`${basePath}.description`} multiline>
+                <p className="whitespace-pre-line leading-relaxed">{project.description[language]}</p>
               </Editable>
             </div>
           </div>

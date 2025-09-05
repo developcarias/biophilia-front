@@ -8,12 +8,13 @@ import Editable from './Editable';
 
 interface LatestProjectsProps {
   title: LocalizedText;
+  slogan: LocalizedText;
   subtitle: LocalizedText;
   projects: Project[];
   uiText: UIText;
 }
 
-const LatestProjects: React.FC<LatestProjectsProps> = ({ title, subtitle, projects, uiText }) => {
+const LatestProjects: React.FC<LatestProjectsProps> = ({ title, slogan, subtitle, projects, uiText }) => {
   const { language } = useI18n();
 
   return (
@@ -23,8 +24,11 @@ const LatestProjects: React.FC<LatestProjectsProps> = ({ title, subtitle, projec
           <Editable localizedText={title} basePath="homePage.latestProjects.title">
             <h2 className="text-4xl font-extrabold text-brand-green-dark">{title[language]}</h2>
           </Editable>
+          <Editable localizedText={slogan} basePath="homePage.latestProjects.slogan">
+            <p className="mt-4 text-lg text-brand-green-dark italic">{slogan[language]}</p>
+          </Editable>
           <Editable localizedText={subtitle} basePath="homePage.latestProjects.subtitle" multiline>
-            <p className="mt-4 text-lg text-brand-gray">{subtitle[language]}</p>
+            <p className="mt-2 text-lg text-brand-gray whitespace-pre-line">{subtitle[language].trim()}</p>
           </Editable>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16 md:gap-8 pt-8">
@@ -44,7 +48,7 @@ const LatestProjects: React.FC<LatestProjectsProps> = ({ title, subtitle, projec
                 <p className="text-brand-gray leading-relaxed text-sm flex-grow h-24 overflow-hidden">{project.description[language]}</p>
                 <div className="mt-4">
                   <ReactRouterDOM.NavLink to={`/projects/${project.id}`} className="font-bold text-brand-green hover:text-brand-accent transition-colors">
-                    {uiText.learnMore[language]} &rarr;
+                    {uiText.viewActions[language]} &rarr;
                   </ReactRouterDOM.NavLink>
                 </div>
               </div>

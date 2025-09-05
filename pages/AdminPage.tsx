@@ -1,7 +1,7 @@
 
 
 import React, { useState, useEffect } from 'react';
-import { PageContent, Project, TeamMember, BlogPost, NavLink, ValueItem, HeroSlide, AlliancePartner, ContentBlockType } from '../types';
+import { PageContent, Project, TeamMember, BlogPost, NavLink, ValueItem, HeroSlide, AlliancePartner, ContentBlockType, ProjectActivity } from '../types';
 import { useTranslate, TranslationKey } from '../i18n';
 import { produce } from 'immer';
 import PageBanner from '../components/PageBanner';
@@ -104,7 +104,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ content, onUpdateContent }) => {
           value={value}
           onChange={(e) => handleInputChange(path, e.target.value)}
           className="shadow appearance-none border rounded w-full py-2 px-3 text-brand-gray leading-tight focus:outline-none focus:shadow-outline bg-white"
-          rows={isTextarea ? 5 : undefined}
+          rows={isTextarea ? 10 : undefined}
         />
       </div>
     );
@@ -124,8 +124,8 @@ const AdminPage: React.FC<AdminPageProps> = ({ content, onUpdateContent }) => {
     </div>
   );
 
-  const ListItemWrapper: React.FC<{ title: string; onRemove: () => void; children: React.ReactNode }> = ({ title, onRemove, children }) => (
-    <div className="border p-4 rounded mb-4 relative bg-white shadow-sm">
+  const ListItemWrapper: React.FC<{ title: string; onRemove: () => void; children: React.ReactNode, nested?: boolean }> = ({ title, onRemove, children, nested=false }) => (
+    <div className={`border p-4 rounded mb-4 relative ${nested ? 'bg-gray-50 shadow-sm' : 'bg-white shadow'}`}>
         <h4 className="font-bold mb-2 text-brand-gray">{title}</h4>
         {children}
         <button onClick={onRemove} className="absolute top-2 right-2 bg-red-600 hover:bg-red-700 text-white font-bold py-1 px-3 text-sm rounded">{t('remove')}</button>
@@ -142,12 +142,25 @@ const AdminPage: React.FC<AdminPageProps> = ({ content, onUpdateContent }) => {
   );
 
   // NEW ITEM TEMPLATES
-  const newProjectTemplate: Omit<Project, 'id'> = { title: { en: '', es: '' }, description: { en: '', es: '' }, imageUrl: '', imageAlt: '', details: { en: '', es: '' }, detailImageUrl: '' };
-  const newTeamMemberTemplate: Omit<TeamMember, 'id'> = { name: '', role: { en: '', es: '' }, bio: { en: '', es: '' }, imageUrl: '', imageAlt: '' };
+  const newProjectActivityTemplate: Omit<ProjectActivity, 'id'> = {
+    date: new Date().toISOString().split('T')[0],
+    title: { en: '', es: '' },
+    description: { en: '', es: '' },
+    imageUrl: ''
+  };
+  const newProjectTemplate: Omit<Project, 'id'> = { 
+    title: { en: '', es: '' }, 
+    description: { en: '', es: '' }, 
+    imageUrl: '', 
+    imageAlt: '', 
+    activities: [],
+    detailImageUrl: '',
+  };
+  const newTeamMemberTemplate: Omit<TeamMember, 'id'> = { name: { en: '', es: '' }, role: { en: '', es: '' }, bio: { en: '', es: '' }, imageUrl: '', imageAlt: '' };
   const newBlogPostTemplate: Omit<BlogPost, 'id'> = { slug: '', title: { en: '', es: '' }, author: '', date: '', summary: { en: '', es: '' }, content: { en: '', es: '' }, imageUrl: '', imageAlt: '' };
   const newNavLinkTemplate: Omit<NavLink, 'id'> = { to: '/', label: { en: 'New Link', es: 'Nuevo Enlace' }, end: false };
-  const newHeroSlideTemplate: Omit<HeroSlide, 'id'> = { title: { en: '', es: '' }, subtitle: { en: '', es: '' }, imageUrl: '' };
-  const newValueItemTemplate: Omit<ValueItem, 'id'> = { title: { en: '', es: '' }, text: { en: '', es: '' }, icon: '', imageUrl: '' };
+  const newHeroSlideTemplate: Omit<HeroSlide, 'id'> = { title: { en: '', es: '' }, subtitle: { en: '', es: '' }, imageUrl: '', projectId: '', activityId: '' };
+  const newValueItemTemplate: Omit<ValueItem, 'id'> = { title: { en: '', es: '' }, slogan: { en: '', es: ''}, text: { en: '', es: '' }, icon: '', imageUrl: '' };
   const newAlliancePartnerTemplate: Omit<AlliancePartner, 'id'> = { name: '', logoUrl: '' };
 
   return (
@@ -195,8 +208,9 @@ const AdminPage: React.FC<AdminPageProps> = ({ content, onUpdateContent }) => {
                  <AdminSection title="UI Button/Link Texts">
                     {renderLocalizedTextField('Donate Now', 'ui.donateNow')}
                     {renderLocalizedTextField('Support Our Mission', 'ui.supportMission')}
-                    {renderLocalizedTextField('View All Projects', 'ui.viewAllProjects')}
+                    {renderLocalizedTextField('View All Programs', 'ui.viewAllProjects')}
                     {renderLocalizedTextField('Learn More', 'ui.learnMore')}
+                    {renderLocalizedTextField('See Actions', 'ui.viewActions')}
                     {renderLocalizedTextField('Read More', 'ui.readMore')}
                     {renderLocalizedTextField('Contact Us', 'ui.contact')}
                  </AdminSection>
@@ -209,6 +223,8 @@ const AdminPage: React.FC<AdminPageProps> = ({ content, onUpdateContent }) => {
                             {renderLocalizedTextField('Title', `homePage.heroSlides.${index}.title`)}
                             {renderLocalizedTextField('Subtitle', `homePage.heroSlides.${index}.subtitle`, true)}
                             {renderTextField('Image URL', `homePage.heroSlides.${index}.imageUrl`)}
+                            {renderTextField('Project ID (for link)', `homePage.heroSlides.${index}.projectId`)}
+                            {renderTextField('Activity ID (for link)', `homePage.heroSlides.${index}.activityId`)}
                         </ListItemWrapper>
                     ))}
                     <button onClick={() => handleAddItem('homePage.heroSlides', newHeroSlideTemplate)} className="mt-2 bg-brand-accent hover:bg-brand-accent/90 text-white font-bold py-2 px-4 rounded">{t('addNewItem')}</button>
@@ -216,6 +232,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ content, onUpdateContent }) => {
                 <AdminSection title={t('sectionWelcome')}>
                     {renderLocalizedTextField('Title Part 1', 'homePage.welcome.titlePart1')}
                     {renderLocalizedTextField('Title Part 2', 'homePage.welcome.titlePart2')}
+                    {renderLocalizedTextField('Slogan', 'homePage.welcome.slogan')}
                     {renderLocalizedTextField('Text', 'homePage.welcome.text', true)}
                     {renderTextField('Image URL', 'homePage.welcome.imageUrl')}
                     {renderTextField('Image Alt Text', 'homePage.welcome.imageAlt')}
@@ -225,6 +242,7 @@ const AdminPage: React.FC<AdminPageProps> = ({ content, onUpdateContent }) => {
                     {formData.homePage.actionLines.items.map((item, index) => (
                         <ListItemWrapper key={item.id} title={`Action Line: ${item.title.en || `(Item ${index+1})`}`} onRemove={() => handleRemoveItem('homePage.actionLines.items', index)}>
                             {renderLocalizedTextField('Title', `homePage.actionLines.items.${index}.title`)}
+                            {renderLocalizedTextField('Slogan', `homePage.actionLines.items.${index}.slogan`)}
                             {renderLocalizedTextField('Text', `homePage.actionLines.items.${index}.text`, true)}
                             {renderTextField('Icon Name', `homePage.actionLines.items.${index}.icon`)}
                             {renderTextField('Image URL', `homePage.actionLines.items.${index}.imageUrl`)}
@@ -232,26 +250,34 @@ const AdminPage: React.FC<AdminPageProps> = ({ content, onUpdateContent }) => {
                     ))}
                     <button onClick={() => handleAddItem('homePage.actionLines.items', newValueItemTemplate)} className="mt-2 bg-brand-accent hover:bg-brand-accent/90 text-white font-bold py-2 px-4 rounded">{t('addNewItem')}</button>
                 </AdminSection>
-                <AdminSection title={t('sectionLatestProjects')}>
+                <AdminSection title="Latest Programs Section">
                     {renderLocalizedTextField('Title', 'homePage.latestProjects.title')}
-                    {renderLocalizedTextField('Subtitle', 'homePage.latestProjects.subtitle')}
+                    {renderLocalizedTextField('Slogan', 'homePage.latestProjects.slogan')}
+                    {renderLocalizedTextField('Subtitle', 'homePage.latestProjects.subtitle', true)}
                 </AdminSection>
                 <AdminSection title={`${t('sectionParallax')} 1`}>
                     {renderLocalizedTextField('Title', 'homePage.parallax1.title')}
                     {renderLocalizedTextField('Text', 'homePage.parallax1.text', true)}
                     {renderTextField('Image URL', 'homePage.parallax1.imageUrl')}
                 </AdminSection>
-                <AdminSection title={t('sectionValues')}>
-                    {renderLocalizedTextField('Section Title', 'homePage.values.title')}
-                    {formData.homePage.values.items.map((item, index) => (
-                        <ListItemWrapper key={item.id} title={`Value: ${item.title.en || `(Item ${index+1})`}`} onRemove={() => handleRemoveItem('homePage.values.items', index)}>
-                            {renderLocalizedTextField('Title', `homePage.values.items.${index}.title`)}
-                            {renderLocalizedTextField('Text', `homePage.values.items.${index}.text`, true)}
-                            {renderTextField('Icon Name', `homePage.values.items.${index}.icon`)}
-                        </ListItemWrapper>
-                    ))}
-                    <button onClick={() => handleAddItem('homePage.values.items', newValueItemTemplate)} className="mt-2 bg-brand-accent hover:bg-brand-accent/90 text-white font-bold py-2 px-4 rounded">{t('addNewItem')}</button>
-                </AdminSection>
+                <AdminSection title="Our Numbers Section">
+                  {renderLocalizedTextField('Section Title', 'homePage.ourNumbers.title')}
+                  {formData.homePage.ourNumbers.stats.map((stat, index) => (
+                      <ListItemWrapper key={stat.id} title={`Stat: ${stat.label.en || `(Item ${index+1})`}`} onRemove={() => handleRemoveItem('homePage.ourNumbers.stats', index)}>
+                          {renderTextField('Icon Name', `homePage.ourNumbers.stats.${index}.icon`)}
+                          {renderTextField('Value (e.g., +1,000)', `homePage.ourNumbers.stats.${index}.value`)}
+                          {renderLocalizedTextField('Label', `homePage.ourNumbers.stats.${index}.label`)}
+                      </ListItemWrapper>
+                  ))}
+                  <h4 className="font-semibold text-brand-gray mt-4 mb-2">Gallery Images</h4>
+                  {formData.homePage.ourNumbers.galleryImages.map((image, index) => (
+                      <ListItemWrapper key={image.id} title={`Image ${index+1}`} onRemove={() => handleRemoveItem('homePage.ourNumbers.galleryImages', index)}>
+                          {renderTextField('Image URL', `homePage.ourNumbers.galleryImages.${index}.url`)}
+                          {renderTextField('Image Alt Text', `homePage.ourNumbers.galleryImages.${index}.alt`)}
+                      </ListItemWrapper>
+                  ))}
+                  <button onClick={() => handleAddItem('homePage.ourNumbers.galleryImages', {url: '', alt: ''})} className="mt-2 bg-brand-accent hover:bg-brand-accent/90 text-white font-bold py-2 px-4 rounded">{t('addNewItem')}</button>
+              </AdminSection>
                 <AdminSection title={t('sectionAlliances')}>
                     {renderLocalizedTextField('Title', 'homePage.alliances.title')}
                     {renderLocalizedTextField('Description', 'homePage.alliances.description', true)}
@@ -280,10 +306,6 @@ const AdminPage: React.FC<AdminPageProps> = ({ content, onUpdateContent }) => {
                     {renderLocalizedTextField('Text', 'aboutPage.history.text', true)}
                     {renderTextField('Image URL', 'aboutPage.history.imageUrl')}
                 </AdminSection>
-                <AdminSection title={t('sectionBiophilia')}>
-                    {renderLocalizedTextField('Title', 'aboutPage.biophiliaExplanation.title')}
-                    {renderLocalizedTextField('Text', 'aboutPage.biophiliaExplanation.text', true)}
-                </AdminSection>
                 <AdminSection title={t('sectionMission')}>{renderContentBlockFields('aboutPage.mission')}</AdminSection>
                 <AdminSection title={t('sectionVision')}>{renderContentBlockFields('aboutPage.vision')}</AdminSection>
                 <AdminSection title={t('sectionWork')}>{renderContentBlockFields('aboutPage.work')}</AdminSection>
@@ -295,21 +317,37 @@ const AdminPage: React.FC<AdminPageProps> = ({ content, onUpdateContent }) => {
                     {renderTextField('Image URL', 'projectsPage.banner.imageUrl')}
                 </AdminSection>
                  <AdminSection title={t('sectionIntro')}>{renderLocalizedTextField('Intro Text', 'projectsPage.intro', true)}</AdminSection>
-                <AdminSection title="Project List">
+                <AdminSection title="Program List">
                   {formData.projects.map((project, index) => (
-                    <ListItemWrapper key={project.id} title={`Project: ${project.title.en || `(Project ${index+1})`}`} onRemove={() => handleRemoveItem('projects', index)}>
+                    <ListItemWrapper key={project.id} title={`Program: ${project.title.en || `(Program ${index+1})`}`} onRemove={() => handleRemoveItem('projects', index)}>
+                      {renderTextField('Program ID (e.g. project_urban_forest)', `projects.${index}.id`)}
                       {renderLocalizedTextField('Title', `projects.${index}.title`)}
-                      {renderLocalizedTextField('Description', `projects.${index}.description`, true)}
-                      {renderTextField('Image URL', `projects.${index}.imageUrl`)}
-                      {renderTextField('Image Alt Text', `projects.${index}.imageAlt`)}
-                      {renderLocalizedTextField('Details Text', `projects.${index}.details`, true)}
-                      {renderTextField('Detail Image URL', `projects.${index}.detailImageUrl`)}
+                      {renderLocalizedTextField('Description (for list page)', `projects.${index}.description`, true)}
+                      {renderTextField('List Image URL', `projects.${index}.imageUrl`)}
+                      {renderTextField('List Image Alt Text', `projects.${index}.imageAlt`)}
+                      <hr className="my-4"/>
+                      <h4 className="font-semibold text-brand-gray mb-2">Detail Page Banner</h4>
+                      {renderTextField('Detail Page Banner Image URL', `projects.${index}.detailImageUrl`)}
+                      <hr className="my-4"/>
+                      <h4 className="font-semibold text-brand-gray mb-2">Activities</h4>
+                      <div className="pl-4 border-l-2">
+                        {project.activities.map((activity, actIndex) => (
+                            <ListItemWrapper nested key={activity.id} title={`Activity: ${activity.title.en || `(Activity ${actIndex+1})`}`} onRemove={() => handleRemoveItem(`projects.${index}.activities`, actIndex)}>
+                                {renderTextField('Activity ID (e.g. activity_urban_forest_1)', `projects.${index}.activities.${actIndex}.id`)}
+                                {renderTextField('Date (YYYY-MM-DD)', `projects.${index}.activities.${actIndex}.date`)}
+                                {renderLocalizedTextField('Title', `projects.${index}.activities.${actIndex}.title`)}
+                                {renderLocalizedTextField('Description', `projects.${index}.activities.${actIndex}.description`, true)}
+                                {renderTextField('Image URL', `projects.${index}.activities.${actIndex}.imageUrl`)}
+                            </ListItemWrapper>
+                        ))}
+                        <button onClick={() => handleAddItem(`projects.${index}.activities`, newProjectActivityTemplate)} className="mt-2 bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-3 text-sm rounded">Add New Activity</button>
+                      </div>
                     </ListItemWrapper>
                   ))}
                   <button onClick={() => handleAddItem('projects', newProjectTemplate)} className="mt-2 bg-brand-accent hover:bg-brand-accent/90 text-white font-bold py-2 px-4 rounded">{t('addNewProject')}</button>
                 </AdminSection>
-                 <AdminSection title="Project Detail Page">
-                    {renderLocalizedTextField('Back to Projects Button', 'projectDetailPage.backToProjects')}
+                 <AdminSection title="Program Detail Page">
+                    {renderLocalizedTextField('Back to Programs Button', 'projectDetailPage.backToProjects')}
                 </AdminSection>
             </>)}
             {activeTab === 'team' && (<>
@@ -320,8 +358,8 @@ const AdminPage: React.FC<AdminPageProps> = ({ content, onUpdateContent }) => {
                 </AdminSection>
                 <AdminSection title="Team Members">
                     {formData.team.map((member, index) => (
-                        <ListItemWrapper key={member.id} title={`Member: ${member.name || `(Member ${index+1})`}`} onRemove={() => handleRemoveItem('team', index)}>
-                            {renderTextField('Name', `team.${index}.name`)}
+                        <ListItemWrapper key={member.id} title={`Member: ${member.name.en || `(Member ${index+1})`}`} onRemove={() => handleRemoveItem('team', index)}>
+                            {renderLocalizedTextField('Name', `team.${index}.name`)}
                             {renderLocalizedTextField('Role', `team.${index}.role`)}
                             {renderLocalizedTextField('Bio', `team.${index}.bio`, true)}
                             {renderTextField('Image URL', `team.${index}.imageUrl`)}

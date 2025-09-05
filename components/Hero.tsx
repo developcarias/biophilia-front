@@ -41,6 +41,11 @@ const Hero: React.FC<HeroProps> = ({ slides, uiText }) => {
   if (slides.length === 0) {
     return <div className="h-screen w-full bg-brand-green-dark flex items-center justify-center text-white">Loading Hero...</div>
   }
+  
+  const currentSlide = slides[currentIndex];
+  const buttonLink = (currentSlide.projectId && currentSlide.activityId)
+    ? `#/projects/${currentSlide.projectId}#${currentSlide.activityId}`
+    : (currentSlide.projectId ? `#/projects/${currentSlide.projectId}` : '#/donate');
 
   return (
     <div className="group relative h-screen w-full overflow-hidden -mt-28">
@@ -60,12 +65,12 @@ const Hero: React.FC<HeroProps> = ({ slides, uiText }) => {
         <div className="lg:hidden absolute inset-0 bg-brand-green-dark bg-opacity-50 z-10"></div>
 
 
-        <div className="relative container mx-auto px-4 sm:px-6 lg:px-20 h-full flex flex-col justify-center items-center text-center lg:items-start lg:text-left text-white z-20 pt-28">
+        <div className="relative container mx-auto px-4 sm:px-6 lg:px-20 h-full flex flex-col justify-center items-start text-left text-white z-20 pt-28">
             <div className="lg:w-1/2 xl:w-2/5">
-                <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight drop-shadow-lg">{slides[currentIndex].title[language]}</h1>
-                <p className="mt-4 max-w-2xl text-xl md:text-2xl drop-shadow-md">{slides[currentIndex].subtitle[language]}</p>
+                <h1 className="text-3xl md:text-5xl font-extrabold tracking-tight drop-shadow-lg">{currentSlide.title[language]}</h1>
+                <p className="mt-4 max-w-2xl text-xl md:text-2xl drop-shadow-md">{currentSlide.subtitle[language]}</p>
                 <div className="mt-8">
-                <a href="#/donate" className="bg-brand-accent text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-brand-accent/90 transition-transform transform hover:scale-105 shadow-lg">
+                <a href={buttonLink} className="bg-brand-accent text-white px-8 py-3 rounded-md text-lg font-semibold hover:bg-brand-accent/90 transition-transform transform hover:scale-105 shadow-lg">
                     {uiText.supportMission[language]}
                 </a>
                 </div>

@@ -71,15 +71,9 @@ const AboutPage: React.FC<AboutPageProps> = ({ content, valuesContent }) => {
               <Editable localizedText={content.history.text} basePath="aboutPage.history.text" multiline>
                 <p className="whitespace-pre-line leading-relaxed">{content.history.text[language]}</p>
               </Editable>
-              <Editable localizedText={content.biophiliaExplanation.title} basePath="aboutPage.biophiliaExplanation.title">
-                <h3 className="text-2xl font-bold text-brand-green-dark pt-6">{content.biophiliaExplanation.title[language]}</h3>
-              </Editable>
-              <Editable localizedText={content.biophiliaExplanation.text} basePath="aboutPage.biophiliaExplanation.text" multiline>
-                <p className="leading-relaxed">{content.biophiliaExplanation.text[language]}</p>
-              </Editable>
             </div>
             <div>
-              <img src={content.history.imageUrl} alt="Group of diverse people collaborating" className="rounded-lg shadow-xl object-cover w-full h-full" />
+              <img src={content.history.imageUrl} alt="Group of diverse people collaborating" className="rounded-lg shadow-xl object-cover w-full max-h-[500px]" />
             </div>
           </div>
         </div>
@@ -131,7 +125,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ content, valuesContent }) => {
 
 
       {/* Values Section */}
-      <div className="bg-brand-green-light py-16 lg:py-24">
+      <div className="bg-brand-green-light pt-10 pb-16 lg:pt-16 lg:pb-24">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <Editable localizedText={valuesContent.title} basePath="homePage.values.title">

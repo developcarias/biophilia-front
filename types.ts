@@ -13,9 +13,18 @@ export interface TitledText {
 export interface ValueItem {
   id: string;
   title: LocalizedText;
+  slogan?: LocalizedText;
   text: LocalizedText;
   icon: string;
   imageUrl?: string;
+}
+
+export interface ProjectActivity {
+  id: string;
+  date: string; // ISO date string
+  title: LocalizedText;
+  description: LocalizedText;
+  imageUrl: string;
 }
 
 export interface Project {
@@ -24,13 +33,13 @@ export interface Project {
   description: LocalizedText;
   imageUrl: string;
   imageAlt: string;
-  details: LocalizedText;
+  activities: ProjectActivity[];
   detailImageUrl: string;
 }
 
 export interface TeamMember {
   id: string;
-  name: string;
+  name: LocalizedText;
   role: LocalizedText;
   bio: LocalizedText;
   imageUrl: string;
@@ -91,6 +100,7 @@ export interface UIText {
   learnMore: LocalizedText;
   readMore: LocalizedText;
   contact: LocalizedText;
+  viewActions: LocalizedText;
 }
 
 export interface HeroSlide {
@@ -98,13 +108,30 @@ export interface HeroSlide {
   title: LocalizedText;
   subtitle: LocalizedText;
   imageUrl: string;
+  projectId?: string;
+  activityId?: string;
 }
+
+export interface Statistic {
+  id: string;
+  icon: string;
+  value: string;
+  label: LocalizedText;
+}
+
+export interface OurNumbersSection {
+  title: LocalizedText;
+  stats: Statistic[];
+  galleryImages: { id: string; url: string; alt: string }[];
+}
+
 
 export interface HomePageContent {
   heroSlides: HeroSlide[];
   welcome: {
     titlePart1: LocalizedText; // "Welcome to"
     titlePart2: LocalizedText; // "Biophilia Institute"
+    slogan: LocalizedText;
     text: LocalizedText;
     imageUrl: string;
     imageAlt: string;
@@ -115,6 +142,7 @@ export interface HomePageContent {
   };
   latestProjects: {
     title: LocalizedText;
+    slogan: LocalizedText;
     subtitle: LocalizedText;
   };
   parallax1: {
@@ -126,6 +154,7 @@ export interface HomePageContent {
     title: LocalizedText;
     items: ValueItem[];
   };
+  ourNumbers: OurNumbersSection;
   alliances: {
     title: LocalizedText;
     description: LocalizedText;
@@ -155,7 +184,6 @@ export interface AboutPageContent {
     text: LocalizedText;
     imageUrl: string;
   };
-  biophiliaExplanation: TitledText;
   mission: ContentBlockType;
   vision: ContentBlockType;
   work: ContentBlockType;

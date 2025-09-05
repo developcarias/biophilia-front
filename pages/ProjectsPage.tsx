@@ -60,7 +60,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ content, projects, uiText }
                       </Editable>
                       <div className="mt-auto">
                           <ReactRouterDOM.NavLink to={`/projects/${project.id}`} className="font-bold text-brand-green hover:text-brand-accent transition-colors">
-                            {uiText.learnMore[language]} &rarr;
+                            {uiText.viewActions[language]} &rarr;
                           </ReactRouterDOM.NavLink>
                       </div>
                     </div>
@@ -90,7 +90,7 @@ const ProjectsPage: React.FC<ProjectsPageProps> = ({ content, projects, uiText }
                     </Editable>
                      <div className="mt-4">
                         <ReactRouterDOM.NavLink to={`/projects/${project.id}`} className="font-bold text-brand-green hover:text-brand-accent transition-colors">
-                          {uiText.learnMore[language]} &rarr;
+                          {uiText.viewActions[language]} &rarr;
                         </ReactRouterDOM.NavLink>
                       </div>
                   </div>

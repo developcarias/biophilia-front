@@ -1,8 +1,10 @@
 
 
+
+
 import React, { useState, useEffect } from 'react';
-// FIX: Imported 'LocalizedText' type to resolve "Cannot find name" errors.
-import { HomePageContent, ValueItem, AlliancePartner, Project, UIText, LocalizedText } from '../types';
+// FIX: Imported LocalizedText type to resolve 'Cannot find name' error.
+import { HomePageContent, ValueItem, AlliancePartner, Project, UIText, OurNumbersSection as OurNumbersSectionType, LocalizedText } from '../types';
 import Hero from '../components/Hero';
 import ParallaxSection from '../components/ParallaxSection';
 import LatestProjects from '../components/LatestProjects';
@@ -34,22 +36,70 @@ const iconMap: { [key: string]: React.FC<{className?: string}> } = {
   EquityIcon,
 };
 
-const ValueCard: React.FC<{item: ValueItem; basePath: string}> = ({ item, basePath }) => {
+interface OurNumbersSectionProps {
+  content: OurNumbersSectionType;
+  basePath: string;
+}
+
+const OurNumbersSection: React.FC<OurNumbersSectionProps> = ({ content, basePath }) => {
   const { language } = useI18n();
-  const IconComponent = iconMap[item.icon];
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    if (!content.galleryImages || content.galleryImages.length === 0) return;
+    const timer = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % content.galleryImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [content.galleryImages]);
+
+  if (!content.stats) return null;
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2 hover:shadow-2xl flex flex-col items-center text-center h-full">
-      {IconComponent && <IconComponent className="h-12 w-12 text-brand-accent mb-4" />}
-      <Editable localizedText={item.title} basePath={`${basePath}.title`}>
-        <h3 className="text-xl font-bold text-brand-green-dark mb-2">{item.title[language]}</h3>
-      </Editable>
-      <Editable localizedText={item.text} basePath={`${basePath}.text`} multiline>
-        <p className="text-brand-gray flex-grow">{item.text[language]}</p>
-      </Editable>
+    <div className="bg-brand-green-light py-16 lg:py-24">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <Editable localizedText={content.title} basePath={`${basePath}.title`}>
+            <h2 className="text-4xl font-extrabold text-brand-green-dark mb-12">{content.title[language]}</h2>
+          </Editable>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          {content.stats.map((stat, index) => {
+            const IconComponent = iconMap[stat.icon];
+            const statBasePath = `${basePath}.stats.${index}`;
+            return (
+              <div key={stat.id} className="bg-white p-6 rounded-lg shadow-lg text-center border-t-4 border-brand-accent">
+                {IconComponent && <IconComponent className="h-12 w-12 text-brand-accent mx-auto mb-4" />}
+                <div className="text-5xl font-bold text-brand-green-dark">{stat.value}</div>
+                <Editable localizedText={stat.label} basePath={`${statBasePath}.label`}>
+                  <div className="text-lg text-brand-gray mt-2">{stat.label[language]}</div>
+                </Editable>
+              </div>
+            );
+          })}
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {[0, 1, 2].map(offset => (
+            <div key={offset} className="relative pt-[100%] rounded-lg shadow-lg overflow-hidden bg-gray-200">
+              {content.galleryImages.map((image, imgIndex) => {
+                const isVisible = imgIndex === (currentIndex + offset) % content.galleryImages.length;
+                return (
+                  <img
+                    key={`${image.id}-${offset}`}
+                    src={image.url}
+                    alt={image.alt}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}
+                  />
+                );
+              })}
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
-  )
-}
+  );
+};
+
 
 const ActionLineCard: React.FC<{item: ValueItem; basePath: string}> = ({ item, basePath }) => {
     const { language } = useI18n();
@@ -63,39 +113,20 @@ const ActionLineCard: React.FC<{item: ValueItem; basePath: string}> = ({ item, b
             <Editable localizedText={item.title} basePath={`${basePath}.title`}>
               <h3 className="text-xl font-bold text-brand-green-dark mb-2">{item.title[language]}</h3>
             </Editable>
+            {item.slogan && (
+                <Editable localizedText={item.slogan} basePath={`${basePath}.slogan`}>
+                    <p className="text-brand-green-dark italic mb-2">{item.slogan[language]}</p>
+                </Editable>
+            )}
             <Editable localizedText={item.text} basePath={`${basePath}.text`} multiline>
-              <p className="text-brand-gray flex-grow">{item.text[language]}</p>
+              <p className="text-brand-gray flex-grow whitespace-pre-line">{item.text[language].trim()}</p>
             </Editable>
         </div>
     );
 }
 
-
-const SectionWithCards: React.FC<{title: LocalizedText; items: ValueItem[]; basePath: string}> = ({ title, items, basePath }) => {
-  const { language } = useI18n();
-  return (
-    <div className="bg-brand-green-light py-16 lg:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center">
-          <Editable localizedText={title} basePath={`${basePath}.title`}>
-            <h2 className="text-4xl font-extrabold text-brand-green-dark mb-12">{title[language]}</h2>
-          </Editable>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {items.map((item, index) => (
-              <div key={item.id} className="p-0">
-                <ValueCard item={item} basePath={`${basePath}.items.${index}`} />
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-
 const AlliancesSection: React.FC<{title: LocalizedText; description: LocalizedText; partners: AlliancePartner[], basePath: string}> = ({ title, description, partners, basePath }) => {
   const { language } = useI18n();
-  const extraLargeLogoIds = ['aliance_4', 'aliance_5', 'aliance_8'];
 
   return (
     <div className="bg-white py-12 lg:py-16">
@@ -108,19 +139,12 @@ const AlliancesSection: React.FC<{title: LocalizedText; description: LocalizedTe
                   <p className="text-lg text-brand-gray">{description[language]}</p>
                 </Editable>
             </div>
-            <div className="mt-12 flex flex-wrap justify-center items-center gap-x-8 gap-y-8 lg:gap-x-16">
-                {partners.map(partner => {
-                    const isExtraLarge = extraLargeLogoIds.includes(partner.id);
-                    const logoClass = isExtraLarge 
-                        ? "h-28 lg:h-32 object-contain" 
-                        : "h-16 lg:h-20 object-contain";
-                    
-                    return (
-                        <div key={partner.id} className="flex justify-center items-center" title={partner.name}>
-                            <img className={logoClass} src={partner.logoUrl} alt={partner.name} />
-                        </div>
-                    );
-                })}
+            <div className="mt-12 grid grid-cols-2 md:grid-cols-5 gap-x-8 gap-y-12 items-center">
+                {partners.map(partner => (
+                    <div key={partner.id} className="flex justify-center items-center h-28">
+                        <img className="h-24 max-w-full object-contain" src={partner.logoUrl} alt={partner.name} />
+                    </div>
+                ))}
             </div>
         </div>
     </div>
@@ -177,9 +201,12 @@ const HomePage: React.FC<HomePageProps> = ({ content, uiText, projects }) => {
                           <span className="font-extrabold">{content.welcome.titlePart2[language]}</span>
                         </Editable>
                       </h2>
+                      <Editable localizedText={content.welcome.slogan} basePath="homePage.welcome.slogan">
+                        <p className="text-lg text-brand-green-dark italic mt-2 mb-4">{content.welcome.slogan[language]}</p>
+                      </Editable>
                       <Editable localizedText={content.welcome.text} basePath="homePage.welcome.text" multiline>
-                        <p className="text-lg text-brand-gray leading-relaxed">
-                            {content.welcome.text[language]}
+                        <p className="text-lg text-brand-gray leading-relaxed whitespace-pre-line">
+                            {content.welcome.text[language].trim()}
                         </p>
                       </Editable>
                   </div>
@@ -208,6 +235,7 @@ const HomePage: React.FC<HomePageProps> = ({ content, uiText, projects }) => {
       {latestProjects.length > 0 && (
         <LatestProjects 
           title={content.latestProjects.title}
+          slogan={content.latestProjects.slogan}
           subtitle={content.latestProjects.subtitle}
           projects={latestProjects}
           uiText={uiText} 
@@ -222,11 +250,7 @@ const HomePage: React.FC<HomePageProps> = ({ content, uiText, projects }) => {
         basePath="homePage.parallax1"
       />
 
-      <SectionWithCards 
-        title={content.values.title} 
-        items={content.values.items} 
-        basePath="homePage.values"
-      />
+      <OurNumbersSection content={content.ourNumbers} basePath="homePage.ourNumbers" />
 
       <AlliancesSection 
         title={content.alliances.title}

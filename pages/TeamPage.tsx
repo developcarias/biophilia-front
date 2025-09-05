@@ -29,8 +29,12 @@ const TeamPage: React.FC<TeamPageProps> = ({ content, team }) => {
               <div key={member.id} className="w-full md:w-1/2 lg:w-1/3 p-4">
                 <div className="bg-brand-green-light p-8 rounded-lg shadow-md h-full">
                   <img src={member.imageUrl} alt={member.imageAlt} className="w-40 h-40 rounded-full mx-auto object-cover mb-4 border-4 border-white shadow-lg" />
-                  <h3 className="text-xl font-bold text-brand-green-dark">{member.name}</h3>
-                  <p className="text-brand-accent font-semibold mb-2">{member.role[language]}</p>
+                  <Editable localizedText={member.name} basePath={`team.${index}.name`}>
+                    <h3 className="text-xl font-bold text-brand-green-dark">{member.name[language]}</h3>
+                  </Editable>
+                  <Editable localizedText={member.role} basePath={`team.${index}.role`}>
+                    <p className="text-brand-accent font-semibold mb-2">{member.role[language]}</p>
+                  </Editable>
                   <Editable localizedText={member.bio} basePath={`team.${index}.bio`} multiline>
                     <p className="text-brand-gray text-sm">{member.bio[language]}</p>
                   </Editable>
