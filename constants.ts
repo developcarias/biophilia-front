@@ -23,8 +23,8 @@ export const INITIAL_CONTENT: PageContent = {
       slogan: { en: "Fostering the love of life and the living world.", es: "Fomentando el amor por la vida y el mundo vivo." },
       copyright: { en: "Biophilia Institute. All rights reserved.", es: "Biophilia Institute. Todos los derechos reservados." },
       contact: {
-        address: "Orlando, Florida, USA",
-        email: "contact@biophiliainstitute.org",
+        address: "Sanford, Florida, USA",
+        email: "admin@biophiliaweb.org",
       },
     },
   },
@@ -39,6 +39,18 @@ export const INITIAL_CONTENT: PageContent = {
   },
   homePage: {
     heroSlides: [
+      {
+        id: "slide_biophilia",
+        title: {
+          en: "BIOPHILIA reflects the innate affinity of humans for nature and its life processes.",
+          es: "BIOPHILIA refleja la afinidad innata del ser humano por la naturaleza, y sus procesos vitales."
+        },
+        subtitle: {
+          en: "Preserving ecosystems, is protecting the same bases of our existence.",
+          es: "Conservar los ecosistemas, es proteger las bases mismas de nuestra existencia."
+        },
+        imageUrl: "https://biophiliaweb.org/images/otros/Banner Biophilia2.jpg"
+      },
       {
         id: "slide_1",
         title: {
@@ -91,7 +103,7 @@ export const INITIAL_CONTENT: PageContent = {
           en: "30 youth learned to propagate trees from branches, using air layering.",
           es: "30 jóvenes aprendieron a propagar arboles desde la rama, con acodos aéreos."
         },
-        imageUrl: "https://biophiliaweb.org/images/actividades/1.Urban%20Forest%20&%20Biodiversity%20Project/1.3.1.jpg",
+        imageUrl: "https://biophiliaweb.org/images/otros/61.jpg",
         projectId: "project_urban_forest",
         activityId: "activity_urban_forest_2"
       }
@@ -198,12 +210,12 @@ export const INITIAL_CONTENT: PageContent = {
     values: {
       title: { en: 'Our Values', es: 'Nuestros Valores' },
       items: [
-        { id: 'value_1', title: { en: 'Connection with Nature', es: 'Conexión con la naturaleza' }, text: { en: 'We foster the connection with the natural environment as the basis for a healthy and conscious life.', es: 'Fomentamos la conexión con el entorno natural como base para una vida saludable y consciente.' }, icon: 'LeafIcon' },
-        { id: 'value_2', title: { en: 'Transformative Education', es: 'Educación transformadora' }, text: { en: 'We believe in education as a driver of change for individual, community, and sustainable development.', es: 'Creemos en la educación como motor de cambio para el desarrollo individual, comunitario y sostenible.' }, icon: 'BookOpenIcon' },
-        { id: 'value_3', title: { en: 'Science with Purpose', es: 'Ciencia con propósito' }, text: { en: 'We use scientific knowledge to design concrete solutions to social and environmental challenges.', es: 'Utilizamos el conocimiento científico para diseñar soluciones concretas a los desafíos sociales y ambientales.' }, icon: 'BeakerIcon' },
-        { id: 'value_4', title: { en: 'Social Equity', es: 'Equidad social' }, text: { en: 'We work with and for vulnerable communities, respecting diversity and promoting inclusion.', es: 'Trabajamos con y para comunidades vulnerables, respetando la diversidad y promoviendo la inclusión.' }, icon: 'EquityIcon' },
-        { id: 'value_5', title: { en: 'Community Leadership', es: 'Liderazgo comunitario' }, text: { en: 'We promote local leadership as the central axis of sustainable change.', es: 'Impulsamos el protagonismo local como eje central del cambio sostenible.' }, icon: 'UsersIcon' },
-        { id: 'value_6', title: { en: 'Collaboration', es: 'Colaboración' }, text: { en: 'We believe in the power of joint work between communities, institutions, and diverse sectors to generate impact.', es: 'Creemos en el poder del trabajo conjunto entre comunidades, instituciones y sectores diversos para generar impacto.' }, icon: 'HandshakeIcon' },
+        { id: 'value_1', title: { en: 'Connection with Nature', es: 'Conexión con la naturaleza' }, text: { en: 'We foster the connection with the natural environment as the basis for a healthy and conscious life.', es: 'Fomentamos la conexión con el entorno natural como base para una vida saludable y consciente.' }, icon: 'ValueConnectionIcon' },
+        { id: 'value_2', title: { en: 'Transformative Education', es: 'Educación transformadora' }, text: { en: 'We believe in education as a driver of change for individual, community, and sustainable development.', es: 'Creemos en la educación como motor de cambio para el desarrollo individual, comunitario y sostenible.' }, icon: 'ValueEducationIcon' },
+        { id: 'value_3', title: { en: 'Science with Purpose', es: 'Ciencia con propósito' }, text: { en: 'We use scientific knowledge to design concrete solutions to social and environmental challenges.', es: 'Utilizamos el conocimiento científico para diseñar soluciones concretas a los desafíos sociales y ambientales.' }, icon: 'ValueScienceIcon' },
+        { id: 'value_4', title: { en: 'Social Equity', es: 'Equidad social' }, text: { en: 'We work with and for vulnerable communities, respecting diversity and promoting inclusion.', es: 'Trabajamos con y para comunidades vulnerables, respetando la diversidad y promoviendo la inclusión.' }, icon: 'ValueEquityIcon' },
+        { id: 'value_5', title: { en: 'Community Leadership', es: 'Liderazgo comunitario' }, text: { en: 'We promote local leadership as the central axis of sustainable change.', es: 'Impulsamos el protagonismo local como eje central del cambio sostenible.' }, icon: 'ValueLeadershipIcon' },
+        { id: 'value_6', title: { en: 'Collaboration', es: 'Colaboración' }, text: { en: 'We believe in the power of joint work between communities, institutions, and diverse sectors to generate impact.', es: 'Creemos en el poder del trabajo conjunto entre comunidades, instituciones y sectores diversos para generar impacto.' }, icon: 'ValueCollaborationIcon' },
       ],
     },
     ourNumbers: {
@@ -255,7 +267,7 @@ export const INITIAL_CONTENT: PageContent = {
         en: "Biophilia Institute was born from the concern of a group of professionals in environment and sustainability, who, from our experience, identified the need to connect and educate citizens about the aquatic and terrestrial ecosystems they inhabit. Our purpose is to generate experiential experiences that promote understanding, appreciation, and participation in their conservation.\n\nSince June 2020, we have promoted initiatives with social and environmental organizations in Orlando and Central Florida. In 2023, we created the Hispanic Environmental Observatory (OAH), a coalition that provides information and actions in Spanish to strengthen the Hispanic community's participation in the environmental movement. In 2025, we formalized Biophilia Institute as a 501(c)(3) non-profit organization, for educational, scientific, and public benefit purposes, focused on promoting education, conservation, and sustainability projects aimed at well-being and equity, and a sustainable future in all communities, especially minority and vulnerable communities in the U.S.",
         es: "Biophilia Institute nace de la inquietud de un grupo de profesionales en ambiente y sostenibilidad, quienes, a partir de nuestra experiencia, identificamos la necesidad de conectar y educar a la ciudadanía sobre los ecosistemas acuáticos y terrestres que habitan. Nuestro propósito es generar experiencias vivenciales que fomenten el entendimiento, la valoración y la participación en su conservación.\n\nDesde junio de 2020 hemos impulsado iniciativas junto a organizaciones sociales y ambientales de Orlando y Florida Central. En 2023 creamos el Observatorio Ambiental Hispano (OAH), una coalición que brinda información y acciones en español para fortalecer la participación de la comunidad hispana en el movimiento ambiental. En 2025 formalizamos a Biophilia Institute como una organización sin fines de lucro 501(c)(3), con fines educativos, científicos y de beneficio público, centrada en promover proyectos de educación, conservación y sostenibilidad orientados al bienestar y la equidad, y un futuro sostenible en todas las comunidades, especialmente comunidades minoritarias y vulnerables en EE.UU."
       },
-      imageUrl: "https://biophiliaweb.org/images/nosotros/Nuestra Historia.jpg"
+      imageUrl: "https://biophiliaweb.org/images/nosotros/nuestro trabajo.jpg"
     },
     mission: {
       title: { en: "Mission", es: "Misión" },
@@ -281,14 +293,14 @@ export const INITIAL_CONTENT: PageContent = {
         en: "At Biophilia Institute, we promote comprehensive environmental solutions that combine science, education, and community action, with a special focus on historically underrepresented communities. Our projects promote ecosystem conservation, ecological restoration, urban agriculture, community resilience, and youth leadership, applying methodologies based on scientific evidence and experiential learning.\n\nWe facilitate access to environmental information in Spanish to strengthen Hispanic participation in decision-making, and we articulate alliances with public, academic, and community institutions to expand the impact of our actions. Inspired by the principle of biophilia, we recognize the innate connection between people and nature as an essential foundation for building more conscious, resilient, and sustainable societies.",
         es: "En Biophilia Institute impulsamos soluciones ambientales integrales que combinan ciencia, educación y acción comunitaria, con un enfoque especial en comunidades históricamente subrepresentadas. Nuestros proyectos promueven la conservación de ecosistemas, la restauración ecológica, la agricultura urbana, la resiliencia comunitaria y el liderazgo juvenil, aplicando metodologías basadas en evidencia científica y aprendizaje vivencial.\n\nFacilitamos el acceso a información ambiental en español para fortalecer la participación hispana en la toma de decisiones, y articulamos alianzas con instituciones públicas, académicas y comunitarias para ampliar el impacto de nuestras acciones. Inspirados en el principio de biophilia, reconocemos la conexión innata entre las personas y la naturaleza como fundamento esencial para construir sociedades más conscientes, resilientes y sostenibles."
       },
-      imageUrl: 'https://biophiliaweb.org/images/nosotros/nuestro trabajo.jpg',
+      imageUrl: 'https://biophiliaweb.org/images/nosotros/Nuestra Historia.jpg',
       imageAlt: 'People working together in a workshop'
     },
   },
   projectsPage: {
     banner: {
       title: { en: 'Our Programs', es: 'Nuestros Programas' },
-      imageUrl: "https://biophiliaweb.org/images/banner-proyectos/Banner proyectos.jpg"
+      imageUrl: "https://biophiliaweb.org/images/new banner programs.jpg"
     },
     intro: {
       en: "We base our programs on scientific evidence, providing educational and conservation tools to develop resilient and sustainable models that improve the quality of life in vulnerable communities in the U.S.",
@@ -301,13 +313,13 @@ export const INITIAL_CONTENT: PageContent = {
   teamPage: {
     banner: {
       title: { en: 'Meet Our Team', es: 'Conoce a Nuestro Equipo' },
-      imageUrl: "https://biophiliaweb.org/images/nosotros/nuestro equipo.jpg"
+      imageUrl: "https://biophiliaweb.org/images/banner-proyectos/4. BANNER Symbiosos.jpg"
     }
   },
   blogPage: {
     banner: {
       title: { en: 'Articles & News', es: 'Artículos y Noticias' },
-      imageUrl: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=1920&h=1080&fit=crop"
+      imageUrl: "https://biophiliaweb.org/images/actividades/1.Urban Forest & Biodiversity Project/1.1.1.jpg"
     },
     featuredPostTitle: { en: 'Featured Post', es: 'Artículo Destacado' },
     recentPostsTitle: { en: 'Recent Posts', es: 'Publicaciones Recientes' },
@@ -316,7 +328,7 @@ export const INITIAL_CONTENT: PageContent = {
   contactPage: {
     banner: {
       title: { en: "Contact Us", es: "Contáctanos" },
-      imageUrl: "https://images.unsplash.com/photo-1501854140801-50d01698950b?q=80&w=1920&h=1080&fit=crop"
+      imageUrl: "https://biophiliaweb.org/images/banner-proyectos/Banner proyectos.jpg"
     },
     intro: { en: "We'd love to hear from you. Whether you have a question about our projects, partnerships, or just want to say hello, our team is ready to answer all your questions.", es: "Nos encantaría saber de ti. Ya sea que tengas una pregunta sobre nuestros proyectos, alianzas o simplemente quieras saludar, nuestro equipo está listo para responder a todas tus preguntas." },
     addressTitle: { en: 'Address', es: 'Dirección' },
@@ -509,13 +521,13 @@ export const INITIAL_CONTENT: PageContent = {
       description: { en: 'Fostering a mutualistic relationship between communities and their local ecosystems through environmental action, exploration, and education.', es: 'Fomentando una relación mutualista entre las comunidades y sus ecosistemas locales a través de la acción ambiental, la exploración y la educación.' },
       imageUrl: 'https://biophiliaweb.org/images/proyectos/4. Symbiosis Project.jpg',
       imageAlt: 'A group of people hiking through a lush forest.',
-      detailImageUrl: 'https://biophiliaweb.org/images/banner-proyectos/4. BANNER Symbiosos.jpg',
+      detailImageUrl: 'https://biophiliaweb.org/images/otros/Banner Sinbyosis proyject.jpg',
       activities: [
         {
           id: 'activity_symbiosis_1',
           date: '2025-06-07',
           title: { en: 'Session: "Exploring Wekiwa Springs State Park, Apopka. Florida"', es: 'Jornada: "Explorando el Wekiwa Springs State Park, Apopka. Florida".' },
-          description: { en: 'On June 7, 2025, in celebration of World Environment Day and Hiking Day, we held the "Exploring Wekiwa Springs State Park" session, where at least 30 Hispanic participants of different ages ventured into the forest and were able to connect, learn, and help in the conservation of this ecosystem by collecting solid waste. It was an extraordinary community environmental action activity, organized by Nuestra Cultura Outdoors, Renacer Foundation, Casa Venezuela Orlando, and the Hispanic Environmental Observatory. An experience full of health, ecology, and entertainment, which allowed participants to enjoy the river and the natural resources offered by Wekiwa Springs State Park.', es: 'El 7 de junio de 2025, a propósito de las celebraciones del Día Mundial del Ambiente y Día del Senderismo, desarrollamos la jornada "Explorando el Wekiwa Springs State Park", donde al menos 30 participantes hispanos de diferentes edades, nos adentramos en el bosque y pudimos conectarnos, aprender y ayudar en la conservación de este ecosistema mediante la recolección de residuos sólidos. Fue una extraordinaria actividad de acción ambiental comunitaria, organizada por Nuestra Cultura Outdoors, Renacer Foundation, Casa Venezuela Orlando y el Observatorio Ambiental Hispano. Una experiencia llena de salud, ecología y entretenimiento, que permitió a los participantes disfrutar del río y los recursos naturales que ofrece el Parque Estadal Wekiwa Springs.' },
+          description: { en: 'On June 7, 2025, in celebration of World Environment Day and Hiking Day, we held the "Exploring Wekiwa Springs State Park" session, where at least 30 Hispanic participants of different ages ventured into the forest and were able to connect, learn, and help in the conservation of this ecosystem by collecting solid waste. It was an extraordinary community environmental action activity, organized by Nuestra Cultura Outdoors, Renacer Foundation, Casa Venezuela Orlando, and the Hispanic Environmental Observatory. An experience full of health, ecology, and entertainment, which allowed participants to enjoy the river and the natural resources offered by Wekiwa Springs State Park.', es: 'El 7 de junio de 2025, a propósito de las celebraciones del Día Mundial del Ambiente y Día del Senderismo, desarrollamos la jornada "Explorando el Wekiwa Springs State Park", donde al menos 30 participantes hispanos de diferentes edades, nos adentramos en el bosque y pudimos conectarnos, aprender y ayudar en la conservación de este ecosistema mediante la recoleión de residuos sólidos. Fue una extraordinaria actividad de acción ambiental comunitaria, organizada por Nuestra Cultura Outdoors, Renacer Foundation, Casa Venezuela Orlando y el Observatorio Ambiental Hispano. Una experiencia llena de salud, ecología y entretenimiento, que permitió a los participantes disfrutar del río y los recursos naturales que ofrece el Parque Estadal Wekiwa Springs.' },
           imageUrl: 'https://biophiliaweb.org/images/actividades/4.Symbiosis Project/4.1.1.jpg'
         },
         {
@@ -529,7 +541,7 @@ export const INITIAL_CONTENT: PageContent = {
           id: 'activity_symbiosis_3',
           date: '2025-03-08',
           title: { en: 'Walk: "Bird Watching at Orlando Wetlands"', es: 'Paseo: "Buscando pájaros en el Orlando Wetlands”.' },
-          description: { en: 'On March 8, 2025, 20 Hispanics, including children, youth, and adults, attended the "Bird Watching at Orlando Wetlands" event. During the event, participants enjoyed a tour with excellent guidance in Spanish from Gilberto Sánchez, an active volunteer at #OrlandoWetlands and a specialist in bird watching, in addition to all the environmental information and history of this wetland. They were also able to observe and learn about the species, their ecological role, conservation needs, and the importance of the wetland. The activity also helped to consolidate alliances to bring environmental sciences to the Hispanic community, breaking language barriers and encouraging their participation in ecosystem conservation. This is the fourth consecutive year that Orange Audubon has promoted this activity aimed at the Spanish-speaking community and the third year that the Hispanic Environmental Observatory has joined in its development.', es: 'El 8 de marzo de 2025, 20 hispanos entre niños, jóvenes y adultos se hicieron presentes en el evento "Buscando pájaros en el Orlando Wetlands", durante el mismo, los participantes disfrutaron de un recorrido con excelente guiatura en español a través de Gilberto Sánchez, un voluntario activo del #OrlandoWetlands y especializado en observación de aves, además de toda la información ambiental e historia de este humedal. Igualmente, pudieron observar y aprender sobre las especies, su rol ecológico, las necesidades de conservación y la importancia que tiene dicho humedal. Además, la actividad permitió consolidar alianzas para llevar ciencias ambientales a la comunidad hispana, rompiendo barreras del idioma y estimulando la participación de los mismos en la conservación de los ecosistemas. Este es el cuarto año consecutivo que Orange Audubon promueve esta actividad dirigida a la comunidad hispanohablante y tercer año que el Observatorio Ambiental Hispano se une para el desarrollo de la misma.' },
+          description: { en: 'On March 8, 2025, 20 Hispanics, including children, youth, and adults, attended the "Bird Watching at Orlando Wetlands" event. During the event, participants enjoyed a tour with excellent guidance in Spanish from Gilberto Sánchez, an active volunteer at #OrlandoWetlands and a specialist in bird watching, in addition to all the environmental information and history of this wetland. They were also able to observe and learn about the species, their ecological role, conservation needs, and the importance of the wetland. The activity also helped to consolidate alliances to bring environmental sciences to the Hispanic community, breaking language barriers and encouraging their participation in ecosystem conservation. This is the fourth consecutive year that Orange Audubon has promoted this activity aimed at the Spanish-speaking community and the third year that the Hispanic Environmental Observatory has joined in its development.', es: 'El 8 de marzo de 2025, 20 hispanos entre niños, jóvenes y adultos se hicieron presentes en el evento "Buscando pájaros en el Orlando Wetlands", durante el mismo, los participantes disfrutaron de un recorrido con excelente guiatura en español a través de Gilberto Sánchez, un voluntario activo del #OrlandoWetlands y especializado en observación de aves, además de toda la información ambiental e historia de este humedal. Igualmente, pudieron observar y aprender sobre las especies, su rol ecológico, las necesidades de conservación y la importancia que tiene dicho humedal. Además, la actividad permitió consolidar alianzas para llevar ciencias ambientales a la comunidad hispana, rompiendo barreras del idioma y estimulando la participación de los mismos en la conservación de los ecosistemas. Este es el cuarto año consecutivo que Orange Audubon promove esta actividad dirigida a la comunidad hispanohablante y tercer año que el Observatorio Ambiental Hispano se une para el desarrollo de la misma.' },
           imageUrl: 'https://biophiliaweb.org/images/actividades/4.Symbiosis Project/4.2.1.jpg'
         }
       ]
@@ -664,34 +676,34 @@ export const INITIAL_CONTENT: PageContent = {
     }
   ],
   team: [
-    { id: 'team_faruk', name: { en: 'FARUK BAGDAH', es: 'FARUK BAGDAH' }, role: { en: 'President/CEO', es: 'Presidente/CEO' }, bio: { en: 'Leading the strategic vision of the institute, Faruk brings years of experience in environmental project management and a passion for connecting communities with nature to foster sustainable development.', es: 'Liderando la visión estratégica del instituto, Faruk aporta años de experiencia en la gestión de proyectos ambientales y una pasión por conectar a las comunidades con la naturaleza para fomentar el desarrollo sostenible.' }, imageUrl: 'https://biophiliaweb.org/images/team/Faruk Bagdah.png', imageAlt: 'Photo of FARUK BAGDAH' },
-    { id: 'team_victor', name: { en: 'VICTOR MARTINEZ', es: 'VICTOR MARTINEZ' }, role: { en: 'Director/Advisor', es: 'Director/Asesor' }, bio: { en: "Victor provides expert guidance on our projects and strategic direction, leveraging his background in community development to ensure our initiatives create a lasting and positive impact.", es: 'Víctor proporciona orientación experta en nuestros proyectos y dirección estratégica, aprovechando su experiencia en desarrollo comunitario para asegurar que nuestras iniciativas creen un impacto duradero y positivo.' }, imageUrl: 'https://biophiliaweb.org/images/team/Victor Martínez.jpg', imageAlt: 'Photo of VICTOR MARTINEZ' },
-    { id: 'team_oliver', name: { en: 'OLIVER SANRONA', es: 'OLIVER SANRONA' }, role: { en: 'Director/Advisor', es: 'Director/Asesor' }, bio: { en: 'As a key advisor, Oliver helps shape our educational programs and conservation strategies. His expertise in ecology is fundamental to the scientific rigor of our work.', es: 'Como asesor clave, Oliver ayuda a dar forma a nuestros programas educativos y estrategias de conservación. Su experiencia en ecología es fundamental para el rigor científico de nuestro trabajo.' }, imageUrl: 'https://biophiliaweb.org/images/team/Oliver Sangona.jpg', imageAlt: 'Photo of OLIVER SANRONA' },
-    { id: 'team_giuseppe', name: { en: 'GIUSEPPE BERARDI', es: 'GIUSEPPE BERARDI' }, role: { en: 'Director/Advisor', es: 'Director/Asesor' }, bio: { en: 'Giuseppe offers strategic advice on community engagement and partnerships. He is dedicated to ensuring that our projects are inclusive and effectively meet the needs of the communities we serve.', es: 'Giuseppe ofrece asesoramiento estratégico sobre la participación comunitaria y las alianzas. Se dedica a garantizar que nuestros proyectos sean inclusivos y satisfagan eficazmente las necesidades de las comunidades a las que servimos.' }, imageUrl: 'https://biophiliaweb.org/images/team/Giuseppe Berardi.jpg', imageAlt: 'Photo of GIUSEPPE BERARDI' },
-    { id: 'team_simon', name: { en: 'SIMON TENORIO', es: 'SIMON TENORIO' }, role: { en: 'Director/Advisor', es: 'Director/Asesor' }, bio: { en: "With a focus on sustainability and policy, Simon helps guide our advocacy efforts and ensures our projects align with broader environmental goals for a resilient future.", es: 'Con un enfoque en la sostenibilidad y las políticas, Simón ayuda a guiar nuestros esfuerzos de promoción y se asegura de que nuestros proyectos se alineen con objetivos ambientales más amplios para un futuro resiliente.' }, imageUrl: 'https://biophiliaweb.org/images/team/Simon Tenorio.jpg', imageAlt: 'Photo of SIMON TENORIO' },
+    { id: 'team_faruk', name: { en: 'FARUK BAGDAH', es: 'FARUK BAGDAH' }, role: { en: 'President/CEO', es: 'Presidente/CEO' }, bio: { en: 'Sanford, FL.', es: 'Sanford, FL.' }, imageUrl: 'https://biophiliaweb.org/images/team/Faruk Bagdah.png', imageAlt: 'Photo of FARUK BAGDAH' },
+    { id: 'team_victor', name: { en: 'VICTOR MARTINEZ', es: 'VICTOR MARTINEZ' }, role: { en: 'Director/Advisor', es: 'Director/Asesor' }, bio: { en: "New Smyrna, FL.", es: 'New Smyrna, FL.' }, imageUrl: 'https://biophiliaweb.org/images/team/Victor Martínez.jpg', imageAlt: 'Photo of VICTOR MARTINEZ' },
+    { id: 'team_oliver', name: { en: 'OLIVER SANRONA', es: 'OLIVER SANRONA' }, role: { en: 'Director/Advisor', es: 'Director/Asesor' }, bio: { en: 'Houston, TX.', es: 'Houston, TX.' }, imageUrl: 'https://biophiliaweb.org/images/team/Oliver Sangona.jpg', imageAlt: 'Photo of OLIVER SANRONA' },
+    { id: 'team_giuseppe', name: { en: 'GIUSEPPE BERARDI', es: 'GIUSEPPE BERARDI' }, role: { en: 'Director/Advisor', es: 'Director/Asesor' }, bio: { en: 'Big Lake, MN.', es: 'Big Lake, MN.' }, imageUrl: 'https://biophiliaweb.org/images/team/Giuseppe Berardi.jpg', imageAlt: 'Photo of GIUSEPPE BERARDI' },
+    { id: 'team_simon', name: { en: 'SIMON TENORIO', es: 'SIMON TENORIO' }, role: { en: 'Director/Advisor', es: 'Director/Asesor' }, bio: { en: "Apopka, FL.", es: 'Apopka, FL.' }, imageUrl: 'https://biophiliaweb.org/images/team/Simon Tenorio.jpg', imageAlt: 'Photo of SIMON TENORIO' },
   ],
   blog: [
-    {
-      id: 'blog_1',
-      slug: 'the-importance-of-urban-forests',
-      title: { en: 'The Importance of Urban Forests for Community Well-being', es: 'La Importancia de los Bosques Urbanos para el Bienestar Comunitario' },
-      author: 'Faruk Bagdah',
-      date: '2024-07-15',
-      summary: { en: 'Urban forests are more than just clusters of trees; they are essential for the health of our cities and communities. Discover their benefits and how you can get involved.', es: 'Los bosques urbanos son más que simples conjuntos de árboles; son esenciales para la salud de nuestras ciudades y comunidades. Descubre sus beneficios y cómo puedes involucrarte.' },
-      content: { en: 'Full blog post content about the importance of urban forests goes here. It would detail ecological, social, and health benefits, supported by data and examples from Biophilia\'s work.', es: 'El contenido completo del artículo sobre la importancia de los bosques urbanos iría aquí. Detallaría los beneficios ecológicos, sociales y de salud, con datos y ejemplos del trabajo de Biophilia.' },
-      imageUrl: 'https://images.unsplash.com/photo-1550399105-c4db5fb85c18?q=80&w=1920&h=1080&fit=crop',
-      imageAlt: 'A dense urban forest with sunlight filtering through the trees.'
-    },
-    {
-      id: 'blog_2',
-      slug: 'guardians-of-the-ocean-saving-sea-turtles',
-      title: { en: 'Guardians of the Ocean: How We Can Help Save Sea Turtles', es: 'Guardianes del Océano: Cómo Podemos Ayudar a Salvar a las Tortugas Marinas' },
-      author: 'Verónica Flores',
-      date: '2024-06-28',
-      summary: { en: 'Sea turtles face numerous threats, but through education and community action, we can make a significant impact on their survival. Learn about our "Ocean Guardians" project.', es: 'Las tortugas marinas enfrentan numerosas amenazas, pero a través de la educación y la acción comunitaria, podemos tener un impacto significativo en su supervivencia. Conoce nuestro proyecto "Guardianes del Océano".' },
-      content: { en: 'Full blog post content about sea turtle conservation would go here. It would discuss threats, conservation strategies, and the role of community education, highlighting the "Friends of the Turtles" workshop.', es: 'El contenido completo del artículo sobre la conservación de tortugas marinas iría aquí. Discutiría las amenazas, estrategias de conservación y el rol de la educación comunitaria, destacando el taller "Amigos de las Tortugas".' },
-      imageUrl: 'https://images.unsplash.com/photo-1589488313398-298a4a5b3a2a?q=80&w=1920&h=1080&fit=crop',
-      imageAlt: 'A close-up of a sea turtle\'s head.'
-    },
+    // {
+    //   id: 'blog_1',
+    //   slug: 'the-importance-of-urban-forests',
+    //   title: { en: 'The Importance of Urban Forests for Community Well-being', es: 'La Importancia de los Bosques Urbanos para el Bienestar Comunitario' },
+    //   author: 'Faruk Bagdah',
+    //   date: '2024-07-15',
+    //   summary: { en: 'Urban forests are more than just clusters of trees; they are essential for the health of our cities and communities. Discover their benefits and how you can get involved.', es: 'Los bosques urbanos son más que simples conjuntos de árboles; son esenciales para la salud de nuestras ciudades y comunidades. Descubre sus beneficios y cómo puedes involucrarte.' },
+    //   content: { en: 'Full blog post content about the importance of urban forests goes here. It would detail ecological, social, and health benefits, supported by data and examples from Biophilia\'s work.', es: 'El contenido completo del artículo sobre la importancia de los bosques urbanos iría aquí. Detallaría los beneficios ecológicos, sociales y de salud, con datos y ejemplos del trabajo de Biophilia.' },
+    //   imageUrl: 'https://images.unsplash.com/photo-1550399105-c4db5fb85c18?q=80&w=1920&h=1080&fit=crop',
+    //   imageAlt: 'A dense urban forest with sunlight filtering through the trees.'
+    // },
+    // {
+    //   id: 'blog_2',
+    //   slug: 'guardians-of-the-ocean-saving-sea-turtles',
+    //   title: { en: 'Guardians of the Ocean: How We Can Help Save Sea Turtles', es: 'Guardianes del Océano: Cómo Podemos Ayudar a Salvar a las Tortugas Marinas' },
+    //   author: 'Verónica Flores',
+    //   date: '2024-06-28',
+    //   summary: { en: 'Sea turtles face numerous threats, but through education and community action, we can make a significant impact on their survival. Learn about our "Ocean Guardians" project.', es: 'Las tortugas marinas enfrentan numerosas amenazas, pero a través de la educación y la acción comunitaria, podemos tener un impacto significativo en su supervivencia. Conoce nuestro proyecto "Guardianes del Océano".' },
+    //   content: { en: 'Full blog post content about sea turtle conservation would go here. It would discuss threats, conservation strategies, and the role of community education, highlighting the "Friends of the Turtles" workshop.', es: 'El contenido completo del artículo sobre la conservación de tortugas marinas iría aquí. Discutiría las amenazas, estrategias de conservación y el rol de la educación comunitaria, destacando el taller "Amigos de las Tortugas".' },
+    //   imageUrl: 'https://images.unsplash.com/photo-1589488313398-298a4a5b3a2a?q=80&w=1920&h=1080&fit=crop',
+    //   imageAlt: 'A close-up of a sea turtle\'s head.'
+    // },
   ]
 };

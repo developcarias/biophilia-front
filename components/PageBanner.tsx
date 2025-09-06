@@ -17,7 +17,7 @@ const PageBanner: React.FC<PageBannerProps> = ({ title, imageUrl, basePath, loca
   );
 
   const containerClasses = `relative container mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col items-center text-center pt-28 ${
-    titleVerticalAlign === 'center' ? 'justify-center' : 'justify-end pb-12 md:pb-16'
+    titleVerticalAlign === 'center' ? 'justify-center' : 'justify-end pb-6'
   }`;
 
   return (

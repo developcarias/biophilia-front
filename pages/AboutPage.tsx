@@ -1,19 +1,17 @@
 
 
 import React from 'react';
-import { AboutPageContent, ValueItem, LocalizedText } from '../types';
+import { AboutPageContent, ValueItem, LocalizedText, ContentBlockType } from '../types';
 import ContentBlock from '../components/ContentBlock';
 import { useI18n } from '../i18n';
 import PageBanner from '../components/PageBanner';
-import LeafIcon from '../components/icons/LeafIcon';
-import UsersIcon from '../components/icons/UsersIcon';
-import BookOpenIcon from '../components/icons/BookOpenIcon';
-import BeakerIcon from '../components/icons/BeakerIcon';
-import MegaphoneIcon from '../components/icons/MegaphoneIcon';
-import MountainIcon from '../components/icons/MountainIcon';
-import HandshakeIcon from '../components/icons/HandshakeIcon';
-import EquityIcon from '../components/icons/EquityIcon';
 import Editable from '../components/Editable';
+import ValueCollaborationIcon from '../components/icons/ValueCollaborationIcon';
+import ValueConnectionIcon from '../components/icons/ValueConnectionIcon';
+import ValueEducationIcon from '../components/icons/ValueEducationIcon';
+import ValueEquityIcon from '../components/icons/ValueEquityIcon';
+import ValueLeadershipIcon from '../components/icons/ValueLeadershipIcon';
+import ValueScienceIcon from '../components/icons/ValueScienceIcon';
 
 interface AboutPageProps {
   content: AboutPageContent;
@@ -24,16 +22,13 @@ interface AboutPageProps {
 }
 
 const iconMap: { [key: string]: React.FC<{className?: string}> } = {
-  LeafIcon,
-  UsersIcon,
-  BookOpenIcon,
-  BeakerIcon,
-  MegaphoneIcon,
-  MountainIcon,
-  HandshakeIcon,
-  EquityIcon,
+  ValueConnectionIcon,
+  ValueEducationIcon,
+  ValueScienceIcon,
+  ValueEquityIcon,
+  ValueLeadershipIcon,
+  ValueCollaborationIcon,
 };
-
 
 const ValueCard: React.FC<{item: ValueItem}> = ({ item }) => {
   const { language } = useI18n();
@@ -41,12 +36,32 @@ const ValueCard: React.FC<{item: ValueItem}> = ({ item }) => {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-lg transition-transform transform hover:-translate-y-2 hover:shadow-2xl flex flex-col items-center text-center h-full">
-      {IconComponent && <IconComponent className="h-12 w-12 text-brand-accent mb-4" />}
+      {IconComponent && <IconComponent className="h-20 w-20 text-brand-accent mb-4" />}
       <h3 className="text-xl font-bold text-brand-green-dark mb-2">{item.title[language]}</h3>
       <p className="text-brand-gray flex-grow">{item.text[language]}</p>
     </div>
   )
 }
+
+const MissionVisionCard: React.FC<{ content: ContentBlockType, basePath: string }> = ({ content, basePath }) => {
+  const { language } = useI18n();
+  return (
+    <div className="bg-white rounded-lg shadow-xl overflow-hidden flex flex-col h-full">
+      <div className="p-8 flex-grow flex flex-col">
+        <Editable localizedText={content.title} basePath={`${basePath}.title`}>
+          <h2 className="text-3xl font-extrabold text-brand-green-dark mb-4">{content.title[language]}</h2>
+        </Editable>
+        <div className="flex-grow">
+          <Editable localizedText={content.text} basePath={`${basePath}.text`} multiline>
+            <p className="text-lg text-brand-gray leading-relaxed">{content.text[language]}</p>
+          </Editable>
+        </div>
+      </div>
+      <img src={content.imageUrl} alt={content.imageAlt} className="w-full h-64 object-cover object-top" />
+    </div>
+  );
+};
+
 
 const AboutPage: React.FC<AboutPageProps> = ({ content, valuesContent }) => {
   const { language } = useI18n();
@@ -66,14 +81,14 @@ const AboutPage: React.FC<AboutPageProps> = ({ content, valuesContent }) => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="prose lg:prose-lg max-w-none text-brand-gray">
               <Editable localizedText={content.history.title} basePath="aboutPage.history.title">
-                <h2 className="text-3xl font-bold text-brand-green-dark">{content.history.title[language]}</h2>
+                <h2 className="text-3xl font-bold text-brand-green-dark mb-6">{content.history.title[language]}</h2>
               </Editable>
               <Editable localizedText={content.history.text} basePath="aboutPage.history.text" multiline>
                 <p className="whitespace-pre-line leading-relaxed">{content.history.text[language]}</p>
               </Editable>
             </div>
             <div>
-              <img src={content.history.imageUrl} alt="Group of diverse people collaborating" className="rounded-lg shadow-xl object-cover w-full max-h-[500px]" />
+              <img src={content.history.imageUrl} alt="Group of diverse people collaborating" className="rounded-lg shadow-xl object-cover w-full max-h-[450px]" />
             </div>
           </div>
         </div>
@@ -82,31 +97,9 @@ const AboutPage: React.FC<AboutPageProps> = ({ content, valuesContent }) => {
       {/* Mission & Vision Section */}
       <div className="bg-brand-green-light py-16 lg:py-24">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {/* Mission Card */}
-                  <div className="relative p-8 md:p-12 rounded-lg shadow-2xl text-white overflow-hidden bg-cover bg-center flex flex-col justify-center min-h-[350px]" style={{backgroundImage: `url(${content.mission.imageUrl})`}}>
-                      <div className="absolute inset-0 bg-brand-green-dark bg-opacity-70"></div>
-                      <div className="relative z-10">
-                        <Editable localizedText={content.mission.title} basePath="aboutPage.mission.title">
-                          <h2 className="text-4xl font-extrabold mb-4">{content.mission.title[language]}</h2>
-                        </Editable>
-                        <Editable localizedText={content.mission.text} basePath="aboutPage.mission.text" multiline>
-                          <p className="text-lg leading-relaxed">{content.mission.text[language]}</p>
-                        </Editable>
-                      </div>
-                  </div>
-                  {/* Vision Card */}
-                  <div className="relative p-8 md:p-12 rounded-lg shadow-2xl text-white overflow-hidden bg-cover bg-center flex flex-col justify-center min-h-[350px]" style={{backgroundImage: `url(${content.vision.imageUrl})`}}>
-                      <div className="absolute inset-0 bg-brand-green-dark bg-opacity-70"></div>
-                      <div className="relative z-10">
-                          <Editable localizedText={content.vision.title} basePath="aboutPage.vision.title">
-                            <h2 className="text-4xl font-extrabold mb-4">{content.vision.title[language]}</h2>
-                          </Editable>
-                          <Editable localizedText={content.vision.text} basePath="aboutPage.vision.text" multiline>
-                            <p className="text-lg leading-relaxed">{content.vision.text[language]}</p>
-                          </Editable>
-                      </div>
-                  </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+                  <MissionVisionCard content={content.mission} basePath="aboutPage.mission" />
+                  <MissionVisionCard content={content.vision} basePath="aboutPage.vision" />
               </div>
           </div>
       </div>
