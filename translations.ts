@@ -11,6 +11,7 @@ export const translations = {
     navDonate: 'Donate',
     // FIX: Added readMore key
     readMore: 'Read More',
+    noBlogPosts: 'No blog posts available yet.',
     
     // Login Page
     loginPageTitle: 'Administrator Access',
@@ -106,6 +107,7 @@ export const translations = {
     navDonate: 'Donar',
     // FIX: Added readMore key
     readMore: 'Leer Más',
+    noBlogPosts: 'Aún no hay artículos de blog disponibles.',
 
     // Login Page
     loginPageTitle: 'Acceso de Administrador',

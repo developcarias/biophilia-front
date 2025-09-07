@@ -123,7 +123,7 @@ export const INITIAL_CONTENT: PageContent = {
       imageAlt: "A diverse group of people listening to a presentation"
     },
     actionLines: {
-      title: { en: 'Lines of Action', es: 'Líneas de acción' },
+      title: { en: 'Thematic Areas', es: 'Áreas Temáticas' },
       items: [
         {
           id: 'action_education', title: {
@@ -219,11 +219,11 @@ export const INITIAL_CONTENT: PageContent = {
       ],
     },
     ourNumbers: {
-      title: { en: "Our Numbers", es: "Nuestros Números" },
+      title: { en: "Our Impact", es: "Nuestro Impacto" },
       stats: [
-        { id: 'stat1', icon: 'LeafIcon', value: '+1,000', label: { en: 'Trees Planted', es: 'Árboles Plantados' } },
-        { id: 'stat2', icon: 'BookOpenIcon', value: '+50', label: { en: 'Workshops Held', es: 'Talleres Realizados' } },
-        { id: 'stat3', icon: 'UsersIcon', value: '+500', label: { en: 'Community Volunteers', es: 'Voluntarios Comunitarios' } },
+        { id: 'stat1', icon: 'BookOpenIcon', value: '+50', label: { en: 'Workshops and Conservation Days', es: 'Talleres y jornadas de conservación' } },
+        { id: 'stat2', icon: 'HandshakeIcon', value: '+500', label: { en: 'Volunteers Mobilized', es: 'Voluntarios movilizados' } },
+        { id: 'stat3', icon: 'UsersIcon', value: '+1,000', label: { en: 'People Reached', es: 'Personas sensibilizadas' } },
       ],
       galleryImages: [
         { id: 'gal1', url: 'https://biophiliaweb.org/images/actividades/3.Ocean%20guardians%20Project/3.2.1.jpg', alt: 'Children learning about sea turtles' },
